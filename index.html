@@ -7,10 +7,153 @@
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
-    /* استايل مشابه لما أرسلته */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Cairo', sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #343541, #40414f);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 10px;
+      flex-direction: column;
+    }
+    .container {
+      background: #40414f;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      width: 100%;
+      max-width: 500px;
+      color: white;
+      margin-top: 30px;
+      transition: box-shadow 0.3s ease;
+    }
+    .container:hover {
+      box-shadow: 0 4px 15px rgba(0, 255, 0, 0.7);
+    }
+    h1 {
+      font-size: 2em;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+    button {
+      background: #19c37d;
+      color: white;
+      border: none;
+      padding: 15px;
+      font-size: 1.2em;
+      cursor: pointer;
+      border-radius: 8px;
+      margin-top: 15px;
+      transition: all 0.3s ease-in-out;
+    }
+    button:hover {
+      background: #16a673;
+    }
+    label {
+      font-size: 1.1em;
+      text-align: left;
+      display: flex;
+      align-items: center;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      font-size: 1em;
+      border: 2px solid #5a5a5a;
+      border-radius: 8px;
+      background: #2e2f3a;
+      color: white;
+      margin-bottom: 10px;
+      transition: box-shadow 0.3s ease;
+    }
+    input:focus {
+      box-shadow: 0 0 15px rgba(0, 255, 0, 1);
+      border-color: #19c37d;
+    }
+    p {
+      font-size: 1.2em;
+      color: #19c37d;
+      margin-top: 20px;
+    }
+    .description {
+      font-size: 1em;
+      margin-top: 10px;
+      color: #aaa;
+    }
+    .links {
+      font-size: 0.8em;
+      margin-top: 10px;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    .links a {
+      color: #19c37d;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    .links a:hover {
+      color: #fff;
+    }
+    .time {
+      font-size: 1.1em;
+      color: #fff;
+      margin-top: 10px;
+    }
+    .header {
+      text-align: center;
+      width: 100%;
+    }
+    .content {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .terms-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .terms-text {
+      font-size: 1.1em;
+      color: #fff;
+      margin-left: 10px;
+      text-align: right;
+    }
+    .checkbox-wrapper {
+      display: flex;
+      align-items: center;
+    }
+    .checkbox-wrapper input[type="checkbox"] {
+      margin-right: 10px;
+      width: 20px;
+      height: 20px;
+      border-radius: 5px;
+      border: 2px solid #76d7c4;
+      background: #2e2f3a;
+      cursor: pointer;
+    }
+    .checkbox-wrapper input[type="checkbox"]:checked {
+      background: #19c37d;
+    }
+    .checkbox-wrapper label {
+      color: #fff;
+      font-size: 1em;
+    }
   </style>
 </head>
 <body>
+
   <div class="header">
     <div class="links">
       <a href="https://www.tiktok.com/@mo_fr3oon" target="_blank">تيك توك</a>
@@ -19,15 +162,92 @@
       <a href="https://discord.gg/9h2zND3Nzw" target="_blank">ديسكورد</a>
       <a href="https://youtube.com/c/MOFR3OON?sub_confirmation=1" target="_blank">يوتيوب</a>
     </div>
+    <div class="time" id="time"></div>
   </div>
 
-  <div class="container" id="main-page">
-    <h1>MF ESPORTS (scrim)</h1>
-    <form action="phone.html">
-      <label for="team-name">اسم الفريق:</label>
-      <input type="text" id="team-name" name="team-name" placeholder="أدخل اسم الفريق" required>
-      <button type="submit">تسجيل</button>
-    </form>
+  <div class="content">
+    <div class="container" id="main-page">
+      <h1>MF ESPORTS (scrim)</h1>
+
+      <form
+  action="https://formspree.io/f/xwpvqpjp"
+  method="POST"
+>
+        <label for="team-name">اسم الفريق:</label>
+        <input type="text" id="team-name" name="team-name" placeholder="أدخل اسم الفريق" required>
+
+        <label for="leader-name">اسم الليدر:</label>
+        <input type="text" id="leader-name" name="leader-name" placeholder="أدخل اسم الليدر داخل اللعبة" required>
+
+        <label for="player1-name">اسم اللاعب الأول:</label>
+        <input type="text" id="player1-name" name="player1-name" placeholder="أدخل اسم اللاعب الأول داخل اللعبة" required>
+
+        <label for="player1-id">إي دي اللاعب الأول:</label>
+        <input type="text" id="player1-id" name="player1-id" placeholder="أدخل إي دي اللاعب الأول داخل اللعبة" required>
+
+        <label for="player2-name">اسم اللاعب الثاني:</label>
+        <input type="text" id="player2-name" name="player2-name" placeholder="أدخل اسم اللاعب الثاني داخل اللعبة" required>
+
+        <label for="player2-id">إي دي اللاعب الثاني:</label>
+        <input type="text" id="player2-id" name="player2-id" placeholder="أدخل إي دي اللاعب الثاني داخل اللعبة" required>
+
+        <label for="player3-name">اسم اللاعب الثالث:</label>
+        <input type="text" id="player3-name" name="player3-name" placeholder="أدخل اسم اللاعب الثالث داخل اللعبة" required>
+
+        <label for="player3-id">إي دي اللاعب الثالث:</label>
+        <input type="text" id="player3-id" name="player3-id" placeholder="أدخل إي دي اللاعب الثالث داخل اللعبة" required>
+
+        <button type="submit" id="show-registration-form">تسجيل</button>
+      </form>
+    </div>
   </div>
+
+  <div class="container" id="registration-page" style="display: none;">
+    <h1>إدخال رقم الهاتف</h1>
+    <p class="description" style="color: #76d7c4; font-weight: bold; font-size: 0.8em;">سيتم إرسال رقم الغرفة ورقم الفريق عبر واتساب</p>
+    <form id="phoneForm">
+      <label for="phone">رقم الهاتف (واتساب):</label>
+      <input type="text" id="phone" name="phone" placeholder="أدخل رقم هاتفك" required>
+      <div class="terms-container">
+        <div class="checkbox-wrapper">
+          <input type="checkbox" id="terms-checkbox" required>
+          <label for="terms-checkbox">أوافق على<a href="#" style="color: #19c37d;">الشروط والأحكام</a></label>
+        </div>
+      </div>
+      <button type="submit">تأكيد التسجيل</button>
+    </form>
+    <button id="go-back" style="background: #f39c12;">رجوع للصفحة الأولى</button>
+  </div>
+
+  <div class="container" id="success-page" style="display: none;">
+    <h1>تم التسجيل بنجاح</h1>
+    <p>MF ESPORTS (scrim) - تم التسجيل بنجاح! ✅</p>
+  </div>
+
+  <script>
+    function updateTime() {
+      const options = { timeZone: "Africa/Cairo", hour: '2-digit', minute: '2-digit', second: '2-digit' };
+      const time = new Date().toLocaleTimeString("ar-EG", options);
+      document.getElementById("time").innerHTML = time;
+    }
+    setInterval(updateTime, 1000);
+
+    document.getElementById('show-registration-form').addEventListener('click', function(event) {
+      event.preventDefault();
+      document.getElementById('main-page').style.display = 'none';
+      document.getElementById('registration-page').style.display = 'block';
+    });
+
+    document.getElementById('go-back').addEventListener('click', function() {
+      document.getElementById('main-page').style.display = 'block';
+      document.getElementById('registration-page').style.display = 'none';
+    });
+
+    document.getElementById('phoneForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      document.getElementById('registration-page').style.display = 'none';
+      document.getElementById('success-page').style.display = 'block';
+    });
+  </script>
 </body>
 </html>
