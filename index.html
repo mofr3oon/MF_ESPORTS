@@ -55,6 +55,15 @@
       margin-right: 10px;
       color: #19c37d;
     }
+    .input-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .input-wrapper input {
+      flex-grow: 1;
+    }
     input {
       width: 100%;
       padding: 12px;
@@ -69,6 +78,10 @@
       border-color: #19c37d;
       outline: none;
       box-shadow: 0 0 10px rgba(25, 195, 125, 0.5);
+    }
+    .small-text {
+      font-size: 0.8em;
+      color: #19c37d; /* اللون الأخضر */
     }
     button {
       background: #19c37d;
@@ -124,14 +137,6 @@
         padding: 12px;
       }
     }
-
-    /* Styles for small text */
-    .small-text {
-      font-size: 0.8em;
-      color: #aaa;
-      margin-top: 5px;
-    }
-
   </style>
 </head>
 <body>
@@ -144,36 +149,52 @@
       <input type="text" name="team_name" required>
 
       <label><i class="fas fa-user"></i> اسم الليدر:</label>
-      <input type="text" name="leader_name" required>
-      <span class="small-text">اسم اللاعب داخل اللعبة</span>
+      <div class="input-wrapper">
+        <input type="text" name="leader_name" required>
+        <span class="small-text">اسم اللاعب داخل اللعبة</span>
+      </div>
 
       <label><i class="fas fa-id-card"></i> ID الليدر:</label>
-      <input type="text" name="leader_id" required>
-      <span class="small-text">إيدي اللاعب داخل اللعبة</span>
+      <div class="input-wrapper">
+        <input type="text" name="leader_id" required>
+        <span class="small-text">إيدي اللاعب داخل اللعبة</span>
+      </div>
 
       <label><i class="fas fa-user"></i> اسم اللاعب الأول:</label>
-      <input type="text" name="player1_name" required>
-      <span class="small-text">اسم اللاعب داخل اللعبة</span>
+      <div class="input-wrapper">
+        <input type="text" name="player1_name" required>
+        <span class="small-text">اسم اللاعب داخل اللعبة</span>
+      </div>
 
       <label><i class="fas fa-id-card"></i> ID اللاعب الأول:</label>
-      <input type="text" name="player1_id" required>
-      <span class="small-text">إيدي اللاعب داخل اللعبة</span>
+      <div class="input-wrapper">
+        <input type="text" name="player1_id" required>
+        <span class="small-text">إيدي اللاعب داخل اللعبة</span>
+      </div>
 
       <label><i class="fas fa-user"></i> اسم اللاعب الثاني:</label>
-      <input type="text" name="player2_name" required>
-      <span class="small-text">اسم اللاعب داخل اللعبة</span>
+      <div class="input-wrapper">
+        <input type="text" name="player2_name" required>
+        <span class="small-text">اسم اللاعب داخل اللعبة</span>
+      </div>
 
       <label><i class="fas fa-id-card"></i> ID اللاعب الثاني:</label>
-      <input type="text" name="player2_id" required>
-      <span class="small-text">إيدي اللاعب داخل اللعبة</span>
+      <div class="input-wrapper">
+        <input type="text" name="player2_id" required>
+        <span class="small-text">إيدي اللاعب داخل اللعبة</span>
+      </div>
 
       <label><i class="fas fa-user"></i> اسم اللاعب الثالث:</label>
-      <input type="text" name="player3_name" required>
-      <span class="small-text">اسم اللاعب داخل اللعبة</span>
+      <div class="input-wrapper">
+        <input type="text" name="player3_name" required>
+        <span class="small-text">اسم اللاعب داخل اللعبة</span>
+      </div>
 
       <label><i class="fas fa-id-card"></i> ID اللاعب الثالث:</label>
-      <input type="text" name="player3_id" required>
-      <span class="small-text">إيدي اللاعب داخل اللعبة</span>
+      <div class="input-wrapper">
+        <input type="text" name="player3_id" required>
+        <span class="small-text">إيدي اللاعب داخل اللعبة</span>
+      </div>
 
       <button type="submit">تسجيل</button>
     </form>
