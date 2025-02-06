@@ -120,27 +120,22 @@
     }
     .terms-container {
       display: flex;
-      align-items: center;
       justify-content: center;
-      margin-top: 20px;
-    }
-    .terms-text {
-      font-size: 1.1em;
-      color: #fff;
-      margin-left: 10px;
-      text-align: right;
-    }
-    .checkbox-wrapper {
-      display: flex;
       align-items: center;
       margin-top: 10px;
     }
+    .checkbox-wrapper {
+      display: inline-flex;
+      align-items: center;
+      margin-left: 10px;
+    }
     .checkbox-wrapper input[type="checkbox"] {
-      margin-right: 15px; /* زيادة المسافة بين المربع والنص */
+      margin-right: 2px;
+      margin-bottom: -8px;
       width: 20px;
       height: 20px;
-      border-radius: 5px;
-      border: 2px solid #76d7c4;
+      border-radius: 25px;
+      border: 8px solid #76d7c4;
       background: #2e2f3a;
       cursor: pointer;
     }
@@ -150,7 +145,7 @@
     .checkbox-wrapper label {
       color: #fff;
       font-size: 1em;
-      margin-top: 3px; /* المسافة بين المربع والنص */
+      margin-top: 7px;
     }
   </style>
 </head>
@@ -176,8 +171,8 @@
         <label for="leader-name">:[اسم اللاعب الأول [الليدر</label>
         <input type="text" id="leader-name" name="leader-name" placeholder="أدخل اسم الليدر داخل اللعبة" required>
 
-        <label for="leader-name">:[اي دي اللاعب الأول [الليدر </label>
-        <input type="text" id="leader-name" name="leader-name" placeholder="أدخل اي دي الليدر داخل اللعبة" required>
+        <label for="leader-id">:[اي دي اللاعب الأول [الليدر </label>
+        <input type="text" id="leader-id" name="leader-id" placeholder="أدخل اي دي الليدر داخل اللعبة" required>
 
         <label for="player1-name">:اسم اللاعب الثاني</label>
         <input type="text" id="player1-name" name="player1-name" placeholder="أدخل اسم اللاعب الثاني داخل اللعبة" required>
