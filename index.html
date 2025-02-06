@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> MF ESPORTS (scrim) </title>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
     * {
       box-sizing: border-box;
@@ -50,10 +49,6 @@
       text-align: left;
       display: flex;
       align-items: center;
-    }
-    label i {
-      margin-right: 10px;
-      color: #19c37d;
     }
     .input-wrapper {
       display: flex;
@@ -137,60 +132,103 @@
         padding: 12px;
       }
     }
+
+    /* Social Media Links */
+    .social-links {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-size: 1em;
+      color: white;
+      width: 100%;
+    }
+    .social-links a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .social-links a:hover {
+      color: #19c37d;
+    }
+
+    /* Time Display */
+    #time {
+      position: absolute;
+      top: 50px; /* أسفل الروابط مباشرة */
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.2em;
+      color: #19c37d;
+    }
+
   </style>
 </head>
 <body>
+
+  <div class="social-links">
+    <a href="https://www.tiktok.com/@mo_fr3oon" target="_blank">تيك توك</a>
+    <a href="https://t.me/MOBASHOP99" target="_blank">تليجرام</a>
+    <a href="https://www.instagram.com/mo_fr3oon/" target="_blank">إنستجرام</a>
+    <a href="https://discord.gg/9h2zND3Nzw" target="_blank">ديسكورد</a>
+    <a href="https://youtube.com/c/MOFR3OON?sub_confirmation=1" target="_blank">يوتيوب</a>
+  </div>
+
+  <div id="time"></div> <!-- مكان عرض التوقيت -->
 
   <div class="container">
     <h1> MF ESPORTS (scrim) </h1>
 
     <form id="registrationForm">
-      <label><i class="fas fa-users"></i> اسم الفريق:</label>
+      <label>اسم الفريق:</label>
       <input type="text" name="team_name" required>
 
-      <label><i class="fas fa-user"></i> اسم الليدر:</label>
+      <label>اسم الليدر:</label>
       <div class="input-wrapper">
         <input type="text" name="leader_name" required>
         <span class="small-text">اسم اللاعب داخل اللعبة</span>
       </div>
 
-      <label><i class="fas fa-id-card"></i> ID الليدر:</label>
+      <label>ID الليدر:</label>
       <div class="input-wrapper">
         <input type="text" name="leader_id" required>
         <span class="small-text">إيدي اللاعب داخل اللعبة</span>
       </div>
 
-      <label><i class="fas fa-user"></i> اسم اللاعب الأول:</label>
+      <label>اسم اللاعب الأول:</label>
       <div class="input-wrapper">
         <input type="text" name="player1_name" required>
         <span class="small-text">اسم اللاعب داخل اللعبة</span>
       </div>
 
-      <label><i class="fas fa-id-card"></i> ID اللاعب الأول:</label>
+      <label>ID اللاعب الأول:</label>
       <div class="input-wrapper">
         <input type="text" name="player1_id" required>
         <span class="small-text">إيدي اللاعب داخل اللعبة</span>
       </div>
 
-      <label><i class="fas fa-user"></i> اسم اللاعب الثاني:</label>
+      <label>اسم اللاعب الثاني:</label>
       <div class="input-wrapper">
         <input type="text" name="player2_name" required>
         <span class="small-text">اسم اللاعب داخل اللعبة</span>
       </div>
 
-      <label><i class="fas fa-id-card"></i> ID اللاعب الثاني:</label>
+      <label>ID اللاعب الثاني:</label>
       <div class="input-wrapper">
         <input type="text" name="player2_id" required>
         <span class="small-text">إيدي اللاعب داخل اللعبة</span>
       </div>
 
-      <label><i class="fas fa-user"></i> اسم اللاعب الثالث:</label>
+      <label>اسم اللاعب الثالث:</label>
       <div class="input-wrapper">
         <input type="text" name="player3_name" required>
         <span class="small-text">اسم اللاعب داخل اللعبة</span>
       </div>
 
-      <label><i class="fas fa-id-card"></i> ID اللاعب الثالث:</label>
+      <label>ID اللاعب الثالث:</label>
       <div class="input-wrapper">
         <input type="text" name="player3_id" required>
         <span class="small-text">إيدي اللاعب داخل اللعبة</span>
@@ -218,6 +256,18 @@
         }
       }).catch(error => console.log("حدث خطأ:", error));
     });
+
+    function updateTime() {
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      const seconds = now.getSeconds().toString().padStart(2, '0');
+      const timeString = `${hours}:${minutes}:${seconds}`;
+      document.getElementById("time").textContent = `توقيت القاهرة مصر: ${timeString}`;
+    }
+
+    setInterval(updateTime, 1000);
+    updateTime(); // Update immediately when the page loads
   </script>
 
 </body>
