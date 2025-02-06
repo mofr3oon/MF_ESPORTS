@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>إدخال رقم الهاتف</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* نفس الأكواد الخاصة بالتنسيقات السابقة */
+  </style>
+</head>
+<body>
+
+  <!-- محتوى الصفحة الثانية -->
+  <div class="container" id="phone-page">
+    <h1>إدخال رقم الهاتف</h1>
+    <form action="success.html" method="POST">
+      <label for="phone">رقم الهاتف (واتساب):</label>
+      <input type="text" id="phone" name="phone" placeholder="أدخل رقم هاتفك" required>
+      <button type="submit">تأكيد التسجيل</button>
+    </form>
+    <button id="go-back">رجوع للصفحة الأولى</button>
+  </div>
+
+  <script>
+    document.getElementById("go-back").onclick = function() {
+      window.location.href = "index.html";
+    };
+  </script>
+
+</body>
+</html>
