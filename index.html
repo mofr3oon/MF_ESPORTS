@@ -90,31 +90,6 @@
       color: #19c37d;
       margin-top: 15px;
     }
-    .spinner {
-      display: none;
-      width: 50px;
-      height: 50px;
-      border: 5px solid rgba(255, 255, 255, 0.2);
-      border-top: 5px solid #19c37d;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-      margin: 20px auto;
-    }
-    .clock {
-      font-size: 1.5em;
-      color: #19c37d;
-      margin-top: 20px;
-    }
-    .note {
-      font-size: 0.9em;
-      color: #19c37d;
-      margin-top: 10px;
-    }
-    .small-text {
-      font-size: 0.8em;
-      color: #a3a3a3;
-      margin-left: 5px;
-    }
 
     /* Animations */
     @keyframes fadeIn {
@@ -130,11 +105,6 @@
         opacity: 1;
         transform: translateY(0);
       }
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
     }
 
     /* Responsive Design */
@@ -165,40 +135,33 @@
       <label><i class="fas fa-users"></i> اسم الفريق:</label>
       <input type="text" name="team_name" required>
 
-      <label><i class="fas fa-user"></i> اسم الليدر:<span class="small-text"> (اسم اللاعب داخل اللعبة)</span></label>
+      <label><i class="fas fa-user"></i> اسم الليدر:</label>
       <input type="text" name="leader_name" required>
 
-      <label><i class="fas fa-id-card"></i> ID الليدر:<span class="small-text"> (ID اللاعب داخل اللعبة)</span></label>
+      <label><i class="fas fa-id-card"></i> ID الليدر:</label>
       <input type="text" name="leader_id" required>
 
-      <label><i class="fas fa-user"></i> اسم اللاعب الأول:<span class="small-text"> (اسم اللاعب داخل اللعبة)</span></label>
+      <label><i class="fas fa-user"></i> اسم اللاعب الأول:</label>
       <input type="text" name="player1_name" required>
 
-      <label><i class="fas fa-id-card"></i> ID اللاعب الأول:<span class="small-text"> (ID اللاعب داخل اللعبة)</span></label>
+      <label><i class="fas fa-id-card"></i> ID اللاعب الأول:</label>
       <input type="text" name="player1_id" required>
 
-      <label><i class="fas fa-user"></i> اسم اللاعب الثاني:<span class="small-text"> (اسم اللاعب داخل اللعبة)</span></label>
+      <label><i class="fas fa-user"></i> اسم اللاعب الثاني:</label>
       <input type="text" name="player2_name" required>
 
-      <label><i class="fas fa-id-card"></i> ID اللاعب الثاني:<span class="small-text"> (ID اللاعب داخل اللعبة)</span></label>
+      <label><i class="fas fa-id-card"></i> ID اللاعب الثاني:</label>
       <input type="text" name="player2_id" required>
 
-      <label><i class="fas fa-user"></i> اسم اللاعب الثالث:<span class="small-text"> (اسم اللاعب داخل اللعبة)</span></label>
+      <label><i class="fas fa-user"></i> اسم اللاعب الثالث:</label>
       <input type="text" name="player3_name" required>
 
-      <label><i class="fas fa-id-card"></i> ID اللاعب الثالث:<span class="small-text"> (ID اللاعب داخل اللعبة)</span></label>
+      <label><i class="fas fa-id-card"></i> ID اللاعب الثالث:</label>
       <input type="text" name="player3_id" required>
-
-      <label><i class="fas fa-phone"></i> رقم الهاتف:</label>
-      <input type="tel" name="phone_number" required>
 
       <button type="submit">تسجيل</button>
     </form>
 
-    <div class="spinner" id="loadingSpinner"></div>
-    <div class="clock" id="clock"></div>
-
-    <p class="note">سيتم إضافتك إلى جروب واتس آب لإرسال رقم الروم ورقم الفريق.</p>
     <p id="success-message">تم التسجيل بنجاح! ✅</p>
   </div>
 
@@ -207,9 +170,6 @@
       event.preventDefault();
 
       var formData = new FormData(this);
-      var spinner = document.getElementById("loadingSpinner");
-      spinner.style.display = "block";
-
       fetch("https://formspree.io/f/xwpvqpjp", {
         method: "POST",
         body: formData,
@@ -219,32 +179,9 @@
           document.getElementById("registrationForm").style.display = "none";
           document.getElementById("success-message").style.display = "block";
         }
-      }).catch(error => console.log("حدث خطأ:", error))
-        .finally(() => spinner.style.display = "none");
+      }).catch(error => console.log("حدث خطأ:", error));
     });
+  </script>
 
-    // Function to update the clock
-    function updateClock() {
-      var now = new Date();
-      var hours = now.getHours();
-      var minutes = now.getMinutes();
-      var seconds = now.getSeconds();
-
-      // Add leading zeros if necessary
-      if (hours < 10) hours = '0' + hours;
-      if (minutes < 10) minutes = '0' + minutes;
-      if (seconds < 10) seconds = '0' + seconds;
-
-      // Format the time string
-      var timeString = hours + ':' + minutes + ':' + seconds;
-
-      // Update the clock element
-      document.getElementById('clock').innerText = 'التوقيت الحالي: ' + timeString;
-    }
-
-    // Update the clock every second
-    setInterval(updateClock, 1000);
-
-    // Initialize the clock
-    updateClock();
-  </
+</body>
+</html>
