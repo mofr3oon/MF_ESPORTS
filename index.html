@@ -198,12 +198,17 @@
         <label for="phone">:رقم الهاتف [واتساب]</label>
         <input type="text" id="phone" name="phone" placeholder="أدخل رقم هاتفك" required>
 
-        <div class="terms-container">
-          <div class="checkbox-wrapper">
-            <input type="checkbox" id="terms-checkbox" required>
-            <label for="terms-checkbox">أوافق على<a href="#" style="color: #19c37d;">الشروط والأحكام</a></label>
-          </div>
-        </div>
+<div class="terms-container" style="direction: rtl; text-align: right;">
+  <div class="checkbox-wrapper">
+    <label for="terms-checkbox" style="color: #fff;">
+      أوافق على <span style="margin-right: 5px;"></span><a href="#" style="color: #00ff00; text-decoration: underline;">الشروط والأحكام</a>
+    </label>
+    <input type="checkbox" id="terms-checkbox" required style="margin-top: 10px;">
+  </div>
+</div>
+
+
+
 
         <button type="submit" id="show-registration-form">تسجيل</button>
       </form>
