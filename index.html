@@ -3,61 +3,104 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>سكريم إم إف (مو فرعون)</title>
+  <title> 𝐌𝐅 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 (MO FR3OON)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f9;
-      color: #333;
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      font-family: 'Cairo', sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #4CAF50, #2E8B57);
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 600px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: slideUp 0.8s forwards;
     }
     h1 {
       font-size: 2.5em;
-      color: #4CAF50;
-      text-align: center;
-      margin-bottom: 20px;
+      color: #2E8B57;
+      margin-bottom: 10px;
     }
     form {
-      background-color: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      width: 100%;
-      max-width: 600px;
-      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
     label {
       font-size: 1.1em;
-      margin-top: 10px;
-      display: block;
+      text-align: left;
+      display: flex;
+      align-items: center;
     }
-    input[type="text"], input[type="email"] {
+    label i {
+      margin-right: 10px;
+      color: #2E8B57;
+    }
+    input {
       width: 100%;
       padding: 10px;
-      margin-top: 5px;
       font-size: 1em;
-      border: 1px solid #ccc;
+      border: 2px solid #ccc;
       border-radius: 5px;
-      box-sizing: border-box;
+      transition: all 0.3s;
     }
-    button[type="submit"] {
-      background-color: #4CAF50;
+    input:focus {
+      border-color: #2E8B57;
+      outline: none;
+      box-shadow: 0 0 5px rgba(46, 139, 87, 0.5);
+    }
+    button {
+      background: #2E8B57;
       color: white;
       border: none;
       padding: 15px;
-      width: 100%;
       font-size: 1.2em;
       cursor: pointer;
       border-radius: 5px;
       margin-top: 15px;
+      transition: background 0.3s ease-in-out;
     }
-    button[type="submit"]:hover {
-      background-color: #45a049;
+    button:hover {
+      background: #256d46;
+    }
+    #success-message {
+      display: none;
+      font-size: 1.3em;
+      color: green;
+      margin-top: 15px;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
@@ -66,52 +109,57 @@
   <div class="container">
     <h1>سكريم إم إف (مو فرعون)</h1>
 
-    <form action="https://formspree.io/f/xwpvqpjp" method="POST">
-      <label>
-        Team Name:
-        <input type="text" name="team_name" required>
-      </label>
+    <form id="registrationForm">
+      <label><i class="fas fa-users"></i> اسم الفريق:</label>
+      <input type="text" name="team_name" required>
 
-      <label>
-        Leader Name:
-        <input type="text" name="leader_name" required>
-      </label>
+      <label><i class="fas fa-user"></i> اسم الليدر:</label>
+      <input type="text" name="leader_name" required>
 
-      <label>
-        Leader ID:
-        <input type="text" name="leader_id" required>
-      </label>
+      <label><i class="fas fa-id-card"></i> ID الليدر:</label>
+      <input type="text" name="leader_id" required>
 
-      <label>
-        Player 1 Name:
-        <input type="text" name="player1_name" required>
-      </label>
-      <label>
-        Player 1 ID:
-        <input type="text" name="player1_id" required>
-      </label>
+      <label><i class="fas fa-user"></i> اسم اللاعب الأول:</label>
+      <input type="text" name="player1_name" required>
 
-      <label>
-        Player 2 Name:
-        <input type="text" name="player2_name" required>
-      </label>
-      <label>
-        Player 2 ID:
-        <input type="text" name="player2_id" required>
-      </label>
+      <label><i class="fas fa-id-card"></i> ID اللاعب الأول:</label>
+      <input type="text" name="player1_id" required>
 
-      <label>
-        Player 3 Name:
-        <input type="text" name="player3_name" required>
-      </label>
-      <label>
-        Player 3 ID:
-        <input type="text" name="player3_id" required>
-      </label>
+      <label><i class="fas fa-user"></i> اسم اللاعب الثاني:</label>
+      <input type="text" name="player2_name" required>
 
-      <button type="submit">Submit</button>
+      <label><i class="fas fa-id-card"></i> ID اللاعب الثاني:</label>
+      <input type="text" name="player2_id" required>
+
+      <label><i class="fas fa-user"></i> اسم اللاعب الثالث:</label>
+      <input type="text" name="player3_name" required>
+
+      <label><i class="fas fa-id-card"></i> ID اللاعب الثالث:</label>
+      <input type="text" name="player3_id" required>
+
+      <button type="submit">تسجيل</button>
     </form>
+
+    <p id="success-message">تم التسجيل بنجاح! ✅</p>
   </div>
+
+  <script>
+    document.getElementById("registrationForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      var formData = new FormData(this);
+      fetch("https://formspree.io/f/xwpvqpjp", {
+        method: "POST",
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          document.getElementById("registrationForm").style.display = "none";
+          document.getElementById("success-message").style.display = "block";
+        }
+      }).catch(error => console.log("حدث خطأ:", error));
+    });
+  </script>
 
 </body>
 </html>
