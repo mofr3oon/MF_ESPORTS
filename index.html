@@ -25,18 +25,18 @@
     }
     .container {
       background: #40414f;
-      padding: 20px;
+      padding: 15px;
       border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-      width: 90%;
-      max-width: 500px;
+      width: 100%;
+      max-width: 400px;
       opacity: 0;
       transform: translateY(20px);
       animation: slideUp 0.8s forwards;
       color: white;
     }
     h1 {
-      font-size: 2em;
+      font-size: 1.8em;
       color: #ffffff;
       margin-bottom: 10px;
     }
@@ -46,7 +46,7 @@
       gap: 10px;
     }
     label {
-      font-size: 1.1em;
+      font-size: 1em;
       text-align: left;
       display: flex;
       align-items: center;
@@ -57,8 +57,8 @@
     }
     input {
       width: 100%;
-      padding: 12px;
-      font-size: 1em;
+      padding: 10px;
+      font-size: 0.9em;
       border: 2px solid #5a5a5a;
       border-radius: 8px;
       background: #2e2f3a;
@@ -74,8 +74,8 @@
       background: #19c37d;
       color: white;
       border: none;
-      padding: 15px;
-      font-size: 1.2em;
+      padding: 12px;
+      font-size: 1em;
       cursor: pointer;
       border-radius: 8px;
       margin-top: 15px;
@@ -86,27 +86,27 @@
     }
     #success-message {
       display: none;
-      font-size: 1.3em;
+      font-size: 1.2em;
       color: #19c37d;
       margin-top: 15px;
     }
     .spinner {
       display: none;
-      width: 50px;
-      height: 50px;
-      border: 5px solid rgba(255, 255, 255, 0.2);
-      border-top: 5px solid #19c37d;
+      width: 40px;
+      height: 40px;
+      border: 4px solid rgba(255, 255, 255, 0.2);
+      border-top: 4px solid #19c37d;
       border-radius: 50%;
       animation: spin 1s linear infinite;
       margin: 20px auto;
     }
     .clock {
-      font-size: 1.5em;
+      font-size: 1.3em;
       color: #19c37d;
-      margin-top: 20px;
+      margin-top: 15px;
     }
     .note {
-      font-size: 0.9em;
+      font-size: 0.8em;
       color: #19c37d;
       margin-top: 10px;
     }
@@ -140,18 +140,18 @@
     /* Responsive Design */
     @media (max-width: 600px) {
       body {
-        padding: 20px;
+        padding: 10px;
       }
       .container {
         width: 100%;
-        padding: 15px;
+        padding: 10px;
       }
       h1 {
-        font-size: 1.8em;
+        font-size: 1.6em;
       }
       button {
-        font-size: 1em;
-        padding: 12px;
+        font-size: 0.9em;
+        padding: 10px;
       }
     }
   </style>
@@ -159,88 +159,31 @@
 <body>
 
   <div class="container">
-    <h1> MF ESPORTS (scrim) </h1>
+    <h1 data-lang-en="MF ESPORTS (scrim)" data-lang-ar="MF ESPORTS (scrim)">MF ESPORTS (scrim)</h1>
 
     <form id="registrationForm">
-      <label><i class="fas fa-users"></i> اسم الفريق:</label>
+      <label><i class="fas fa-users"></i> <span data-lang-en="Team Name:" data-lang-ar="اسم الفريق:">اسم الفريق:</span></label>
       <input type="text" name="team_name" required>
 
-      <label><i class="fas fa-user"></i> اسم الليدر:<span class="small-text"> (اسم اللاعب داخل اللعبة)</span></label>
+      <label><i class="fas fa-user"></i> <span data-lang-en="Leader Name:" data-lang-ar="اسم الليدر:">اسم الليدر:</span><span class="small-text"> <span data-lang-en="(In-game name)" data-lang-ar="(اسم اللاعب داخل اللعبة)"> (اسم اللاعب داخل اللعبة)</span></span></label>
       <input type="text" name="leader_name" required>
 
-      <label><i class="fas fa-id-card"></i> ID الليدر:<span class="small-text"> (ID اللاعب داخل اللعبة)</span></label>
+      <label><i class="fas fa-id-card"></i> <span data-lang-en="Leader ID:" data-lang-ar="ID الليدر:">ID الليدر:</span><span class="small-text"> <span data-lang-en="(In-game ID)" data-lang-ar="(ID اللاعب داخل اللعبة)"> (ID اللاعب داخل اللعبة)</span></span></label>
       <input type="text" name="leader_id" required>
 
-      <label><i class="fas fa-user"></i> اسم اللاعب الأول:<span class="small-text"> (اسم اللاعب داخل اللعبة)</span></label>
+      <label><i class="fas fa-user"></i> <span data-lang-en="Player 1 Name:" data-lang-ar="اسم اللاعب الأول:">اسم اللاعب الأول:</span><span class="small-text"> <span data-lang-en="(In-game name)" data-lang-ar="(اسم اللاعب داخل اللعبة)"> (اسم اللاعب داخل اللعبة)</span></span></label>
       <input type="text" name="player1_name" required>
 
-      <label><i class="fas fa-id-card"></i> ID اللاعب الأول:<span class="small-text"> (ID اللاعب داخل اللعبة)</span></label>
+      <label><i class="fas fa-id-card"></i> <span data-lang-en="Player 1 ID:" data-lang-ar="ID اللاعب الأول:">ID اللاعب الأول:</span><span class="small-text"> <span data-lang-en="(In-game ID)" data-lang-ar="(ID اللاعب داخل اللعبة)"> (ID اللاعب داخل اللعبة)</span></span></label>
       <input type="text" name="player1_id" required>
 
-      <label><i class="fas fa-user"></i> اسم اللاعب الثاني:<span class="small-text"> (اسم اللاعب داخل اللعبة)</span></label>
+      <label><i class="fas fa-user"></i> <span data-lang-en="Player 2 Name:" data-lang-ar="اسم اللاعب الثاني:">اسم اللاعب الثاني:</span><span class="small-text"> <span data-lang-en="(In-game name)" data-lang-ar="(اسم اللاعب داخل اللعبة)"> (اسم اللاعب داخل اللعبة)</span></span></label>
       <input type="text" name="player2_name" required>
 
-      <label><i class="fas fa-id-card"></i> ID اللاعب الثاني:<span class="small-text"> (ID اللاعب داخل اللعبة)</span></label>
+      <label><i class="fas fa-id-card"></i> <span data-lang-en="Player 2 ID:" data-lang-ar="ID اللاعب الثاني:">ID اللاعب الثاني:</span><span class="small-text"> <span data-lang-en="(In-game ID)" data-lang-ar="(ID اللاعب داخل اللعبة)"> (ID اللاعب داخل اللعبة)</span></span></label>
       <input type="text" name="player2_id" required>
 
-      <label><i class="fas fa-user"></i> اسم اللاعب الثالث:<span class="small-text"> (اسم اللاعب داخل اللعبة)</span></label>
+      <label><i class="fas fa-user"></i> <span data-lang-en="Player 3 Name:" data-lang-ar="اسم اللاعب الثالث:">اسم اللاعب الثالث:</span><span class="small-text"> <span data-lang-en="(In-game name)" data-lang-ar="(اسم اللاعب داخل اللعبة)"> (اسم اللاعب داخل اللعبة)</span></span></label>
       <input type="text" name="player3_name" required>
 
-      <label><i class="fas fa-id-card"></i> ID اللاعب الثالث:<span class="small-text"> (ID اللاعب داخل اللعبة)</span></label>
-      <input type="text" name="player3_id" required>
-
-      <label><i class="fas fa-phone"></i> رقم الهاتف:</label>
-      <input type="tel" name="phone_number" required>
-
-      <button type="submit">تسجيل</button>
-    </form>
-
-    <div class="spinner" id="loadingSpinner"></div>
-    <div class="clock" id="clock"></div>
-
-    <p class="note">سيتم إضافتك إلى جروب واتس آب لإرسال رقم الروم ورقم الفريق.</p>
-    <p id="success-message">تم التسجيل بنجاح! ✅</p>
-  </div>
-
-  <script>
-    document.getElementById("registrationForm").addEventListener("submit", function(event) {
-      event.preventDefault();
-
-      var formData = new FormData(this);
-      var spinner = document.getElementById("loadingSpinner");
-      spinner.style.display = "block";
-
-      fetch("https://formspree.io/f/xwpvqpjp", {
-        method: "POST",
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      }).then(response => {
-        if (response.ok) {
-          document.getElementById("registrationForm").style.display = "none";
-          document.getElementById("success-message").style.display = "block";
-        }
-      }).catch(error => console.log("حدث خطأ:", error))
-        .finally(() => spinner.style.display = "none");
-    });
-
-    // Function to update the clock
-    function updateClock() {
-      var now = new Date();
-      var hours = now.getHours();
-      var minutes = now.getMinutes();
-      var seconds = now.getSeconds();
-
-      // Add leading zeros if necessary
-      if (hours < 10) hours = '0' + hours;
-      if (minutes < 10) minutes = '0' + minutes;
-      if (seconds < 10) seconds = '0' + seconds;
-
-      // Format the time string
-      var timeString = hours + ':' + minutes + ':' + seconds;
-
-      // Update the clock element
-      document.getElementById('clock').innerText = 'التوقيت الحالي: ' + timeString;
-    }
-
-    // Update the clock every second
-    setInterval(updateClock,
+      <label><i class="fas fa-id-card"></i> <span data-lang-en="Player 3 ID:" data-lang-ar="ID اللاعب الثالث:">ID اللاعب الثالث:</span><span class="small-text"> <span data-lang-en="(In-game ID)" data-lang-ar="(ID
