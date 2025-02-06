@@ -1,22 +1,73 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>إدخال رقم الهاتف</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    /* استايل مشابه لما أرسلته */
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الهاتف</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            text-align: right;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        input[type="text"], input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-  <div class="container" id="phone-page">
-    <h1>إدخال رقم الهاتف</h1>
-    <form action="success.html">
-      <label for="phone">رقم الهاتف (واتساب):</label>
-      <input type="text" id="phone" name="phone" placeholder="أدخل رقم هاتفك" required>
-      <button type="submit">تأكيد التسجيل</button>
-    </form>
-  </div>
+
+    <div class="container">
+        <h1>تسجيل رقم الهاتف</h1>
+        <form id="phoneForm">
+            <label for="phone">أدخل رقم هاتفك</label>
+            <input type="tel" id="phone" name="phone" placeholder="مثال: 0123456789" required>
+
+            <button type="submit">تأكيد التسجيل</button>
+        </form>
+    </div>
+
+    <script>
+        // عند تقديم النموذج يتم تحويل المستخدم للصفحة التالية
+        document.getElementById('phoneForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // لمنع إعادة تحميل الصفحة
+            window.location.href = 'success.html'; // الانتقال للصفحة الثالثة
+        });
+    </script>
+
 </body>
 </html>
