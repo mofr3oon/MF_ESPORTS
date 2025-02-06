@@ -1,47 +1,117 @@
-<h1>سكريم MF (مو فرعون)</h1>
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>سكريم إم إف (مو فرعون)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    h1 {
+      font-size: 2.5em;
+      color: #4CAF50;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    form {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 600px;
+      box-sizing: border-box;
+    }
+    label {
+      font-size: 1.1em;
+      margin-top: 10px;
+      display: block;
+    }
+    input[type="text"], input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    button[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 15px;
+      width: 100%;
+      font-size: 1.2em;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 15px;
+    }
+    button[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
 
-<form action="https://formspree.io/f/xwpvqpjp" method="POST">
-  <label>
-    Team Name:
-    <input type="text" name="team_name" required>
-  </label>
+  <div class="container">
+    <h1>سكريم إم إف (مو فرعون)</h1>
 
-  <label>
-    Leader Name:
-    <input type="text" name="leader_name" required>
-  </label>
+    <form action="https://formspree.io/f/xwpvqpjp" method="POST">
+      <label>
+        Team Name:
+        <input type="text" name="team_name" required>
+      </label>
 
-  <label>
-    Leader ID:
-    <input type="text" name="leader_id" required>
-  </label>
+      <label>
+        Leader Name:
+        <input type="text" name="leader_name" required>
+      </label>
 
-  <label>
-    Player 1 Name:
-    <input type="text" name="player1_name" required>
-  </label>
-  <label>
-    Player 1 ID:
-    <input type="text" name="player1_id" required>
-  </label>
+      <label>
+        Leader ID:
+        <input type="text" name="leader_id" required>
+      </label>
 
-  <label>
-    Player 2 Name:
-    <input type="text" name="player2_name" required>
-  </label>
-  <label>
-    Player 2 ID:
-    <input type="text" name="player2_id" required>
-  </label>
+      <label>
+        Player 1 Name:
+        <input type="text" name="player1_name" required>
+      </label>
+      <label>
+        Player 1 ID:
+        <input type="text" name="player1_id" required>
+      </label>
 
-  <label>
-    Player 3 Name:
-    <input type="text" name="player3_name" required>
-  </label>
-  <label>
-    Player 3 ID:
-    <input type="text" name="player3_id" required>
-  </label>
+      <label>
+        Player 2 Name:
+        <input type="text" name="player2_name" required>
+      </label>
+      <label>
+        Player 2 ID:
+        <input type="text" name="player2_id" required>
+      </label>
 
-  <button type="submit">Submit</button>
-</form>
+      <label>
+        Player 3 Name:
+        <input type="text" name="player3_name" required>
+      </label>
+      <label>
+        Player 3 ID:
+        <input type="text" name="player3_id" required>
+      </label>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+</body>
+</html>
