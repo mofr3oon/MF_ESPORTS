@@ -133,9 +133,10 @@
     .checkbox-wrapper {
       display: flex;
       align-items: center;
+      margin-top: 10px;
     }
     .checkbox-wrapper input[type="checkbox"] {
-      margin-right: 10px;
+      margin-right: 15px; /* زيادة المسافة بين المربع والنص */
       width: 20px;
       height: 20px;
       border-radius: 5px;
@@ -149,6 +150,7 @@
     .checkbox-wrapper label {
       color: #fff;
       font-size: 1em;
+      margin-top: 3px; /* المسافة بين المربع والنص */
     }
   </style>
 </head>
@@ -201,7 +203,9 @@
         <div class="terms-container">
           <div class="checkbox-wrapper">
             <input type="checkbox" id="terms-checkbox" required>
-            <label for="terms-checkbox">أوافق على <a href="terms.html" target="_blank">الشروط والأحكام</a></label>
+            <label for="terms-checkbox"> 
+              <a href="terms.html" style="color: #19c37d; text-decoration: underline;"> أوافق علي الشروط والأحكام </a>
+            </label>
           </div>
         </div>
         <button type="submit">ارسال البيانات</button>
