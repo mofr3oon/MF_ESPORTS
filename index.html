@@ -74,7 +74,7 @@
       transition: box-shadow 0.3s ease;
     }
     input:focus {
-      box-shadow: 0 0 15px rgba(0, 255, 0, 1); /* الجلو الأخضر عند الفوكس */
+      box-shadow: 0 0 15px rgba(0, 255, 0, 1);
       border-color: #19c37d;
     }
     p {
@@ -168,7 +168,7 @@
         <label for="player3-id">إي دي اللاعب الثالث:</label>
         <input type="text" id="player3-id" name="player3-id" placeholder="أدخل إي دي اللاعب الثالث داخل اللعبة" required>
 
-        <button type="button" id="show-registration-form">تسجيل</button>
+        <button type="button" id="show-registration-form" disabled>تسجيل</button>
       </form>
     </div>
   </div>
@@ -199,6 +199,24 @@
     }
     setInterval(updateTime, 1000); // تحديث الوقت كل ثانية
     updateTime(); // لتحديث الوقت عند تحميل الصفحة
+
+    // التحقق من تعبئة الحقول
+    const inputs = document.querySelectorAll("input");
+    const submitButton = document.getElementById("show-registration-form");
+
+    inputs.forEach(input => {
+      input.addEventListener("input", checkForm);
+    });
+
+    function checkForm() {
+      let allFilled = true;
+      inputs.forEach(input => {
+        if (!input.value.trim()) {
+          allFilled = false;
+        }
+      });
+      submitButton.disabled = !allFilled; // تفعيل الزر فقط إذا كانت جميع الحقول مملوءة
+    }
 
     // الانتقال من الصفحة الرئيسية إلى صفحة إدخال رقم الهاتف
     document.getElementById("show-registration-form").addEventListener("click", function() {
