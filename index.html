@@ -28,7 +28,7 @@
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-      width: 100%;
+      width: 90%;
       max-width: 500px;
       opacity: 0;
       transform: translateY(20px);
@@ -242,4 +242,5 @@
       document.getElementById('clock').innerText = 'التوقيت الحالي: ' + timeString;
     }
 
-    // Update the
+    // Update the clock every second
+    setInterval(updateClock,
