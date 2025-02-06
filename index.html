@@ -176,7 +176,7 @@
   <!-- الصفحة الثانية: إدخال رقم الهاتف -->
   <div class="container" id="registration-page" style="display: none;">
     <h1>إدخال رقم الهاتف</h1>
-    <p class="description">سيتم إرسال رقم الغرفة ورقم الفريق عبر واتساب.</p>
+    <p class="description" style="color: #76d7c4; font-weight: bold;">سيتم إرسال رقم الغرفة ورقم الفريق عبر واتساب.</p>
     <form id="phoneForm">
       <label for="phone">رقم الهاتف (واتساب):</label>
       <input type="text" id="phone" name="phone" placeholder="أدخل رقم هاتفك" required>
@@ -206,17 +206,11 @@
       document.getElementById("registration-page").style.display = "block";
     });
 
-    // التحقق من ملء الحقول في الصفحة الثانية (رقم الهاتف)
+    // الانتقال إلى صفحة النجاح بعد إدخال رقم الهاتف
     document.getElementById("phoneForm").addEventListener("submit", function(event) {
       event.preventDefault();
-      const phoneInput = document.getElementById("phone").value.trim();
-      
-      if (phoneInput) {
-        document.getElementById("registration-page").style.display = "none";
-        document.getElementById("success-page").style.display = "block";
-      } else {
-        alert("يرجى إدخال رقم الهاتف بشكل صحيح");
-      }
+      document.getElementById("registration-page").style.display = "none";
+      document.getElementById("success-page").style.display = "block";
     });
   </script>
 </body>
