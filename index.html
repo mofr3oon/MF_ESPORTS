@@ -220,8 +220,11 @@
 
     // الانتقال من الصفحة الرئيسية إلى صفحة إدخال رقم الهاتف
     document.getElementById("show-registration-form").addEventListener("click", function() {
-      document.getElementById("main-page").style.display = "none";
-      document.getElementById("registration-page").style.display = "block";
+      // التحقق قبل الانتقال
+      if (!submitButton.disabled) {
+        document.getElementById("main-page").style.display = "none";
+        document.getElementById("registration-page").style.display = "block";
+      }
     });
 
     // الانتقال إلى صفحة النجاح بعد إدخال رقم الهاتف
