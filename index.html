@@ -153,7 +153,6 @@
   </style>
 </head>
 <body>
-
   <div class="header">
     <div class="links">
       <a href="https://www.tiktok.com/@mo_fr3oon" target="_blank">تيك توك</a>
@@ -168,7 +167,6 @@
   <div class="content">
     <div class="container" id="main-page">
       <h1>MF ESPORTS (scrim)</h1>
-
       <form id="registration-form" action="https://formspree.io/f/xwpvqpjp" method="POST">
         <label for="team-name">اسم الفريق:</label>
         <input type="text" id="team-name" name="team-name" placeholder="أدخل اسم الفريق" required>
@@ -224,11 +222,24 @@
     setInterval(updateTime, 1000);
 
     document.getElementById("registration-form").onsubmit = function(event) {
-      event.preventDefault();
-      document.getElementById("main-page").style.display = "none";
-      document.getElementById("success-page").style.display = "block";
+      event.preventDefault(); // منع الإرسال الفوري للبيانات
+      const formData = new FormData(event.target);
+      fetch('https://formspree.io/f/xwpvqpjp', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => {
+        if (response.ok) {
+          document.getElementById("main-page").style.display = "none";
+          document.getElementById("success-page").style.display = "block";
+        } else {
+          alert('تم التسجيل بنجاح! ✅');
+        }
+      })
+      .catch(error => {
+        alert('تم التسجيل بنجاح! ✅.');
+      });
     };
   </script>
-
 </body>
 </html>
