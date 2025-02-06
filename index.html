@@ -19,16 +19,43 @@
       align-items: center;
       min-height: 100vh;
       text-align: center;
+      flex-direction: column; /* تعديل لتوجيه المحتوى عمودي */
       padding: 10px;
       animation: fadeIn 1s ease-in-out;
     }
+    .social-container {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-size: 1em;
+      color: white;
+      width: 100%;
+    }
+    .social-links a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .social-links a:hover {
+      color: #19c37d;
+    }
+    #time {
+      font-size: 1.2em;
+      color: #19c37d;
+    }
+    
     .container {
       background: #40414f;
-      padding: 20px;
+      padding: 15px;
       border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
       width: 100%;
-      max-width: 500px;
+      max-width: 450px; /* تصغير الحجم */
       opacity: 0;
       transform: translateY(20px);
       animation: slideUp 0.8s forwards;
@@ -133,52 +160,23 @@
       }
     }
 
-    /* Social Media Links */
-    .social-links {
-      position: absolute;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      font-size: 1em;
-      color: white;
-      width: 100%;
-    }
-    .social-links a {
-      color: white;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    .social-links a:hover {
-      color: #19c37d;
-    }
-
-    /* Time Display */
-    #time {
-      position: absolute;
-      top: 50px; /* أسفل الروابط مباشرة */
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 1.2em;
-      color: #19c37d;
-    }
-
   </style>
 </head>
 <body>
 
-  <div class="social-links">
-    <a href="https://www.tiktok.com/@mo_fr3oon" target="_blank">تيك توك</a>
-    <a href="https://t.me/MOBASHOP99" target="_blank">تليجرام</a>
-    <a href="https://www.instagram.com/mo_fr3oon/" target="_blank">إنستجرام</a>
-    <a href="https://discord.gg/9h2zND3Nzw" target="_blank">ديسكورد</a>
-    <a href="https://youtube.com/c/MOFR3OON?sub_confirmation=1" target="_blank">يوتيوب</a>
+  <!-- Social Links and Time Display -->
+  <div class="social-container">
+    <div class="social-links">
+      <a href="https://www.tiktok.com/@mo_fr3oon" target="_blank">تيك توك</a>
+      <a href="https://t.me/MOBASHOP99" target="_blank">تليجرام</a>
+      <a href="https://www.instagram.com/mo_fr3oon/" target="_blank">إنستجرام</a>
+      <a href="https://discord.gg/9h2zND3Nzw" target="_blank">ديسكورد</a>
+      <a href="https://youtube.com/c/MOFR3OON?sub_confirmation=1" target="_blank">يوتيوب</a>
+    </div>
+    <div id="time"></div> <!-- مكان عرض التوقيت -->
   </div>
 
-  <div id="time"></div> <!-- مكان عرض التوقيت -->
-
+  <!-- Main Form Container -->
   <div class="container">
     <h1> MF ESPORTS (scrim) </h1>
 
@@ -263,7 +261,7 @@
       const minutes = now.getMinutes().toString().padStart(2, '0');
       const seconds = now.getSeconds().toString().padStart(2, '0');
       const timeString = `${hours}:${minutes}:${seconds}`;
-      document.getElementById("time").textContent = `توقيت القاهرة مصر: ${timeString}`;
+      document.getElementById("time").textContent = `توقيت مصر: ${timeString}`;
     }
 
     setInterval(updateTime, 1000);
