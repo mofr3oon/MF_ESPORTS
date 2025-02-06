@@ -169,10 +169,7 @@
     <div class="container" id="main-page">
       <h1>MF ESPORTS (scrim)</h1>
 
-      <form
-  action="https://formspree.io/f/xwpvqpjp"
-  method="POST"
->
+      <form id="registration-form" action="https://formspree.io/f/xwpvqpjp" method="POST">
         <label for="team-name">اسم الفريق:</label>
         <input type="text" id="team-name" name="team-name" placeholder="أدخل اسم الفريق" required>
 
@@ -228,26 +225,28 @@
     function updateTime() {
       const options = { timeZone: "Africa/Cairo", hour: '2-digit', minute: '2-digit', second: '2-digit' };
       const time = new Date().toLocaleTimeString("ar-EG", options);
-      document.getElementById("time").innerHTML = time;
+      document.getElementById("time").innerText = time;
     }
+
     setInterval(updateTime, 1000);
 
-    document.getElementById('show-registration-form').addEventListener('click', function(event) {
+    document.getElementById("registration-form").onsubmit = function(event) {
       event.preventDefault();
-      document.getElementById('main-page').style.display = 'none';
-      document.getElementById('registration-page').style.display = 'block';
-    });
+      document.getElementById("main-page").style.display = "none";
+      document.getElementById("registration-page").style.display = "block";
+    };
 
-    document.getElementById('go-back').addEventListener('click', function() {
-      document.getElementById('main-page').style.display = 'block';
-      document.getElementById('registration-page').style.display = 'none';
-    });
+    document.getElementById("go-back").onclick = function() {
+      document.getElementById("main-page").style.display = "block";
+      document.getElementById("registration-page").style.display = "none";
+    };
 
-    document.getElementById('phoneForm').addEventListener('submit', function(event) {
+    document.getElementById("phoneForm").onsubmit = function(event) {
       event.preventDefault();
-      document.getElementById('registration-page').style.display = 'none';
-      document.getElementById('success-page').style.display = 'block';
-    });
+      document.getElementById("registration-page").style.display = "none";
+      document.getElementById("success-page").style.display = "block";
+    };
   </script>
+
 </body>
 </html>
