@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> 𝐌𝐅 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 (MO FR3OON)</title>
+  <title> MF ESPORTS(scrim) </title>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
@@ -14,28 +14,30 @@
       font-family: 'Cairo', sans-serif;
     }
     body {
-      background: linear-gradient(135deg, #4CAF50, #2E8B57);
+      background: linear-gradient(135deg, #343541, #40414f);
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
       text-align: center;
+      padding: 10px;
       animation: fadeIn 1s ease-in-out;
     }
     .container {
-      background: white;
+      background: #40414f;
       padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
       width: 100%;
-      max-width: 600px;
+      max-width: 500px;
       opacity: 0;
       transform: translateY(20px);
       animation: slideUp 0.8s forwards;
+      color: white;
     }
     h1 {
-      font-size: 2.5em;
-      color: #2E8B57;
+      font-size: 2em;
+      color: #ffffff;
       margin-bottom: 10px;
     }
     form {
@@ -51,39 +53,41 @@
     }
     label i {
       margin-right: 10px;
-      color: #2E8B57;
+      color: #19c37d;
     }
     input {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       font-size: 1em;
-      border: 2px solid #ccc;
-      border-radius: 5px;
+      border: 2px solid #5a5a5a;
+      border-radius: 8px;
+      background: #2e2f3a;
+      color: white;
       transition: all 0.3s;
     }
     input:focus {
-      border-color: #2E8B57;
+      border-color: #19c37d;
       outline: none;
-      box-shadow: 0 0 5px rgba(46, 139, 87, 0.5);
+      box-shadow: 0 0 10px rgba(25, 195, 125, 0.5);
     }
     button {
-      background: #2E8B57;
+      background: #19c37d;
       color: white;
       border: none;
       padding: 15px;
       font-size: 1.2em;
       cursor: pointer;
-      border-radius: 5px;
+      border-radius: 8px;
       margin-top: 15px;
-      transition: background 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
     }
     button:hover {
-      background: #256d46;
+      background: #16a673;
     }
     #success-message {
       display: none;
       font-size: 1.3em;
-      color: green;
+      color: #19c37d;
       margin-top: 15px;
     }
 
@@ -102,12 +106,30 @@
         transform: translateY(0);
       }
     }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+      body {
+        padding: 20px;
+      }
+      .container {
+        width: 100%;
+        padding: 15px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+      button {
+        font-size: 1em;
+        padding: 12px;
+      }
+    }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <h1> 𝐌𝐅 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 (MO FR3OON) </h1>
+    <h1> MF ESPORTS(scrim) </h1>
 
     <form id="registrationForm">
       <label><i class="fas fa-users"></i> اسم الفريق:</label>
