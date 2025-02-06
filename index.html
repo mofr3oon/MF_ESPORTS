@@ -150,6 +150,38 @@
       color: #fff;
       font-size: 1em;
     }
+    /* Adding styles for the terms and conditions modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      background: #40414f;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 600px;
+      overflow-y: auto;
+      max-height: 80%;
+    }
+    .modal-content h2 {
+      margin-bottom: 20px;
+    }
+    .close-btn {
+      color: #fff;
+      font-size: 1.5em;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+    }
   </style>
 </head>
 <body>
@@ -198,56 +230,36 @@
         <label for="phone">:رقم الهاتف [واتساب]</label>
         <input type="text" id="phone" name="phone" placeholder="أدخل رقم هاتفك" required>
 
-<div class="terms-container" style="direction: rtl; text-align: right;">
-  <div class="checkbox-wrapper">
-    <label for="terms-checkbox" style="color: #fff;">
-      أوافق على <span style="margin-right: 5px;"></span><a href="#" style="color: #00ff00; text-decoration: underline;">الشروط والأحكام</a>
-    </label>
-    <input type="checkbox" id="terms-checkbox" required style="margin-top: 10px;">
-  </div>
-</div>
-
-
-
-
-        <button type="submit" id="show-registration-form">تسجيل</button>
+        <div class="terms-container">
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="terms-checkbox" required>
+            <label for="terms-checkbox">أوافق على <a href="javascript:void(0);" id="terms-link">الشروط والأحكام</a></label>
+          </div>
+        </div>
+        <button type="submit">ارسال البيانات</button>
       </form>
+
+      <p class="description">:يجب أن توافق على الشروط والأحكام أولاً</p>
     </div>
   </div>
 
-  <div class="container" id="success-page" style="display: none;">
-    <h1>تم التسجيل بنجاح</h1>
-    <p>MF ESPORTS (scrim) - تم التسجيل بنجاح! ✅</p>
+  <!-- Modal for Terms and Conditions -->
+  <div id="terms-modal" class="modal">
+    <div class="modal-content">
+      <button class="close-btn" id="close-modal">×</button>
+      <h2>الشروط والأحكام</h2>
+      <p>الشروط والأحكام الخاصة بموقع MF ESPORTS...</p>
+    </div>
   </div>
 
   <script>
-    function updateTime() {
-      const options = { timeZone: "Africa/Cairo", hour: '2-digit', minute: '2-digit', second: '2-digit' };
-      const time = new Date().toLocaleTimeString("ar-EG", options);
-      document.getElementById("time").innerText = time;
-    }
+    document.getElementById('terms-link').addEventListener('click', function() {
+      document.getElementById('terms-modal').style.display = 'flex';
+    });
 
-    setInterval(updateTime, 1000);
-
-    document.getElementById("registration-form").onsubmit = function(event) {
-      event.preventDefault(); // منع الإرسال الفوري للبيانات
-      const formData = new FormData(event.target);
-      fetch('https://formspree.io/f/xwpvqpjp', {
-        method: 'POST',
-        body: formData
-      })
-      .then(response => {
-        if (response.ok) {
-          document.getElementById("main-page").style.display = "none";
-          document.getElementById("success-page").style.display = "block";
-        } else {
-          alert('تم التسجيل بنجاح! ✅');
-        }
-      })
-      .catch(error => {
-        alert('تم التسجيل بنجاح! ✅.');
-      });
-    };
+    document.getElementById('close-modal').addEventListener('click', function() {
+      document.getElementById('terms-modal').style.display = 'none';
+    });
   </script>
 </body>
 </html>
