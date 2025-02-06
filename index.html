@@ -168,7 +168,7 @@
         <label for="player3-id">إي دي اللاعب الثالث:</label>
         <input type="text" id="player3-id" name="player3-id" placeholder="أدخل إي دي اللاعب الثالث داخل اللعبة" required>
 
-        <button type="button" id="show-registration-form" disabled>تسجيل</button>
+        <button type="button" id="show-registration-form">تسجيل</button>
       </form>
     </div>
   </div>
@@ -200,38 +200,23 @@
     setInterval(updateTime, 1000); // تحديث الوقت كل ثانية
     updateTime(); // لتحديث الوقت عند تحميل الصفحة
 
-    // التحقق من تعبئة الحقول
-    const inputs = document.querySelectorAll("input");
-    const submitButton = document.getElementById("show-registration-form");
-
-    inputs.forEach(input => {
-      input.addEventListener("input", checkForm);
-    });
-
-    function checkForm() {
-      let allFilled = true;
-      inputs.forEach(input => {
-        if (!input.value.trim()) {
-          allFilled = false;
-        }
-      });
-      submitButton.disabled = !allFilled; // تفعيل الزر فقط إذا كانت جميع الحقول مملوءة
-    }
-
     // الانتقال من الصفحة الرئيسية إلى صفحة إدخال رقم الهاتف
     document.getElementById("show-registration-form").addEventListener("click", function() {
-      // التحقق قبل الانتقال
-      if (!submitButton.disabled) {
-        document.getElementById("main-page").style.display = "none";
-        document.getElementById("registration-page").style.display = "block";
-      }
+      document.getElementById("main-page").style.display = "none";
+      document.getElementById("registration-page").style.display = "block";
     });
 
-    // الانتقال إلى صفحة النجاح بعد إدخال رقم الهاتف
+    // التحقق من ملء الحقول في الصفحة الثانية (رقم الهاتف)
     document.getElementById("phoneForm").addEventListener("submit", function(event) {
       event.preventDefault();
-      document.getElementById("registration-page").style.display = "none";
-      document.getElementById("success-page").style.display = "block";
+      const phoneInput = document.getElementById("phone").value.trim();
+      
+      if (phoneInput) {
+        document.getElementById("registration-page").style.display = "none";
+        document.getElementById("success-page").style.display = "block";
+      } else {
+        alert("يرجى إدخال رقم الهاتف بشكل صحيح");
+      }
     });
   </script>
 </body>
