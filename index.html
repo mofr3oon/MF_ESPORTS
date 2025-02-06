@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل سكريم ببجي مو فرعون</title>
+    <script>
+        function showConfirmation() {
+            // إظهار صفحة التأكيد عند الضغط على زر التسجيل
+            document.getElementById("form").style.display = "none"; // إخفاء النموذج
+            document.getElementById("confirmation").style.display = "block"; // إظهار رسالة التأكيد
+        }
+    </script>
+</head>
+<body>
+    <h1>تسجيل سكريم ببجي مو فرعون</h1>
+    <form id="form" action="javascript:void(0);" onsubmit="showConfirmation()">
+        <!-- بيانات الفريق -->
+        <label for="team_name">اسم الفريق:</label>
+        <input type="text" id="team_name" name="team_name" required>
+        <br><br>
+        
+        <!-- بيانات الليدر -->
+        <label for="leader_name">اسم الليدر:</label>
+        <input type="text" id="leader_name" name="leader_name" required>
+        <br><br>
+        <label for="leader_id">آيدي الليدر:</label>
+        <input type="text" id="leader_id" name="leader_id" required>
+        <br><br>
+        
+        <!-- بيانات اللاعبين -->
+        <h2>اللاعبين:</h2>
+        
+        <label for="player1_name">اسم اللاعب الأول:</label>
+        <input type="text" id="player1_name" name="player1_name" required>
+        <br><br>
+        <label for="player1_id">آيدي اللاعب الأول:</label>
+        <input type="text" id="player1_id" name="player1_id" required>
+        <br><br>
+        
+        <label for="player2_name">اسم اللاعب الثاني:</label>
+        <input type="text" id="player2_name" name="player2_name" required>
+        <br><br>
+        <label for="player2_id">آيدي اللاعب الثاني:</label>
+        <input type="text" id="player2_id" name="player2_id" required>
+        <br><br>
+        
+        <label for="player3_name">اسم اللاعب الثالث:</label>
+        <input type="text" id="player3_name" name="player3_name" required>
+        <br><br>
+        <label for="player3_id">آيدي اللاعب الثالث:</label>
+        <input type="text" id="player3_id" name="player3_id" required>
+        <br><br>
+
+        <input type="submit" value="تسجيل">
+    </form>
+
+    <!-- صفحة التأكيد -->
+    <div id="confirmation" style="display:none;">
+        <h2>تم التسجيل بنجاح!</h2>
+        <p>يرجى عدم التسجيل مرة أخرى في هذا السكريم. شكراً لك.</p>
+    </div>
+</body>
+</html>
