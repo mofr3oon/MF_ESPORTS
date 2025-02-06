@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> MF ESPORTS (scrim) </title>
+  <title>MF ESPORTS (scrim)</title>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
     * {
       box-sizing: border-box;
@@ -19,91 +20,27 @@
       align-items: center;
       min-height: 100vh;
       text-align: center;
-      flex-direction: column; /* تعديل لتوجيه المحتوى عمودي */
       padding: 10px;
-      animation: fadeIn 1s ease-in-out;
+      flex-direction: column;
     }
-    .social-container {
-      width: 100%;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      font-size: 1em;
-      color: white;
-      width: 100%;
-    }
-    .social-links a {
-      color: white;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    .social-links a:hover {
-      color: #19c37d;
-    }
-    #time {
-      font-size: 1.2em;
-      color: #19c37d;
-    }
-    
     .container {
       background: #40414f;
-      padding: 15px;
+      padding: 20px;
       border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
       width: 100%;
-      max-width: 450px; /* تصغير الحجم */
-      opacity: 0;
-      transform: translateY(20px);
-      animation: slideUp 0.8s forwards;
+      max-width: 500px;
       color: white;
+      margin-top: 30px;
+      transition: box-shadow 0.3s ease;
+    }
+    .container:hover {
+      box-shadow: 0 4px 15px rgba(0, 255, 0, 0.7);
     }
     h1 {
       font-size: 2em;
       color: #ffffff;
       margin-bottom: 10px;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    label {
-      font-size: 1.1em;
-      text-align: left;
-      display: flex;
-      align-items: center;
-    }
-    .input-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-    }
-    .input-wrapper input {
-      flex-grow: 1;
-    }
-    input {
-      width: 100%;
-      padding: 12px;
-      font-size: 1em;
-      border: 2px solid #5a5a5a;
-      border-radius: 8px;
-      background: #2e2f3a;
-      color: white;
-      transition: all 0.3s;
-    }
-    input:focus {
-      border-color: #19c37d;
-      outline: none;
-      box-shadow: 0 0 10px rgba(25, 195, 125, 0.5);
-    }
-    .small-text {
-      font-size: 0.8em;
-      color: #19c37d; /* اللون الأخضر */
     }
     button {
       background: #19c37d;
@@ -119,154 +56,162 @@
     button:hover {
       background: #16a673;
     }
-    #success-message {
-      display: none;
-      font-size: 1.3em;
+    label {
+      font-size: 1.1em;
+      text-align: left;
+      display: flex;
+      align-items: center;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      font-size: 1em;
+      border: 2px solid #5a5a5a;
+      border-radius: 8px;
+      background: #2e2f3a;
+      color: white;
+      margin-bottom: 10px;
+      transition: box-shadow 0.3s ease;
+    }
+    input:focus {
+      box-shadow: 0 0 15px rgba(0, 255, 0, 1); /* الجلو الأخضر عند الفوكس */
+      border-color: #19c37d;
+    }
+    p {
+      font-size: 1.2em;
       color: #19c37d;
-      margin-top: 15px;
+      margin-top: 20px;
     }
-
-    /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    .description {
+      font-size: 1em;
+      margin-top: 10px;
+      color: #aaa;
     }
-    @keyframes slideUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .links {
+      font-size: 1.2em;
+      margin-top: 10px;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
     }
-
-    /* Responsive Design */
-    @media (max-width: 600px) {
-      body {
-        padding: 20px;
-      }
-      .container {
-        width: 100%;
-        padding: 15px;
-      }
-      h1 {
-        font-size: 1.8em;
-      }
-      button {
-        font-size: 1em;
-        padding: 12px;
-      }
+    .links a {
+      color: #19c37d;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
     }
-
+    .links a:hover {
+      color: #fff;
+    }
+    .time {
+      font-size: 1.1em;
+      color: #fff;
+      margin-top: 10px;
+    }
+    .header {
+      text-align: center;
+      width: 100%;
+    }
+    .content {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Social Links and Time Display -->
-  <div class="social-container">
-    <div class="social-links">
+  <!-- رأس الصفحة يحتوي على الروابط والتوقيت -->
+  <div class="header">
+    <!-- الروابط -->
+    <div class="links">
       <a href="https://www.tiktok.com/@mo_fr3oon" target="_blank">تيك توك</a>
       <a href="https://t.me/MOBASHOP99" target="_blank">تليجرام</a>
       <a href="https://www.instagram.com/mo_fr3oon/" target="_blank">إنستجرام</a>
       <a href="https://discord.gg/9h2zND3Nzw" target="_blank">ديسكورد</a>
       <a href="https://youtube.com/c/MOFR3OON?sub_confirmation=1" target="_blank">يوتيوب</a>
     </div>
-    <div id="time"></div> <!-- مكان عرض التوقيت -->
+
+    <!-- التوقيت -->
+    <div class="time" id="time"></div>
   </div>
 
-  <!-- Main Form Container -->
-  <div class="container">
-    <h1> MF ESPORTS (scrim) </h1>
+  <!-- الصفحة الأولى -->
+  <div class="content">
+    <div class="container" id="main-page">
+      <h1>MF ESPORTS (scrim)</h1>
 
-    <form id="registrationForm">
-      <label>اسم الفريق:</label>
-      <input type="text" name="team_name" required>
+      <!-- الفورم -->
+      <form action="#" method="get">
+        <label for="team-name">اسم الفريق:</label>
+        <input type="text" id="team-name" name="team-name" placeholder="أدخل اسم الفريق" required>
 
-      <label>اسم الليدر:</label>
-      <div class="input-wrapper">
-        <input type="text" name="leader_name" required>
-        <span class="small-text">اسم اللاعب داخل اللعبة</span>
-      </div>
+        <label for="leader-name">اسم الليدر:</label>
+        <input type="text" id="leader-name" name="leader-name" placeholder="أدخل اسم الليدر داخل اللعبة" required>
 
-      <label>ID الليدر:</label>
-      <div class="input-wrapper">
-        <input type="text" name="leader_id" required>
-        <span class="small-text">إيدي اللاعب داخل اللعبة</span>
-      </div>
+        <label for="player1-name">اسم اللاعب الأول:</label>
+        <input type="text" id="player1-name" name="player1-name" placeholder="أدخل اسم اللاعب الأول داخل اللعبة" required>
 
-      <label>اسم اللاعب الأول:</label>
-      <div class="input-wrapper">
-        <input type="text" name="player1_name" required>
-        <span class="small-text">اسم اللاعب داخل اللعبة</span>
-      </div>
+        <label for="player1-id">إي دي اللاعب الأول:</label>
+        <input type="text" id="player1-id" name="player1-id" placeholder="أدخل إي دي اللاعب الأول داخل اللعبة" required>
 
-      <label>ID اللاعب الأول:</label>
-      <div class="input-wrapper">
-        <input type="text" name="player1_id" required>
-        <span class="small-text">إيدي اللاعب داخل اللعبة</span>
-      </div>
+        <label for="player2-name">اسم اللاعب الثاني:</label>
+        <input type="text" id="player2-name" name="player2-name" placeholder="أدخل اسم اللاعب الثاني داخل اللعبة" required>
 
-      <label>اسم اللاعب الثاني:</label>
-      <div class="input-wrapper">
-        <input type="text" name="player2_name" required>
-        <span class="small-text">اسم اللاعب داخل اللعبة</span>
-      </div>
+        <label for="player2-id">إي دي اللاعب الثاني:</label>
+        <input type="text" id="player2-id" name="player2-id" placeholder="أدخل إي دي اللاعب الثاني داخل اللعبة" required>
 
-      <label>ID اللاعب الثاني:</label>
-      <div class="input-wrapper">
-        <input type="text" name="player2_id" required>
-        <span class="small-text">إيدي اللاعب داخل اللعبة</span>
-      </div>
+        <label for="player3-name">اسم اللاعب الثالث:</label>
+        <input type="text" id="player3-name" name="player3-name" placeholder="أدخل اسم اللاعب الثالث داخل اللعبة" required>
 
-      <label>اسم اللاعب الثالث:</label>
-      <div class="input-wrapper">
-        <input type="text" name="player3_name" required>
-        <span class="small-text">اسم اللاعب داخل اللعبة</span>
-      </div>
+        <label for="player3-id">إي دي اللاعب الثالث:</label>
+        <input type="text" id="player3-id" name="player3-id" placeholder="أدخل إي دي اللاعب الثالث داخل اللعبة" required>
 
-      <label>ID اللاعب الثالث:</label>
-      <div class="input-wrapper">
-        <input type="text" name="player3_id" required>
-        <span class="small-text">إيدي اللاعب داخل اللعبة</span>
-      </div>
+        <button type="button" id="show-registration-form">تسجيل</button>
+      </form>
+    </div>
+  </div>
 
-      <button type="submit">تسجيل</button>
+  <!-- الصفحة الثانية: إدخال رقم الهاتف -->
+  <div class="container" id="registration-page" style="display: none;">
+    <h1>إدخال رقم الهاتف</h1>
+    <p class="description">سيتم إرسال رقم الغرفة ورقم الفريق عبر واتساب.</p>
+    <form id="phoneForm">
+      <label for="phone">رقم الهاتف (واتساب):</label>
+      <input type="text" id="phone" name="phone" placeholder="أدخل رقم هاتفك" required>
+      <button type="submit">تأكيد التسجيل</button>
     </form>
+  </div>
 
-    <p id="success-message">تم التسجيل بنجاح! ✅</p>
+  <!-- الصفحة الثالثة: تم التسجيل بنجاح -->
+  <div class="container" id="success-page" style="display: none;">
+    <h1>تم التسجيل بنجاح</h1>
+    <p>MF ESPORTS (scrim) - تم التسجيل بنجاح! ✅</p>
   </div>
 
   <script>
-    document.getElementById("registrationForm").addEventListener("submit", function(event) {
-      event.preventDefault();
+    // تحديث الوقت في الصفحة الرئيسية
+    function updateTime() {
+      const options = { timeZone: "Africa/Cairo", hour: '2-digit', minute: '2-digit', second: '2-digit' };
+      const time = new Date().toLocaleTimeString("ar-EG", options);
+      document.getElementById("time").textContent = `التوقيت الحالي: ${time}`;
+    }
+    setInterval(updateTime, 1000); // تحديث الوقت كل ثانية
+    updateTime(); // لتحديث الوقت عند تحميل الصفحة
 
-      var formData = new FormData(this);
-      fetch("https://formspree.io/f/xwpvqpjp", {
-        method: "POST",
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      }).then(response => {
-        if (response.ok) {
-          document.getElementById("registrationForm").style.display = "none";
-          document.getElementById("success-message").style.display = "block";
-        }
-      }).catch(error => console.log("حدث خطأ:", error));
+    // الانتقال من الصفحة الرئيسية إلى صفحة إدخال رقم الهاتف
+    document.getElementById("show-registration-form").addEventListener("click", function() {
+      document.getElementById("main-page").style.display = "none";
+      document.getElementById("registration-page").style.display = "block";
     });
 
-    function updateTime() {
-      const now = new Date();
-      const hours = now.getHours().toString().padStart(2, '0');
-      const minutes = now.getMinutes().toString().padStart(2, '0');
-      const seconds = now.getSeconds().toString().padStart(2, '0');
-      const timeString = `${hours}:${minutes}:${seconds}`;
-      document.getElementById("time").textContent = `توقيت مصر: ${timeString}`;
-    }
-
-    setInterval(updateTime, 1000);
-    updateTime(); // Update immediately when the page loads
+    // الانتقال إلى صفحة النجاح بعد إدخال رقم الهاتف
+    document.getElementById("phoneForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      document.getElementById("registration-page").style.display = "none";
+      document.getElementById("success-page").style.display = "block";
+    });
   </script>
-
 </body>
 </html>
