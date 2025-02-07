@@ -58,9 +58,9 @@
     }
     label {
       font-size: 1.1em;
+      text-align: left;
       display: flex;
       align-items: center;
-      margin-bottom: 5px;
     }
     input {
       width: 100%;
@@ -77,11 +77,23 @@
       box-shadow: 0 0 15px rgba(0, 255, 0, 1);
       border-color: #19c37d;
     }
+    p {
+      font-size: 1.2em;
+      color: #19c37d;
+      margin-top: 20px;
+    }
+    .description {
+      font-size: 1em;
+      margin-top: 10px;
+      color: #aaa;
+    }
     .links {
+      font-size: 0.8em;
+      margin-top: 10px;
+      color: #fff;
       display: flex;
       justify-content: center;
       gap: 15px;
-      margin-bottom: 10px;
     }
     .links a {
       color: #19c37d;
@@ -92,6 +104,20 @@
     .links a:hover {
       color: #fff;
     }
+    .time {
+      font-size: 1.1em;
+      color: #fff;
+      margin-top: 10px;
+    }
+    .header {
+      text-align: center;
+      width: 100%;
+    }
+    .content {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
     .terms-container {
       display: flex;
       justify-content: center;
@@ -101,15 +127,25 @@
     .checkbox-wrapper {
       display: inline-flex;
       align-items: center;
+      margin-left: 10px;
     }
     .checkbox-wrapper input[type="checkbox"] {
-      margin-right: 5px;
-      width: 18px;
-      height: 18px;
+      margin-right: 2px;
+      margin-bottom: -8px;
+      width: 20px;
+      height: 20px;
+      border-radius: 25px;
+      border: 8px solid #76d7c4;
+      background: #2e2f3a;
+      cursor: pointer;
+    }
+    .checkbox-wrapper input[type="checkbox"]:checked {
+      background: #19c37d;
     }
     .checkbox-wrapper label {
       color: #fff;
       font-size: 1em;
+      margin-top: 7px;
     }
   </style>
 </head>
@@ -122,50 +158,99 @@
       <a href="https://discord.gg/9h2zND3Nzw" target="_blank">ديسكورد</a>
       <a href="https://youtube.com/c/MOFR3OON?sub_confirmation=1" target="_blank">يوتيوب</a>
     </div>
+    <div class="time" id="time"></div>
   </div>
 
-  <div class="container">
-    <h1>MF ESPORTS</h1>
-    <form id="registration-form" action="https://script.google.com/macros/s/AKfycbxKWPrxqAidpPCCr3khAv4LwHiOufDOUTsjkBYQJap2g0DepMYhBEB1TfI9oFbDrtaF/exec" method="POST">
-      <label>اسم الفريق:</label>
-      <input type="text" name="team-name" required>
-      
-      <label>اسم الليدر:</label>
-      <input type="text" name="leader-name" required>
-      
-      <label>اي دي الليدر:</label>
-      <input type="text" name="leader-id" required>
-      
-      <label>اسم اللاعب الثاني:</label>
-      <input type="text" name="player1-name" required>
-      
-      <label>اي دي اللاعب الثاني:</label>
-      <input type="text" name="player1-id" required>
-      
-      <label>اسم اللاعب الثالث:</label>
-      <input type="text" name="player2-name" required>
-      
-      <label>اي دي اللاعب الثالث:</label>
-      <input type="text" name="player2-id" required>
-      
-      <label>اسم اللاعب الرابع:</label>
-      <input type="text" name="player3-name" required>
-      
-      <label>اي دي اللاعب الرابع:</label>
-      <input type="text" name="player3-id" required>
-      
-      <label>رقم الهاتف (واتساب):</label>
-      <input type="text" name="phone" required>
-      
-      <div class="terms-container">
-        <div class="checkbox-wrapper">
-          <input type="checkbox" id="terms-checkbox" required>
-          <label for="terms-checkbox"><a href="terms.html" style="color: #19c37d; text-decoration: underline;">أوافق على الشروط والأحكام</a></label>
+  <div class="content">
+    <div class="container" id="main-page">
+      <h1>MF ESPORTS</h1>
+      <form id="registration-form" action="https://formspree.io/f/xwpvqpjp" method="POST">
+        <label for="team-name">:اسم الفريق</label>
+        <input type="text" id="team-name" name="team-name" placeholder="أدخل اسم الفريق" required>
+
+        <label for="leader-name">:[اسم اللاعب الأول [الليدر</label>
+        <input type="text" id="leader-name" name="leader-name" placeholder="أدخل اسم الليدر داخل اللعبة" required>
+
+        <label for="leader-id">:[اي دي اللاعب الأول [الليدر </label>
+        <input type="text" id="leader-id" name="leader-id" placeholder="أدخل اي دي الليدر داخل اللعبة" required>
+
+        <label for="player1-name">:اسم اللاعب الثاني</label>
+        <input type="text" id="player1-name" name="player1-name" placeholder="أدخل اسم اللاعب الثاني داخل اللعبة" required>
+
+        <label for="player1-id">:اي دي اللاعب الثاني</label>
+        <input type="text" id="player1-id" name="player1-id" placeholder="أدخل اي دي الثاني داخل اللعبة" required>
+
+        <label for="player2-name">:اسم اللاعب الثالث</label>
+        <input type="text" id="player2-name" name="player2-name" placeholder="أدخل اسم اللاعب الثالث داخل اللعبة" required>
+
+        <label for="player2-id">:اي دي اللاعب الثالث</label>
+        <input type="text" id="player2-id" name="player2-id" placeholder="أدخل اي دي الثالث داخل اللعبة" required>
+
+        <label for="player3-name">:اسم اللاعب الرابع</label>
+        <input type="text" id="player3-name" name="player3-name" placeholder="أدخل اسم اللاعب الرابع داخل اللعبة" required>
+
+        <label for="player3-id">:اي دي اللاعب الرابع</label>
+        <input type="text" id="player3-id" name="player3-id" placeholder="أدخل اي دي الرابع داخل اللعبة" required>
+
+        <label for="phone">:رقم الهاتف [واتساب]</label>
+        <input type="text" id="phone" name="phone" placeholder="هيتم ارسال بيانات الغرفة ع الواتس" required>
+
+        <div class="terms-container">
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="terms-checkbox" required>
+            <label for="terms-checkbox"> 
+              <a href="terms.html" style="color: #19c37d; text-decoration: underline;"> أوافق علي الشروط والأحكام </a>
+            </label>
+          </div>
         </div>
-      </div>
-      
-      <button type="submit">إرسال البيانات</button>
-    </form>
+        <button type="submit">ارسال البيانات</button>
+      </form>
+
+      <p class="description">:يجب أن توافق على الشروط والأحكام قبل إرسال الطلب</p>
+    </div>
   </div>
+
+  <script>
+    // عرض الوقت الحالي
+    const timeElement = document.getElementById('time');
+    setInterval(() => {
+      const date = new Date();
+      timeElement.textContent = date.toLocaleString('ar-EG');
+    }, 1000);
+  </script>
+  
+  <!-- جافاسكريبت لاعتراض إرسال النموذج وإعادة التوجيه إلى success.html -->
+  <script>
+    document.getElementById("registration-form").addEventListener("submit", function(e) {
+      e.preventDefault(); // منع إعادة التوجيه الافتراضية
+      const form = this;
+      const formData = new FormData(form);
+      
+      fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          // إعادة توجيه المستخدم إلى صفحة success.html بعد نجاح التسجيل
+          window.location.href = "success.html";
+        } else {
+          response.json().then(data => {
+            if (data.hasOwnProperty("errors")) {
+              alert(data["errors"].map(error => error["message"]).join(", "));
+            } else {
+              alert("حدث خطأ أثناء التسجيل. يرجى المحاولة مرة أخرى.");
+            }
+          });
+        }
+      })
+      .catch(error => {
+        alert("حدث خطأ أثناء التسجيل. يرجى المحاولة مرة أخرى.");
+      });
+    });
+  </script>
 </body>
 </html>
