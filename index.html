@@ -220,35 +220,5 @@
       timeElement.textContent = date.toLocaleString('ar-EG');
     }, 1000);
   </script>
-  
-  <!-- جافاسكريبت لاعتراض إرسال النموذج وإعادة التوجيه إلى success.html -->
-  <script>
-    document.getElementById("registration-form").addEventListener("submit", function(e) {
-      e.preventDefault(); // منع إعادة تحميل الصفحة تلقائياً
-      const form = this;
-      const formData = new FormData(form);
-      
-      fetch(form.action, {
-        method: form.method,
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      })
-      .then(response => response.json())
-      .then(data => {
-        if(data.result === "success") {
-          // إذا كانت الاستجابة ناجحة يتم إعادة توجيه المستخدم إلى صفحة success.html
-          window.location.href = "success.html";
-        } else {
-          alert("حدث خطأ أثناء التسجيل. يرجى المحاولة مرة أخرى.");
-        }
-      })
-      .catch(error => {
-        console.error("Error:", error);
-        alert("حدث خطأ أثناء التسجيل. يرجى المحاولة مرة أخرى.");
-      });
-    });
-  </script>
 </body>
 </html>
