@@ -61,6 +61,7 @@
       text-align: left;
       display: flex;
       align-items: center;
+      margin-bottom: 5px;
     }
     input {
       width: 100%;
@@ -164,7 +165,8 @@
   <div class="content">
     <div class="container" id="main-page">
       <h1>MF ESPORTS</h1>
-      <form id="registration-form" action="https://formspree.io/f/xwpvqpjp" method="POST">
+      <!-- تم استبدال رابط Formspree برابط Google Apps Script -->
+      <form id="registration-form" action="https://script.google.com/macros/s/AKfycbxKWPrxqAidpPCCr3khAv4LwHiOufDOUTsjkBYQJap2g0DepMYhBEB1TfI9oFbDrtaF/exec" method="POST">
         <label for="team-name">:اسم الفريق</label>
         <input type="text" id="team-name" name="team-name" placeholder="أدخل اسم الفريق" required>
 
@@ -199,7 +201,7 @@
           <div class="checkbox-wrapper">
             <input type="checkbox" id="terms-checkbox" required>
             <label for="terms-checkbox"> 
-              <a href="terms.html" style="color: #19c37d; text-decoration: underline;"> أوافق علي الشروط والأحكام </a>
+              <a href="terms.html" style="color: #19c37d; text-decoration: underline;">أوافق علي الشروط والأحكام</a>
             </label>
           </div>
         </div>
@@ -222,7 +224,7 @@
   <!-- جافاسكريبت لاعتراض إرسال النموذج وإعادة التوجيه إلى success.html -->
   <script>
     document.getElementById("registration-form").addEventListener("submit", function(e) {
-      e.preventDefault(); // منع إعادة التوجيه الافتراضية
+      e.preventDefault(); // منع إعادة تحميل الصفحة تلقائياً
       const form = this;
       const formData = new FormData(form);
       
@@ -233,21 +235,17 @@
           'Accept': 'application/json'
         }
       })
-      .then(response => {
-        if (response.ok) {
-          // إعادة توجيه المستخدم إلى صفحة success.html بعد نجاح التسجيل
+      .then(response => response.json())
+      .then(data => {
+        if(data.result === "success") {
+          // إذا كانت الاستجابة ناجحة يتم إعادة توجيه المستخدم إلى صفحة success.html
           window.location.href = "success.html";
         } else {
-          response.json().then(data => {
-            if (data.hasOwnProperty("errors")) {
-              alert(data["errors"].map(error => error["message"]).join(", "));
-            } else {
-              alert("حدث خطأ أثناء التسجيل. يرجى المحاولة مرة أخرى.");
-            }
-          });
+          alert("حدث خطأ أثناء التسجيل. يرجى المحاولة مرة أخرى.");
         }
       })
       .catch(error => {
+        console.error("Error:", error);
         alert("حدث خطأ أثناء التسجيل. يرجى المحاولة مرة أخرى.");
       });
     });
