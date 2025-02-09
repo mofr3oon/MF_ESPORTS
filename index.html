@@ -280,328 +280,162 @@
 </html>
 
 
+
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MF ESPORTS</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Cairo', sans-serif;
-    }
-    body {
-      background: linear-gradient(135deg, #0f0f0f, #333); /* خلفية أغمق */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      text-align: center;
-      padding: 10px;
-      flex-direction: column;
-    }
-    .container {
-      background-color: #121212; /* درجة داكنة أكثر للبادي */
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-      width: 100%;
-      max-width: 500px;
-      color: white;
-      margin-top: 30px;
-      transition: box-shadow 0.3s ease;
-    }
-    .container:hover {
-      box-shadow: 0 4px 15px rgba(0, 255, 0, 0.7);
-    }
-    h1 {
-      font-size: 2em;
-      color: #ffffff;
-      margin-bottom: 10px;
-    }
-    button {
-      background: #28a745; /* لون أخضر فاتح */
-      color: white;
-      border: none;
-      padding: 15px;
-      font-size: 1.2em;
-      cursor: pointer;
-      border-radius: 25px; /* حواف مدورة أكثر */
-      margin-top: 15px;
-      transition: all 0.3s ease-in-out;
-      width: 100%;
-      max-width: 350px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    }
-    button:hover {
-      background: #218838; /* الأخضر الغامق عند التمرير */
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-    }
-    label {
-      font-size: 1.1em;
-      text-align: left;
-      display: flex;
-      align-items: center;
-    }
-    input {
-      width: 100%;
-      padding: 12px;
-      font-size: 1em;
-      border: 2px solid #5a5a5a;
-      border-radius: 8px;
-      background: #2e2f3a;
-      color: white;
-      margin-bottom: 10px;
-      transition: box-shadow 0.3s ease;
-    }
-    input:focus {
-      box-shadow: 0 0 15px rgba(0, 255, 0, 1);
-      border-color: #19c37d;
-    }
-    p {
-      font-size: 1.2em;
-      color: #19c37d;
-      margin-top: 20px;
-    }
-    .description {
-      font-size: 1em;
-      margin-top: 10px;
-      color: #aaa;
-    }
-    .links {
-      font-size: 1.1em;
-      margin-top: 10px;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-    .links a {
-      color: #19c37d;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
-      padding: 12px 20px;
-      background-color: rgba(25, 195, 125, 0.2);
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    }
-    .links a:hover {
-      color: #fff;
-      background-color: #19c37d;
-      box-shadow: 0 6px 15px rgba(25, 195, 125, 0.6);
-    }
-    .time-box {
-      background: rgba(25, 195, 125, 0.2);
-      border-radius: 10px;
-      padding: 10px 20px;
-      margin-top: 20px;
-      display: inline-block;
-      font-size: 1.1em;
-      font-weight: bold;
-      color: white;
-      box-shadow: 0 4px 10px rgba(0, 255, 0, 0.5);
-      transition: box-shadow 0.3s ease;
-    }
-    .time-box:hover {
-      box-shadow: 0 4px 15px rgba(0, 255, 0, 1);
-    }
-    .header {
-      text-align: center;
-      width: 100%;
-    }
-    .content {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-    }
-    .terms-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 10px;
-    }
-    .checkbox-wrapper {
-      display: inline-flex;
-      align-items: center;
-      margin-left: 10px;
-    }
-    .checkbox-wrapper input[type="checkbox"] {
-      margin-right: 2px;
-      margin-bottom: -8px;
-      width: 20px;
-      height: 20px;
-      border-radius: 25px;
-      border: 8px solid #76d7c4;
-      background: #2e2f3a;
-      cursor: pointer;
-    }
-    .checkbox-wrapper input[type="checkbox"]:checked {
-      background: #19c37d;
-    }
-    .checkbox-wrapper label {
-      color: #fff;
-      font-size: 1em;
-      margin-top: 7px;
-    }
-
-    /* 3D table styles */
-    table {
-      width: 70%;
-      margin: 20px auto;
-      border-collapse: collapse;
-      background: #000;
-      box-shadow: 0 0 25px rgba(0, 255, 0, 0.8);
-      transform: perspective(800px) rotateX(10deg) rotateY(0deg);
-      transition: transform 0.3s ease;
-    }
-    table:hover {
-      transform: perspective(800px) rotateX(0deg) rotateY(15deg);
-    }
-    th, td {
-      border: 1px solid #0f0;
-      padding: 15px;
-      text-align: center;
-      font-size: 18px;
-      background: #111;
-      color: #fff;
-      box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.4);
-      transition: all 0.2s ease;
-    }
-    th {
-      background-color: #19c37d;
-      color: black;
-      text-shadow: 0px 0px 15px #0f0;
-      box-shadow: inset 0 0 15px rgba(0, 255, 0, 0.5);
-    }
-    tr:nth-child(even) {
-      background-color: rgba(0, 255, 0, 0.1);
-    }
-    td {
-      text-shadow: 0px 0px 5px #0f0;
-    }
-
-    /* Apply transparent yellow border for top 1 */
-    tr:nth-child(1) td {
-      border-top: 4px solid rgba(255, 215, 0, 0.7); /* Transparent yellow border */
-    }
-    /* Apply transparent yellow border for top 2 */
-    tr:nth-child(2) td {
-      border-top: 4px solid rgba(255, 215, 0, 0.7); /* Transparent yellow border */
-    }
-    /* Apply transparent yellow border for top 3 */
-    tr:nth-child(3) td {
-      border-top: 4px solid rgba(255, 215, 0, 0.7); /* Transparent yellow border */
-    }
-    .fancy-line {
-      border-bottom: 2px solid black;
-      margin-top: 5px;
-      margin-bottom: 5px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MF ESPORTS Results</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #0f0f0f, #333);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 10px;
+            flex-direction: column;
+            color: white;
+        }
+        h2 {
+            font-size: 1.5em;
+            text-shadow: 0px 0px 10px #0f0;
+            margin-bottom: 10px;
+        }
+        .fancy-line {
+            border-bottom: 2px solid black;
+            width: 60%;
+            margin-bottom: 15px;
+        }
+        .table-container {
+            width: 100%;
+            max-width: 400px; /* جعل الجدول أصغر */
+            margin: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #000;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+            transform: perspective(800px) rotateX(6deg);
+            transition: transform 0.3s ease;
+        }
+        table:hover {
+            transform: perspective(800px) rotateX(0deg) rotateY(4deg);
+        }
+        th, td {
+            border: 1px solid #0f0;
+            padding: 6px; /* تصغير البادينج */
+            text-align: center;
+            font-size: 13px; /* تقليل حجم الخط */
+            background: #111;
+            color: #fff;
+            box-shadow: inset 0 0 5px rgba(0, 255, 0, 0.4);
+            transition: all 0.2s ease;
+        }
+        th {
+            background-color: #19c37d;
+            color: black;
+            text-shadow: 0px 0px 10px #0f0;
+            box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+        tr:nth-child(even) {
+            background-color: rgba(0, 255, 0, 0.1);
+        }
+        td {
+            text-shadow: 0px 0px 3px #0f0;
+        }
+        /* تأثير التمييز للفرق الثلاثة الأولى */
+        tr:nth-child(2) td,
+        tr:nth-child(3) td,
+        tr:nth-child(4) td {
+            border-top: 3px solid rgba(255, 215, 0, 0.7);
+        }
+        /* تحسين المظهر على الشاشات الصغيرة */
+        @media (max-width: 500px) {
+            table {
+                transform: none;
+                box-shadow: 0 0 8px rgba(0, 255, 0, 0.5);
+            }
+            th, td {
+                padding: 5px;
+                font-size: 12px;
+            }
+            h2 {
+                font-size: 1.3em;
+            }
+            .fancy-line {
+                width: 50%;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <h2 style="text-shadow: 0px 0px 10px #0f0;">🔥 Result 🔥</h2>
-
+    <h2>🔥 Result 🔥</h2>
     <div class="fancy-line"></div>
-    
-    <table>
-        <tr>
-            <th>#</th>
-            <th>Team Name</th>
-            <th>Win</th>
-            <th>Points</th>
-            <th>Kill</th>
-            <th>Total</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>MF 1</td>
-            <td>3</td>
-            <td>70</td>
-            <td>40</td>
-            <td>110</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>MF 2</td>
-            <td>0</td>
-            <td>60</td>
-            <td>35</td>
-            <td>95</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>MF 3</td>
-            <td>0</td>
-            <td>55</td>
-            <td>30</td>
-            <td>85</td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>MF 4</td>
-            <td>0</td>
-            <td>50</td>
-            <td>25</td>
-            <td>75</td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td>MF 5</td>
-            <td>0</td>
-            <td>45</td>
-            <td>20</td>
-            <td>65</td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td>MF 6</td>
-            <td>0</td>
-            <td>40</td>
-            <td>15</td>
-            <td>55</td>
-        </tr>
-        <tr>
-            <td>7</td>
-            <td>MF 7</td>
-            <td>0</td>
-            <td>35</td>
-            <td>10</td>
-            <td>45</td>
-        </tr>
-        <tr>
-            <td>8</td>
-            <td>MF 8</td>
-            <td>0</td>
-            <td>30</td>
-            <td>5</td>
-            <td>35</td>
-        </tr>
-        <tr>
-            <td>9</td>
-            <td>MF 9</td>
-            <td>0</td>
-            <td>25</td>
-            <td>5</td>
-            <td>30</td>
-        </tr>
-        <tr>
-            <td>10</td>
-            <td>MF 10</td>
-            <td>0</td>
-            <td>20</td>
-            <td>0</td>
-            <td>20</td>
-        </tr>
-    </table>
+
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>#</th>
+                <th>Team Name</th>
+                <th>Win</th>
+                <th>Points</th>
+                <th>Kill</th>
+                <th>Total</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>MF 1</td>
+                <td>3</td>
+                <td>70</td>
+                <td>40</td>
+                <td>110</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>MF 2</td>
+                <td>0</td>
+                <td>60</td>
+                <td>35</td>
+                <td>95</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>MF 3</td>
+                <td>0</td>
+                <td>55</td>
+                <td>30</td>
+                <td>85</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>MF 4</td>
+                <td>0</td>
+                <td>50</td>
+                <td>25</td>
+                <td>75</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>MF 5</td>
+                <td>0</td>
+                <td>45</td>
+                <td>20</td>
+                <td>65</td>
+            </tr>
+        </table>
+    </div>
 
 </body>
 </html>
