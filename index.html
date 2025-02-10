@@ -240,7 +240,7 @@
       const date = new Date();
       // تحويل التوقيت إلى توقيت القاهرة
       const egyptTime = new Date(date.toLocaleString("en-US", {timeZone: "Africa/Cairo"}));
-      timeElement.textContent = `توقيت القاهرة: ${egyptTime.toLocaleTimeString()}`;
+      timeElement.textContent = `Cairo: ${egyptTime.toLocaleTimeString()}`;
     }, 1000);
   </script>
 <!-- جافاسكريبت لاعتراض إرسال النموذج وإعادة التوجيه إلى success.html -->
