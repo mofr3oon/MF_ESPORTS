@@ -383,7 +383,7 @@ body {
 }
 
 .social-links a:hover {
-  color: #28a745; /* اللون الأخضر */
+  color: #1abc9c; /* اللون الأخضر */
   transform: scale(1.2); /* تكبير الأيقونة عند التمرير */
 }
 
