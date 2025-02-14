@@ -148,3 +148,244 @@
   </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Cairo', sans-serif;
+}
+body {
+  background: linear-gradient(135deg, #0f0f0f, #333);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 10px;
+  flex-direction: column;
+}
+.container {
+  background-color: #121212;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 500px;
+  color: white;
+  margin-top: 30px;
+  transition: box-shadow 0.3s ease;
+}
+.container:hover {
+  box-shadow: 0 4px 15px rgba(0, 255, 0, 0.7);
+}
+h1 {
+  font-size: 2em;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+button {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 15px;
+  font-size: 1.2em;
+  cursor: pointer;
+  border-radius: 25px;
+  margin-top: 15px;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  max-width: 350px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+button:hover {
+  background: #218838;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+label {
+  font-size: 1.1em;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+input {
+  width: 100%;
+  padding: 12px;
+  font-size: 1em;
+  border: 2px solid #5a5a5a;
+  border-radius: 8px;
+  background: #2e2f3a;
+  color: white;
+  margin-bottom: 10px;
+  transition: box-shadow 0.3s ease;
+}
+input:focus {
+  box-shadow: 0 0 15px rgba(0, 255, 0, 1);
+  border-color: #19c37d;
+}
+p {
+  font-size: 1.2em;
+  color: #19c37d;
+  margin-top: 20px;
+}
+.description {
+  font-size: 1em;
+  margin-top: 10px;
+  color: #aaa;
+}
+.links {
+  font-size: 0.8em;
+  margin-top: 10px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  padding: 5px 5px;
+  background-color: rgba(25, 195, 125, 0.2);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+.links a:hover {
+  color: #fff;
+  background-color: #19c37d;
+  box-shadow: 0 6px 15px rgba(25, 195, 125, 0.6);
+}
+.time-box {
+  background: rgba(25, 195, 125, 0.2);
+  border-radius: 10px;
+  padding: 5px 5px;
+  margin-top: 20px;
+  display: inline-block;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 255, 0, 0.5);
+  transition: box-shadow 0.3s ease;
+}
+.time-box:hover {
+  box-shadow: 0 4px 15px rgba(0, 255, 0, 1);
+}
+.header {
+  text-align: center;
+  width: 100%;
+}
+.content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.terms-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+.checkbox-wrapper {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 10px;
+}
+.checkbox-wrapper input[type="checkbox"] {
+  margin-right: 2px;
+  margin-bottom: -8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 25px;
+  border: 8px solid #76d7c4;
+  background: #2e2f3a;
+  cursor: pointer;
+}
+.checkbox-wrapper input[type="checkbox"]:checked {
+  background: #19c37d;
+}
+.checkbox-wrapper label {
+  color: #fff;
+  font-size: 1em;
+  margin-top: 7px;
+}
+
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: #ffffff;
+        }
+
+        h2 {
+            text-align: center;
+            color: #32cd32; /* أخضر فاتح */
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        .fancy-line {
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #32cd32, #228b22); /* تدرج أخضر */
+            margin-bottom: 20px;
+        }
+
+        .table-container {
+            max-width: 800px;
+            margin: 0 auto;
+            overflow-x: auto;
+            background-color: #2c2c2c;
+            padding: 20px;
+            border-radius: 15px; /* انحناءات للجدول */
+            transition: box-shadow 0.3s ease-in-out; /* انتقال سلس */
+        }
+
+        /* جلو يظهر عند التقريب */
+        .table-container:hover {
+            box-shadow: 0 0 15px 5px rgba(50, 205, 50, 0.7); /* جلو أخضر */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 15px; /* انحناءات داخل الجدول */
+            overflow: hidden;
+            font-size: 0.85em;
+            color: white;  
+        }
+
+        th, td {
+            padding: 4px;
+            text-align: left;
+            border-bottom: 1px solid #444;
+        }
+
+        th {
+            background: linear-gradient(90deg, #32cd32, #228b22); /* أخضر بتدرج */
+            color: white;
+            font-size: 0.8em;
+            text-shadow: 1px 1px 2px #000;
+        }
+
+        .circular-img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        /* تمييز الصف */
+        .highlight-row {
+            background-color: #ffd700; /* لون أصفر ذهبي */
+            color: #000;
+            font-weight: bold;
+        }
+
