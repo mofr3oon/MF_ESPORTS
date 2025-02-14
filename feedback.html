@@ -1,77 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Feedback Page</title>
+  <title>Feedback</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Feedback Page</h1>
-  <input type="text" id="feedback-input" placeholder="Enter your feedback here">
-  <button onclick="submitFeedback()">Submit Feedback</button>
-  <div id="feedback-container"></div>
+  <div class="navbar">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <div class="logo">MF Esports</div>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
 
-  <script type="module">
-    // Import the functions you need from the SDKs
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
-    import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
+  <div class="container">
+    <h1>Feedback</h1>
+    <p class="description">شاركنا ملاحظاتك لتحسين تجربتك معنا.</p>
 
-    // Firebase configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyB_g6NUkE0uT2Bh54dbZP-n-h-ub8otlFI",
-      authDomain: "pubgscream-d4a35.firebaseapp.com",
-      projectId: "pubgscream-d4a35",
-      storageBucket: "pubgscream-d4a35.firebasestorage.app",
-      messagingSenderId: "320274957822",
-      appId: "1:320274957822:web:d6b66b4632022ffdf4acaf",
-      measurementId: "G-04104VRVJF"
-    };
+    <form class="feedback-form" onsubmit="event.preventDefault(); submitFeedback();">
+      <label for="name-input">اسمك:</label>
+      <input type="text" id="name-input" placeholder="ادخل اسمك">
 
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+      <label for="feedback-input">اكتب ملاحظاتك هنا:</label>
+      <textarea id="feedback-input" rows="5" placeholder="ادخل الفيد باك الخاص بك"></textarea>
 
-    // Submit feedback function
-    async function submitFeedback() {
-      const feedbackInput = document.getElementById("feedback-input").value;
-      if (feedbackInput) {
-        try {
-          await addDoc(collection(db, "feedback"), { comment: feedbackInput });
-          alert("Feedback submitted successfully!");
-          document.getElementById("feedback-input").value = ""; // Clear input
-          loadFeedback(); // Reload feedback
-        } catch (error) {
-          console.error("Error submitting feedback: ", error);
-          alert("Error submitting feedback. Please try again.");
-        }
-      } else {
-        alert("Please enter feedback before submitting.");
-      }
-    }
+      <button type="submit">Feedback إرسال</button>
+    </form>
 
-    // Make the function available globally
-    window.submitFeedback = submitFeedback;
+    <!-- عنصر عرض الرسالة -->
+    <div id="feedback-message"></div>
 
-    // Load all feedback function
-    async function loadFeedback() {
-      const feedbackContainer = document.getElementById("feedback-container");
-      feedbackContainer.innerHTML = ""; // Clear previous feedback
-      try {
-        const querySnapshot = await getDocs(collection(db, "feedback"));
-        querySnapshot.forEach((doc) => {
-          const feedback = doc.data().comment;
-          const feedbackElement = document.createElement("p");
-          feedbackElement.textContent = feedback;
-          feedbackContainer.appendChild(feedbackElement);
-        });
-      } catch (error) {
-        console.error("Error loading feedback: ", error);
-        alert("Error loading feedback.");
-      }
-    }
+    <h2>آراء الزوار</h2>
+    <div id="feedback-container"></div>
+  </div>
 
-    // Load feedback on page load
-    window.onload = loadFeedback;
-  </script>
+  <script type="module" src="feedback.js"></script>
 </body>
 </html>
