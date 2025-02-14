@@ -418,8 +418,9 @@ body {
 }
 
 /* شريط التنقل */
+/* شريط التنقل */
 .navbar {
-  width: 66%;
+  width: 100%;
   max-width: 1200px;
   display: flex;
   justify-content: space-between;
@@ -477,6 +478,33 @@ body {
   width: 100%;
 }
 
+/* تحسين التوافق مع الشاشات الصغيرة */
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 15px;
+    justify-content: center; /* تحسين التوسيط */
+  }
+
+  .navbar .logo {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .navbar ul {
+    display: flex;
+    justify-content: space-evenly; /* توزيع العناصر بشكل متساوي */
+    width: 100%;
+  }
+
+  .navbar ul li {
+    margin: 0 10px; /* تقليل التباعد بين العناصر */
+  }
+
+  .navbar ul li a {
+    font-size: 1rem; /* تقليل حجم الخط */
+    padding: 10px 15px; /* تحسين مساحة الأزرار */
+  }
+}
 /* الحاوية الرئيسية */
 .container {
   background-color: #121212;
