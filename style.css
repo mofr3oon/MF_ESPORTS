@@ -611,25 +611,20 @@ input[type="text"]:focus {
 }
 
 /* ضبط عرض العناصر لتتناسب مع الشاشة */
+/* تأكد أن الصفحة لا تحتوي على تمرير أفقي */
 body {
     max-width: 100%;
     overflow-x: hidden;
 }
 
-/* جعل الصور تتكيف مع العرض */
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* استخدام Flexbox أو Grid عند الحاجة */
+/* اجعل العناصر تتكيف مع الشاشة */
 .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-/* تحسين التنسيق على الشاشات الصغيرة */
+/* تحسين التناسق على الشاشات الصغيرة */
 @media screen and (max-width: 768px) {
     .container {
         flex-direction: column;
@@ -637,6 +632,16 @@ img {
     }
 
     .box {
-        width: 90%; /* تصغير عرض العناصر */
+        width: 90%; /* يجعل العناصر أصغر لتناسب الشاشة */
+    }
+
+    /* ضبط حجم النصوص والصور */
+    h1, h2, h3, p {
+        text-align: center;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
     }
 }
