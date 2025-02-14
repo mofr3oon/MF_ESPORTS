@@ -368,3 +368,28 @@ body {
     transform: translateY(0);
   }
 }
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px 0;
+  background-color: #000;
+}
+
+.social-links a {
+  font-size: 24px;
+  color: #fff;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #28a745; /* اللون الأخضر */
+  transform: scale(1.2); /* تكبير الأيقونة عند التمرير */
+}
+
+footer p {
+  text-align: center;
+  color: #bbb;
+  margin-top: 10px;
+  font-size: 14px;
+}
