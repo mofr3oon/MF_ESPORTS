@@ -610,3 +610,33 @@ input[type="text"]:focus {
   border: 1px solid #f5c6cb;
 }
 
+/* ضبط عرض العناصر لتتناسب مع الشاشة */
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* جعل الصور تتكيف مع العرض */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* استخدام Flexbox أو Grid عند الحاجة */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* تحسين التنسيق على الشاشات الصغيرة */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .box {
+        width: 90%; /* تصغير عرض العناصر */
+    }
+}
