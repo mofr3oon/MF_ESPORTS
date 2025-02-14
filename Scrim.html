@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MF ESPORTS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="header">
+    <div class="links">
+      <a href="https://www.tiktok.com/@mo_fr3oon" target="_blank">تيك توك</a>
+      <a href="https://t.me/MOBASHOP99" target="_blank">تليجرام</a>
+      <a href="https://www.instagram.com/mo_fr3oon/" target="_blank">إنستجرام</a>
+      <a href="https://discord.gg/9h2zND3Nzw" target="_blank">ديسكورد</a>
+      <a href="https://youtube.com/c/MOFR3OON?sub_confirmation=1" target="_blank">يوتيوب</a>
+    </div>
+    <div class="time-box" id="time">
+      توقيت القاهرة: جاري تحميل الوقت...
+    </div>
+  </div>
+  <div class="content">
+    <div class="container" id="main-page">
+      <h1>MF ESPORTS</h1>
+      <form id="registration-form" action="https://formspree.io/f/xwpvqpjp" method="POST">
+        <label for="team-name">:اسم الفريق</label>
+        <input type="text" id="team-name" name="team-name" placeholder="أدخل اسم الفريق" required>
+        
+        <label for="leader-name">:[اسم اللاعب الأول [الليدر</label>
+        <input type="text" id="leader-name" name="leader-name" placeholder=" اسم الليدر داخل اللعبة" required>
+        
+        <label for="leader-id">:[اي دي اللاعب الأول [الليدر </label>
+<input type="text" id="leader-id" name="leader-id" placeholder="اي دي الليدر داخل اللعبة" required pattern="\d+" oninput="this.value = this.value.replace(/\D/g, '')">
+
+        
+        <label for="player1-name">:اسم اللاعب الثاني</label>
+        <input type="text" id="player1-name" name="player1-name" placeholder=" اسم اللاعب الثاني داخل اللعبة" required>
+        
+        <label for="player1-id">:اي دي اللاعب الثاني</label>
+<input type="text" id="player1-id" name="player1-id" placeholder="اي دي اللاعب الثاني داخل اللعبة" required pattern="\d+" oninput="this.value = this.value.replace(/\D/g, '')">
+
+        
+        <label for="player2-name">:اسم اللاعب الثالث</label>
+        <input type="text" id="player2-name" name="player2-name" placeholder=" اسم اللاعب الثالث داخل اللعبة" required>
+        
+       <label for="player2-id">:اي دي اللاعب الثالث</label>
+<input type="text" id="player2-id" name="player2-id" placeholder="اي دي اللاعب الثالث داخل اللعبة" required pattern="\d+" oninput="this.value = this.value.replace(/\D/g, '')">
+        
+        <label for="player3-name">:اسم اللاعب الرابع</label>
+        <input type="text" id="player3-name" name="player3-name" placeholder=" اسم اللاعب الرابع داخل اللعبة" required>
+        
+       <label for="player3-id">:اي دي اللاعب الرابع</label>
+<input type="text" id="player3-id" name="player3-id" placeholder="اي دي اللاعب الرابع داخل اللعبة" required pattern="\d+" oninput="this.value = this.value.replace(/\D/g, '')">
+        
+       <label for="phone">:رقم الهاتف [واتساب]</label>
+<input type="text" id="phone" name="phone" placeholder="هيتم ارسال بيانات الغرفة ع الواتس" required pattern="\d+" oninput="this.value = this.value.replace(/\D/g, '')">
+
+        
+        <div class="terms-container">
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="terms-checkbox" required>
+            <label for="terms-checkbox">
+              <a href="terms.html" style="color: #19c37d; text-decoration: underline;"> أوافق علي الشروط والأحكام </a>
+            </label>
+          </div>
+        </div>
+        <button type="submit">إرسال البيانات</button>
+    </form>
+      
+
+      <p class="description">:يجب أن توافق على الشروط والأحكام قبل إرسال الطلب</p>
+    </div>
+  </div>
+
+  <script>
+    // عرض الوقت الحالي بتوقيت القاهرة
+    const timeElement = document.getElementById('time');
+    setInterval(() => {
+      const date = new Date();
+      // تحويل التوقيت إلى توقيت القاهرة
+      const egyptTime = new Date(date.toLocaleString("en-US", {timeZone: "Africa/Cairo"}));
+      timeElement.textContent = `Cairo: ${egyptTime.toLocaleTimeString()}`;
+    }, 1000);
+  </script>
+<!-- جافاسكريبت لاعتراض إرسال النموذج وإعادة التوجيه إلى success.html -->
+  <script>
+    document.getElementById("registration-form").addEventListener("submit", function(e) {
+      e.preventDefault(); // منع إعادة التوجيه الافتراضية
+      const form = this;
+      const formData = new FormData(form);
+      
+      fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          // إعادة توجيه المستخدم إلى صفحة success.html بعد نجاح التسجيل
+          window.location.href = "success.html";
+        } else {
+          response.json().then(data => {
+            if (data.hasOwnProperty("errors")) {
+              alert(data["errors"].map(error => error["message"]).join(", "));
+            } else {
+              alert("حدث خطأ أثناء التسجيل. يرجى المحاولة مرة أخرى.");
+            }
+          });
+        }
+      })
+      .catch(error => {
+        alert("حدث خطأ أثناء التسجيل. يرجى المحاولة مرة أخرى.");
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+<body>
+    <h2>🔥 Result 🔥</h2>
+    <div class="fancy-line"></div>
+
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUqUAJzYDXE488CdX7cUWva8lTEOhnEJkmRA&s" alt="Team Icon" class="circular-img">
+                </th>
+                <th>Team Name</th>
+                <th>Win</th>
+                <th>Points</th>
+                <th>Kill</th>
+                <th>Total</th>
+            </tr>
+            <tr class="highlight-row">
+                <td>1</td>
+                <td>𝑴𝑭 • 𝑬𝑺𝑷 • 𝑰𝑵𝑭𝑬𝑹𝑵𝑶</td>
+                <td>1</td>
+                <td>42</td>
+                <td>25</td>
+                <td>67</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>MYS E-SPORTS `4MAN</td>
+                <td>0</td>
+                <td>19</td>
+                <td>25</td>
+                <td>53</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>𝑴𝑭 • 𝑬𝑺𝑷 • 𝑷𝑯𝑨𝑵𝑻𝑶𝑴𝑺</td>
+                <td>0</td>
+                <td>27</td>
+                <td>23</td>
+                <td>45</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Drac Vampire</td>
+                <td>1</td>
+                <td>24</td>
+                <td>16</td>
+                <td>40</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>𝑴𝑭 • 𝑬𝑺𝑷 • 𝑷𝑶𝑾𝑬𝑹</td>
+                <td>0</td>
+                <td>18</td>
+                <td>20</td>
+                <td>38</td>
+            </tr>
+        </table>
+    </div>
+
+   
