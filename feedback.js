@@ -51,3 +51,9 @@ window.submitFeedback = async function () {
     alert("Please enter feedback before submitting.");
   }
 };
+<script>
+  window.submitFeedback = submitFeedback;
+</script>
+
+
+feedback.js
