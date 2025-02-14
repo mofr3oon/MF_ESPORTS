@@ -393,3 +393,220 @@ footer p {
   margin-top: 10px;
   font-size: 14px;
 }
+
+
+/* قاعدة عامة لتصميم كل العناصر */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Cairo', sans-serif;
+}
+
+/* تصميم الجسم */
+body {
+  background: linear-gradient(135deg, #0f0f0f, #333);
+  min-height: 100vh;
+  padding: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  overflow-x: hidden; /* لمنع التمرير الأفقي */
+}
+
+/* شريط التنقل */
+.navbar {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  margin-bottom: 30px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.navbar:hover {
+  background-color: rgba(0, 0, 0, 0.7); /* تأثير عند تمرير الماوس */
+}
+
+.navbar .logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+}
+
+.navbar ul li {
+  margin: 0 20px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar ul li a::after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 0;
+  background-color: #28a745;
+  bottom: -5px;
+  left: 0;
+  transition: width 0.4s ease-in-out;
+}
+
+.navbar ul li a:hover::after {
+  width: 100%;
+}
+
+/* الحاوية الرئيسية */
+.container {
+  background-color: #121212;
+  padding: 50px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  transform: scale(1);
+  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+.container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+}
+
+h1 {
+  font-size: 2.8em;
+  margin-bottom: 20px;
+  color: #28a745;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.description {
+  margin-bottom: 30px;
+  color: #ccc;
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+/* نموذج الإدخال */
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+textarea {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 12px;
+  background: #2e2f3a;
+  color: white;
+  outline: none;
+  box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.6);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+textarea:focus {
+  box-shadow: inset 0 6px 15px rgba(0, 0, 0, 0.8), 0 0 10px #28a745;
+}
+
+/* الأزرار */
+button {
+  background: linear-gradient(135deg, #28a745, #218838);
+  color: white;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 30px;
+  font-size: 1.3em;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  transition: all 0.4s ease-in-out;
+}
+
+button:hover {
+  transform: translateY(-8px);
+  background: linear-gradient(135deg, #218838, #28a745);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* تعليقات التغذية الراجعة */
+.feedback-item {
+  background: #1d1d1d;
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
+  text-align: left;
+  transition: transform 0.3s ease-in-out;
+}
+
+.feedback-item:hover {
+  transform: translateX(15px);
+}
+input[type="text"] {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 12px;
+  background: #2e2f3a;
+  color: white;
+  outline: none;
+  box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.6);
+  transition: all 0.3s ease-in-out;
+}
+
+input[type="text"]:focus {
+  box-shadow: inset 0 6px 15px rgba(0, 0, 0, 0.8), 0 0 10px #28a745;
+  background: #343a40;
+}
+#feedback-message {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1em;
+  text-align: center;
+  display: none; /* إخفاء الرسالة في البداية */
+}
+
+.success-message {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
