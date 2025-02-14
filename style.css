@@ -419,7 +419,7 @@ body {
 
 /* شريط التنقل */
 .navbar {
-  width: 100%;
+  width: 66%;
   max-width: 1200px;
   display: flex;
   justify-content: space-between;
