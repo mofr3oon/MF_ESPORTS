@@ -1,6 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyB_g6NUkE0uT2Bh54dbZP-n-h-ub8otlFI",
+    authDomain: "pubgscream-d4a35.firebaseapp.com",
+    projectId: "pubgscream-d4a35",
+    storageBucket: "pubgscream-d4a35.appspot.com",
+    messagingSenderId: "320274957822",
+    appId: "1:320274957822:web:d6b66b4632022ffdf4acaf",
+    measurementId: "G-04104VRVJF"
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  // Initialize Firestore
+  const db = firebase.firestore();
+
+  // Function to submit feedback
+  async function submitFeedback() {
+    const feedback = document.getElementById("feedback-input").value;
+    if (feedback) {
+      try {
+        await db.collection("feedback").add({ comment: feedback });
+        alert("Feedback submitted successfully!");
+      } catch (error) {
+        console.error("Error adding feedback: ", error);
+      }
+    } else {
+      alert("Please enter feedback before submitting.");
+    }
+  }
+</script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MF Esports</title>
