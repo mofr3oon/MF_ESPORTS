@@ -1,47 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js"></script>
-<script>
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyB_g6NUkE0uT2Bh54dbZP-n-h-ub8otlFI",
-    authDomain: "pubgscream-d4a35.firebaseapp.com",
-    projectId: "pubgscream-d4a35",
-    storageBucket: "pubgscream-d4a35.appspot.com",
-    messagingSenderId: "320274957822",
-    appId: "1:320274957822:web:d6b66b4632022ffdf4acaf",
-    measurementId: "G-04104VRVJF"
-  };
-
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-
-  // Initialize Firestore
-  const db = firebase.firestore();
-
-  // Function to submit feedback
-  async function submitFeedback() {
-    const feedback = document.getElementById("feedback-input").value;
-    if (feedback) {
-      try {
-        await db.collection("feedback").add({ comment: feedback });
-        alert("Feedback submitted successfully!");
-      } catch (error) {
-        console.error("Error adding feedback: ", error);
-      }
-    } else {
-      alert("Please enter feedback before submitting.");
-    }
-  }
-</script>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MF Esports</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <!-- Firebase SDK -->
+  <script type="module">
+    // Import the functions you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyB_g6NUkE0uT2Bh54dbZP-n-h-ub8otlFI",
+      authDomain: "pubgscream-d4a35.firebaseapp.com",
+      projectId: "pubgscream-d4a35",
+      storageBucket: "pubgscream-d4a35.appspot.com",
+      messagingSenderId: "320274957822",
+      appId: "1:320274957822:web:d6b66b4632022ffdf4acaf",
+      measurementId: "G-04104VRVJF"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Function to submit feedback
+    window.submitFeedback = async function submitFeedback() {
+      const feedback = document.getElementById("feedback-input").value;
+      if (feedback) {
+        try {
+          await addDoc(collection(db, "feedback"), { comment: feedback });
+          alert("Feedback submitted successfully!");
+        } catch (error) {
+          console.error("Error adding feedback: ", error);
+        }
+      } else {
+        alert("Please enter feedback before submitting.");
+      }
+    };
+  </script>
 </head>
 <body>
   <!-- Navigation Bar -->
@@ -60,9 +61,15 @@
     <div class="buttons">
       <button onclick="window.location.href='register.html'">Register for Scrims</button>
       <button onclick="window.location.href='results.html'">View Results</button>
-      
     </div>
   </header>
+
+  <!-- Feedback Form -->
+  <section id="feedback-section">
+    <h2>Submit your feedback</h2>
+    <textarea id="feedback-input" placeholder="Enter your feedback here"></textarea>
+    <button onclick="submitFeedback()">Submit Feedback</button>
+  </section>
 
   <!-- Footer -->
   <footer>
