@@ -8,13 +8,71 @@
 </head>
 <body>
   <h2>Submit Your Feedback</h2>
-<textarea id="feedback-input" placeholder="Write your feedback here..."></textarea>
-<button onclick="submitFeedback()">Submit Feedback</button>
-  </form>
+  <textarea id="feedback-input" placeholder="Write your feedback here..."></textarea>
+  <button onclick="submitFeedback()">Submit Feedback</button>
 
   <h2>All Feedback</h2>
   <div id="feedback-container"></div>
 
-  <script src="feedback.js"></script>
+  <!-- Firebase SDKs -->
+  <script type="module">
+    // Import the functions you need from the SDKs
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
+    import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
+
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyB_g6NUkE0uT2Bh54dbZP-n-h-ub8otlFI",
+      authDomain: "pubgscream-d4a35.firebaseapp.com",
+      projectId: "pubgscream-d4a35",
+      storageBucket: "pubgscream-d4a35.firebasestorage.app",
+      messagingSenderId: "320274957822",
+      appId: "1:320274957822:web:d6b66b4632022ffdf4acaf",
+      measurementId: "G-04104VRVJF"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Function to submit feedback
+    async function submitFeedback() {
+      const feedbackInput = document.getElementById("feedback-input").value;
+      if (feedbackInput) {
+        try {
+          await addDoc(collection(db, "feedback"), { comment: feedbackInput });
+          alert("Feedback submitted successfully!");
+          document.getElementById("feedback-input").value = ""; // Clear input
+          loadFeedback(); // Reload feedback
+        } catch (error) {
+          console.error("Error submitting feedback: ", error);
+          alert("Error submitting feedback. Please try again.");
+        }
+      } else {
+        alert("Please enter feedback before submitting.");
+      }
+    }
+
+    // Function to load all feedback
+    async function loadFeedback() {
+      const feedbackContainer = document.getElementById("feedback-container");
+      feedbackContainer.innerHTML = ""; // Clear previous feedback
+      try {
+        const querySnapshot = await getDocs(collection(db, "feedback"));
+        querySnapshot.forEach((doc) => {
+          const feedback = doc.data().comment;
+          const feedbackElement = document.createElement("p");
+          feedbackElement.textContent = feedback;
+          feedbackContainer.appendChild(feedbackElement);
+        });
+      } catch (error) {
+        console.error("Error loading feedback: ", error);
+        alert("Error loading feedback.");
+      }
+    }
+
+    // Load feedback on page load
+    window.onload = loadFeedback;
+  </script>
 </body>
 </html>
