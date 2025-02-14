@@ -6,45 +6,6 @@
   <title>MF Esports</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-  <!-- Firebase SDK -->
- <script type="module">
-  // Import the functions you need from the SDKs
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-analytics.js";
-  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
-
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyB_g6NUkE0uT2Bh54dbZP-n-h-ub8otlFI",
-    authDomain: "pubgscream-d4a35.firebaseapp.com",
-    projectId: "pubgscream-d4a35",
-    storageBucket: "pubgscream-d4a35.firebasestorage.app",
-    messagingSenderId: "320274957822",
-    appId: "1:320274957822:web:d6b66b4632022ffdf4acaf",
-    measurementId: "G-04104VRVJF"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-  const db = getFirestore(app); // Initialize Firestore
-
-  // Function to submit feedback
-  async function submitFeedback() {
-    const feedback = document.getElementById("feedback-input").value;
-    if (feedback) {
-      try {
-        await addDoc(collection(db, "feedback"), { comment: feedback });
-        alert("Feedback submitted successfully!");
-      } catch (error) {
-        console.error("Error adding feedback: ", error);
-        alert("Error submitting feedback. Please try again.");
-      }
-    } else {
-      alert("Please enter feedback before submitting.");
-    }
-  }
 </script>
 
 </head>
