@@ -1,38 +1,5 @@
-document.addEventListener('DOMContentLoaded', loadFeedback);
-
-const form = document.getElementById('feedback-form');
-form.addEventListener('submit', function (e) {
-  e.preventDefault();
-  const comment = document.getElementById('comment').value;
-
-  // Load existing feedback from localStorage
-  let feedback = JSON.parse(localStorage.getItem('feedback')) || [];
-
-  // Add new comment
-  feedback.push(comment);
-
-  // Save updated feedback
-  localStorage.setItem('feedback', JSON.stringify(feedback));
-
-  // Display updated feedback
-  displayFeedback(feedback);
-
-  // Clear the comment box
-  document.getElementById('comment').value = '';
-});
-
-function loadFeedback() {
-  let feedback = JSON.parse(localStorage.getItem('feedback')) || [];
-  displayFeedback(feedback);
-}
-
-function displayFeedback(feedback) {
-  const feedbackContainer = document.getElementById('feedback-container');
-  feedbackContainer.innerHTML = '';
-
-  feedback.forEach(comment => {
-    const div = document.createElement('div');
-    div.textContent = comment;
-    feedbackContainer.appendChild(div);
-  });
-}
+[
+  "This is a great platform!",
+  "I loved the scrim events!",
+  "Keep up the good work!"
+]
