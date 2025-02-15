@@ -1,6 +1,8 @@
+// استيراد Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
+import { getFirestore, collection, addDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
 
+// تهيئة Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyB_g6NUkE0T2Bh54dbZP-n-h-ub8otlFI",
   authDomain: "pubgscream-d4a35.firebaseapp.com",
@@ -11,55 +13,71 @@ const firebaseConfig = {
   measurementId: "G-04104VRVJF"
 };
 
+// تهيئة التطبيق وقاعدة البيانات
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+// إرسال الفيدباك إلى Firebase
 async function submitFeedback() {
-  const nameInput = document.getElementById("name-input").value;
-  const feedbackInput = document.getElementById("feedback-input").value;
+  const nameInput = document.getElementById("name-input").value.trim();
+  const feedbackInput = document.getElementById("feedback-input").value.trim();
   const feedbackMessage = document.getElementById("feedback-message");
 
-  if (nameInput && feedbackInput) {
-    try {
-      await addDoc(collection(db, "feedback"), { name: nameInput, comment: feedbackInput });
-      feedbackMessage.innerHTML = `<p class="success-message">تم إرسال الفيد باك بنجاح!</p>`;
-      document.getElementById("name-input").value = "";
-      document.getElementById("feedback-input").value = "";
-
-      // إزالة الرسالة بعد 5 ثواني
-      setTimeout(() => {
-        feedbackMessage.innerHTML = "";
-      }, 5000);
-
-      loadFeedback();
-    } catch (error) {
-      console.error("Error submitting feedback: ", error);
-      feedbackMessage.innerHTML = `<p class="error-message">حدث خطأ أثناء إرسال الفيد باك. حاول مرة أخرى.</p>`;
-    }
-  } else {
+  if (nameInput === "" || feedbackInput === "") {
     feedbackMessage.innerHTML = `<p class="error-message">يرجى إدخال الاسم والفيد باك قبل الإرسال.</p>`;
+    return;
   }
-}
-
-window.submitFeedback = submitFeedback;
-
-async function loadFeedback() {
-  const feedbackContainer = document.getElementById("feedback-container");
-  feedbackContainer.innerHTML = "";
 
   try {
-    const querySnapshot = await getDocs(collection(db, "feedback"));
-    querySnapshot.forEach((doc) => {
-      const feedbackData = doc.data();
-      const feedbackElement = document.createElement("div");
-      feedbackElement.className = "feedback-item";
-      feedbackElement.innerHTML = `<strong>${feedbackData.name}:</strong> ${feedbackData.comment}`;
-      feedbackContainer.appendChild(feedbackElement);
+    await addDoc(collection(db, "feedback"), {
+      name: nameInput,
+      comment: feedbackInput,
+      timestamp: new Date()
     });
+
+    feedbackMessage.innerHTML = `<p class="success-message">تم إرسال الفيدباك بنجاح!</p>`;
+
+    // تفريغ الحقول بعد الإرسال
+    document.getElementById("name-input").value = "";
+    document.getElementById("feedback-input").value = "";
+
+    // إزالة الرسالة بعد 3 ثوانٍ
+    setTimeout(() => {
+      feedbackMessage.innerHTML = "";
+    }, 3000);
+
   } catch (error) {
-    console.error("Error loading feedback: ", error);
-    alert("حدث خطأ أثناء تحميل الفيد باك.");
+    console.error("Error submitting feedback: ", error);
+    feedbackMessage.innerHTML = `<p class="error-message">حدث خطأ أثناء الإرسال. حاول مرة أخرى.</p>`;
   }
 }
 
+// عرض الفيدباك بشكل مباشر عند إضافته إلى Firebase
+function loadFeedback() {
+  const feedbackContainer = document.getElementById("feedback-container");
+  const noFeedbackMessage = document.getElementById("no-feedback-message");
+
+  onSnapshot(collection(db, "feedback"), (snapshot) => {
+    feedbackContainer.innerHTML = ""; // مسح التعليقات السابقة
+
+    if (snapshot.empty) {
+      noFeedbackMessage.style.display = "block";
+    } else {
+      noFeedbackMessage.style.display = "none";
+      snapshot.forEach((doc) => {
+        const feedbackData = doc.data();
+        const feedbackElement = document.createElement("div");
+        feedbackElement.classList.add("feedback-entry");
+        feedbackElement.innerHTML = `
+          <h3>${feedbackData.name}</h3>
+          <p>${feedbackData.comment}</p>
+        `;
+        feedbackContainer.appendChild(feedbackElement);
+      });
+    }
+  });
+}
+
+// تشغيل تحميل التعليقات عند فتح الصفحة
 window.onload = loadFeedback;
+window.submitFeedback = submitFeedback;
