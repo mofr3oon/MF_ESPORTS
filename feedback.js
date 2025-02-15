@@ -1,6 +1,8 @@
+// استيراد المكتبات من Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
 import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
 
+// إعدادات Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyB_g6NUkE0T2Bh54dbZP-n-h-ub8otlFI",
   authDomain: "pubgscream-d4a35.firebaseapp.com",
@@ -11,18 +13,26 @@ const firebaseConfig = {
   measurementId: "G-04104VRVJF"
 };
 
+// تهيئة التطبيق وربط قاعدة البيانات
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+// دالة إرسال الفيد باك
 async function submitFeedback() {
-  const nameInput = document.getElementById("name-input").value;
-  const feedbackInput = document.getElementById("feedback-input").value;
+  const nameInput = document.getElementById("name-input").value.trim();
+  const feedbackInput = document.getElementById("feedback-input").value.trim();
   const feedbackMessage = document.getElementById("feedback-message");
 
+  // تحقق من إدخال البيانات
   if (nameInput && feedbackInput) {
     try {
+      // إرسال البيانات إلى Firestore
       await addDoc(collection(db, "feedback"), { name: nameInput, comment: feedbackInput });
+
+      // إظهار رسالة نجاح
       feedbackMessage.innerHTML = `<p class="success-message">تم إرسال الفيد باك بنجاح!</p>`;
+
+      // إعادة تعيين الحقول
       document.getElementById("name-input").value = "";
       document.getElementById("feedback-input").value = "";
 
@@ -31,6 +41,7 @@ async function submitFeedback() {
         feedbackMessage.innerHTML = "";
       }, 5000);
 
+      // إعادة تحميل التعليقات
       loadFeedback();
     } catch (error) {
       console.error("Error submitting feedback: ", error);
@@ -41,19 +52,27 @@ async function submitFeedback() {
   }
 }
 
+// جعل الدالة متاحة في النموذج
 window.submitFeedback = submitFeedback;
 
+// دالة تحميل الفيد باك من قاعدة البيانات
 async function loadFeedback() {
   const feedbackContainer = document.getElementById("feedback-container");
   feedbackContainer.innerHTML = "";
 
   try {
+    // جلب البيانات من Firestore
     const querySnapshot = await getDocs(collection(db, "feedback"));
     querySnapshot.forEach((doc) => {
       const feedbackData = doc.data();
+
+      // إنشاء عنصر جديد لكل تعليق
       const feedbackElement = document.createElement("div");
-      feedbackElement.className = "feedback-item";
-      feedbackElement.innerHTML = `<strong>${feedbackData.name}:</strong> ${feedbackData.comment}`;
+      feedbackElement.className = "feedback-entry"; // استخدام كلاس منظم
+      feedbackElement.innerHTML = `
+        <h3>${feedbackData.name}</h3>
+        <p>${feedbackData.comment}</p>
+      `;
       feedbackContainer.appendChild(feedbackElement);
     });
   } catch (error) {
@@ -62,4 +81,5 @@ async function loadFeedback() {
   }
 }
 
+// تحميل التعليقات عند فتح الصفحة
 window.onload = loadFeedback;
