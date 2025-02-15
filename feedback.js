@@ -17,7 +17,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// دالة إرسال الفيد باك
+// دالة إرسال الفيدباك
 async function submitFeedback() {
   const nameInput = document.getElementById("name-input").value.trim();
   const feedbackInput = document.getElementById("feedback-input").value.trim();
@@ -26,11 +26,12 @@ async function submitFeedback() {
   // تحقق من إدخال البيانات
   if (nameInput && feedbackInput) {
     try {
-      // إرسال البيانات إلى Firestore
+      console.log("إرسال الفيدباك إلى Firestore...");
       await addDoc(collection(db, "feedback"), { name: nameInput, comment: feedbackInput });
+      console.log("تمت إضافة الفيدباك بنجاح!");
 
       // إظهار رسالة نجاح
-      feedbackMessage.innerHTML = `<p class="success-message">تم إرسال الفيد باك بنجاح!</p>`;
+      feedbackMessage.innerHTML = `<p class="success-message">تم إرسال الفيدباك بنجاح!</p>`;
 
       // إعادة تعيين الحقول
       document.getElementById("name-input").value = "";
@@ -41,30 +42,37 @@ async function submitFeedback() {
         feedbackMessage.innerHTML = "";
       }, 5000);
 
-      // إعادة تحميل التعليقات
-      loadFeedback();
+      console.log("إعادة تحميل التعليقات...");
+      await loadFeedback(); // تأكد من أن التعليقات تُجلب بعد الإرسال مباشرة
     } catch (error) {
-      console.error("Error submitting feedback: ", error);
-      feedbackMessage.innerHTML = `<p class="error-message">حدث خطأ أثناء إرسال الفيد باك. حاول مرة أخرى.</p>`;
+      console.error("خطأ أثناء إرسال الفيدباك:", error);
+      feedbackMessage.innerHTML = `<p class="error-message">حدث خطأ أثناء إرسال الفيدباك. حاول مرة أخرى.</p>`;
     }
   } else {
-    feedbackMessage.innerHTML = `<p class="error-message">يرجى إدخال الاسم والفيد باك قبل الإرسال.</p>`;
+    feedbackMessage.innerHTML = `<p class="error-message">يرجى إدخال الاسم والفيدباك قبل الإرسال.</p>`;
   }
 }
 
 // جعل الدالة متاحة في النموذج
 window.submitFeedback = submitFeedback;
 
-// دالة تحميل الفيد باك من قاعدة البيانات
+// دالة تحميل الفيدباك من قاعدة البيانات
 async function loadFeedback() {
   const feedbackContainer = document.getElementById("feedback-container");
   feedbackContainer.innerHTML = "";
+  console.log("جلب التعليقات من Firestore...");
 
   try {
-    // جلب البيانات من Firestore
     const querySnapshot = await getDocs(collection(db, "feedback"));
+    if (querySnapshot.empty) {
+      console.log("لا توجد تعليقات بعد.");
+      feedbackContainer.innerHTML = "<p class='info-message'>لا توجد تعليقات حتى الآن.</p>";
+      return;
+    }
+
     querySnapshot.forEach((doc) => {
       const feedbackData = doc.data();
+      console.log("تم العثور على تعليق:", feedbackData);
 
       // إنشاء عنصر جديد لكل تعليق
       const feedbackElement = document.createElement("div");
@@ -76,11 +84,10 @@ async function loadFeedback() {
       feedbackContainer.appendChild(feedbackElement);
     });
   } catch (error) {
-    console.error("Error loading feedback: ", error);
-    alert("حدث خطأ أثناء تحميل الفيد باك.");
+    console.error("خطأ أثناء تحميل الفيدباك:", error);
+    alert("حدث خطأ أثناء تحميل الفيدباك.");
   }
 }
 
 // تحميل التعليقات عند فتح الصفحة
 window.onload = loadFeedback;
-
