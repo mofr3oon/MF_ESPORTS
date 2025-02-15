@@ -4,17 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Feedback</title>
-  <link rel="stylesheet" href="feedback.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="navbar">
-    <!-- Navigation Bar -->
     <nav class="navbar">
       <div class="logo">MF Esports</div>
       <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="index.html">Home</a></li>
       </ul>
     </nav>
   </div>
@@ -23,23 +20,24 @@
     <h1>Feedback</h1>
     <p class="description">شاركنا ملاحظاتك لتحسين تجربتك معنا.</p>
 
-    <form class="feedback-form" onsubmit="event.preventDefault(); submitFeedback();">
+    <form class="feedback-form" id="feedback-form">
       <label for="name-input">اسمك:</label>
       <input type="text" id="name-input" placeholder="ادخل اسمك">
 
       <label for="feedback-input">اكتب ملاحظاتك هنا:</label>
-      <textarea id="feedback-input" rows="5" placeholder="ادخل الفيد باك الخاص بك"></textarea>
+      <textarea id="feedback-input" rows="5" placeholder="ادخل الفيدباك الخاص بك"></textarea>
 
-      <button type="submit">Feedback إرسال</button>
+      <button type="submit">إرسال Feedback</button>
     </form>
 
-    <!-- عنصر عرض الرسالة -->
     <div id="feedback-message"></div>
 
-    <h2> آراء الزوار</h2>
-    <div id="feedback-container"></div>
+    <h2>آراء الزوار</h2>
+    <div id="feedback-container" class="feedback-section">
+      <p id="no-feedback-message">لا توجد آراء حتى الآن. كن أول من يشارك رأيه!</p>
+    </div>
   </div>
 
-  <script type="module" src="feedback.js"></script>
+  <script src="feedback.js"></script>
 </body>
 </html>
