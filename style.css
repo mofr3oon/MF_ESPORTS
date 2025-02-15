@@ -673,3 +673,59 @@ body {
         height: auto;
     }
 }
+
+/* تصميم الفوتر */
+.footer {
+    background: #222;
+    padding: 20px 0;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+}
+
+/* تنسيق نص الفوتر */
+.footer-text {
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+/* تصميم قائمة الروابط */
+.social-links {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* تصميم الأيقونات */
+.social-links li {
+    display: inline-block;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background: #333;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 22px;
+    transition: 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+/* تأثير عند التمرير */
+.social-links a:hover {
+    transform: scale(1.2);
+}
+
+/* ألوان مخصصة لكل منصة */
+.social-links a:nth-child(1):hover { background: #000; }  /* TikTok */
+.social-links a:nth-child(2):hover { background: #0088cc; }  /* Telegram */
+.social-links a:nth-child(3):hover { background: #E1306C; }  /* Instagram */
+.social-links a:nth-child(4):hover { background: #7289da; }  /* Discord */
+.social-links a:nth-child(5):hover { background: #FF0000; }  /* YouTube */
