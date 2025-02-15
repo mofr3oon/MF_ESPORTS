@@ -1,6 +1,6 @@
 // استيراد Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
-import { getFirestore, collection, addDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
+import { getFirestore, collection, addDoc, onSnapshot, query, orderBy } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
 
 // تهيئة Firebase
 const firebaseConfig = {
@@ -24,18 +24,21 @@ async function submitFeedback() {
   const feedbackMessage = document.getElementById("feedback-message");
 
   if (nameInput === "" || feedbackInput === "") {
-    feedbackMessage.innerHTML = `<p class="error-message">يرجى إدخال الاسم والفيد باك قبل الإرسال.</p>`;
+    feedbackMessage.innerHTML = `<p class="error-message">يرجى إدخال الاسم والفيدباك قبل الإرسال.</p>`;
     return;
   }
+
+  // عرض رسالة تحميل أثناء الإرسال
+  feedbackMessage.innerHTML = `<p class="loading-message">جارٍ إرسال الفيدباك...</p>`;
 
   try {
     await addDoc(collection(db, "feedback"), {
       name: nameInput,
       comment: feedbackInput,
-      timestamp: new Date()
+      timestamp: new Date() // إضافة توقيت التعليق
     });
 
-    feedbackMessage.innerHTML = `<p class="success-message">تم إرسال الفيدباك بنجاح!</p>`;
+    feedbackMessage.innerHTML = `<p class="success-message">✅ تم إرسال الفيدباك بنجاح!</p>`;
 
     // تفريغ الحقول بعد الإرسال
     document.getElementById("name-input").value = "";
@@ -47,18 +50,20 @@ async function submitFeedback() {
     }, 3000);
 
   } catch (error) {
-    console.error("Error submitting feedback: ", error);
-    feedbackMessage.innerHTML = `<p class="error-message">حدث خطأ أثناء الإرسال. حاول مرة أخرى.</p>`;
+    console.error("❌ حدث خطأ أثناء الإرسال:", error);
+    feedbackMessage.innerHTML = `<p class="error-message">❌ حدث خطأ أثناء الإرسال. حاول مرة أخرى.</p>`;
   }
 }
 
-// عرض الفيدباك بشكل مباشر عند إضافته إلى Firebase
+// تحميل التعليقات مباشرة عند إضافتها إلى Firebase
 function loadFeedback() {
   const feedbackContainer = document.getElementById("feedback-container");
   const noFeedbackMessage = document.getElementById("no-feedback-message");
 
-  onSnapshot(collection(db, "feedback"), (snapshot) => {
-    feedbackContainer.innerHTML = ""; // مسح التعليقات السابقة
+  const feedbackQuery = query(collection(db, "feedback"), orderBy("timestamp", "desc"));
+
+  onSnapshot(feedbackQuery, (snapshot) => {
+    feedbackContainer.innerHTML = ""; // مسح التعليقات القديمة
 
     if (snapshot.empty) {
       noFeedbackMessage.style.display = "block";
