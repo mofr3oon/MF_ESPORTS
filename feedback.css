@@ -23,9 +23,8 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-
 .navbar .logo {
-  color: #00ff88;
+  color: #00bfff; /* تغيير اللون إلى الأزرق الفاتح */
   font-size: 1.8rem;
   font-weight: bold;
 }
@@ -48,7 +47,7 @@ body {
 }
 
 .navbar ul li a:hover {
-  background-color: #00ff88;
+  background-color: #00bfff; /* تغيير اللون إلى الأزرق الفاتح */
   color: #000;
 }
 
@@ -98,13 +97,13 @@ h1, h2 {
 
 .feedback-form input:focus, .feedback-form textarea:focus {
   outline: none;
-  border: 2px solid #00ff88;
+  border: 2px solid #00bfff; /* تغيير اللون إلى الأزرق الفاتح */
 }
 
 .feedback-form button {
   width: 100%;
   padding: 12px;
-  background-color: #00ff88;
+  background-color: #00bfff; /* تغيير اللون إلى الأزرق الفاتح */
   color: #000;
   font-size: 1.2rem;
   font-weight: bold;
@@ -115,12 +114,12 @@ h1, h2 {
 }
 
 .feedback-form button:hover {
-  background-color: #32ff9b;
+  background-color: #87ceeb; /* لون أزرق فاتح عند التحويم */
 }
 
 #feedback-message {
   text-align: center;
-  color: #00ff88;
+  color: #00bfff; /* تغيير اللون إلى الأزرق الفاتح */
   font-size: 1.1rem;
   margin-bottom: 20px;
 }
@@ -138,30 +137,23 @@ h1, h2 {
   text-align: center;
 }
 
-.feedback-section {
-  background-color: #2b2b2b;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-}
-
 /* تصميم كل تعليق */
 .feedback-entry {
   padding: 20px;
   background-color: #1e1e1e;
-  margin-bottom: 15px; /* المسافة بين كل تعليق */
+  margin-bottom: 15px;
   border-radius: 10px;
-  border: 1px solid #444; /* خط يحيط بكل تعليق */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6); /* تأثير ظل لتحسين الشكل */
-  transition: transform 0.2s ease; /* تأثير Hover */
+  border: 1px solid #444;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+  transition: transform 0.2s ease;
 }
 
 .feedback-entry:hover {
-  transform: translateY(-5px); /* ارتفاع بسيط عند المرور عليه */
+  transform: translateY(-5px);
 }
 
 .feedback-entry h3 {
-  color: #00ff88;
+  color: #00bfff; /* تغيير اللون إلى الأزرق الفاتح */
   margin-bottom: 10px;
   font-size: 1.2rem;
   font-weight: bold;
@@ -173,4 +165,40 @@ h1, h2 {
   line-height: 1.6;
 }
 
+/* تصميم مناسب للموبايل */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .container {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .feedback-form input, .feedback-form textarea {
+    padding: 10px;
+  }
+
+  .feedback-form button {
+    font-size: 1rem;
+  }
+
+  .feedback-entry {
+    padding: 15px;
+  }
+
+  .feedback-entry h3 {
+    font-size: 1rem;
+  }
+
+  .navbar .logo {
+    font-size: 1.5rem;
+  }
+
+  h1, h2 {
+    font-size: 1.5rem;
+  }
+}
 
