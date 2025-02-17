@@ -89,22 +89,20 @@
 
       const formData = new FormData(form);
 
-      // إرسال البيانات إلى Formspree باستخدام Fetch API
-      fetch("https://formspree.io/f/xwpvqpjp", {
-        method: "POST",
-        body: formData
-      })
-      .then(response => {
-        if (response.ok) {
-          // إذا تم إرسال البيانات بنجاح، توجيه المستخدم إلى صفحة النجاح
+      const request = new XMLHttpRequest();
+      request.open("POST", "https://formspree.io/f/xwpvqpjp", true);
+      request.setRequestHeader("Accept", "application/json");
+
+      request.onload = function () {
+        if (request.status === 200) {
+          // إذا تم إرسال البيانات بنجاح
           window.location.href = "success.html"; // تأكد من أن لديك صفحة success.html
         } else {
           alert("حدث خطأ أثناء إرسال البيانات.");
         }
-      })
-      .catch(error => {
-        alert("حدث خطأ في الاتصال.");
-      });
+      };
+
+      request.send(formData);
     });
   </script>
  
