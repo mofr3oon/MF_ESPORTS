@@ -1,5 +1,4 @@
-
-/* خلفية الموقع ب شكل كامل */
+/* خلفية الموقع بشكل كامل */
 body {
   background: linear-gradient(135deg, #1a1a1a, #333); /* تغيير التدرج من الأسود الفاتح إلى الرمادي الغامق */
   margin: 0;
@@ -8,9 +7,10 @@ body {
   height: 100vh; /* ضمان أن الخلفية تغطي كامل الشاشة */
   display: flex;
   flex-direction: column;
+  justify-content: center; /* لضمان أن المحتوى في المنتصف */
+  align-items: center;
+  padding: 20px;
 }
-
-
 
 /* تنسيق البار العلوي */
 .navbar {
@@ -116,19 +116,6 @@ body {
   z-index: -1;
 }
 
-/* إضافة تأثير حول الأيقونات عند المرور */
-.social-links li:hover::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(30, 144, 255, 0.2); /* خلفية خفيفة باللون الأزرق */
-  border-radius: 5px;
-  z-index: -1;
-}
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -155,7 +142,7 @@ body {
   border-radius: 15px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
   width: 90%;
-  max-width: 500px;
+  max-width: 400px; /* تقليص الحد الأقصى للطول */
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   animation: scaleUp 0.6s ease-in-out, borderAnimation 3s linear infinite;
   display: flex;
@@ -163,12 +150,15 @@ body {
   align-items: center;
   justify-content: center;
   gap: 20px;
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .container:hover {
   box-shadow: 0 6px 25px rgba(52, 152, 219, 0.8);
-  transform: translateY(-5px);
+  transform: translate(-50%, -50%) translateY(-5px);
 }
 
 h1 {
@@ -260,15 +250,6 @@ button:active {
     border: 2px solid #3498db;
   }
 }
-/* تحسين التأثيرات على الماوس للروابط */
-.nav-links a, .social-links a {
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.nav-links a:hover, .social-links a:hover {
-  color: #1e90ff;
-  transform: scale(1.05); /* تكبير طفيف عند المرور على الروابط */
-}
 
 /* تحسين التوافق مع شاشات الموبايل */
 @media (max-width: 768px) {
@@ -280,3 +261,11 @@ button:active {
   .content {
     padding: 20px;
   }
+  
+  .container {
+    width: 90%; /* جعل العرض 90% للموبايل */
+    padding: 20px;
+    margin-top: 10px; /* تقليل المسافة بين المحتوى والجزء العلوي */
+    min-height: 250px; /* تقليل ارتفاع البوكس */
+  }
+}
