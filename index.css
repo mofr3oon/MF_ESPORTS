@@ -311,84 +311,102 @@ button:active {
 
 /* Combined Box (Containing both sections) */
 .combined-box {
-  background: linear-gradient(to right, #333, #111); /* خلفية متدرجة من الأسود */
-  padding: 20px; /* مسافة من الداخل */
-  width: 100%; /* عرض كامل للصفحة */
-  max-width: 1200px; /* الحد الأقصى للعرض */
-  margin: 0 auto; /* مركز البوكس */
-  box-sizing: border-box; /* تضمين الحواف في المساحة */
+  background-color: #222;
+  color: #fff;
+  padding: 1.5vw 3vw; /* تقليل المسافات الداخلية عشان يطلع البوكس أضيق */
+  text-align: center;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+/* Combined Box (Containing both sections) */
+.combined-box {
+  background-color: #222;
+  color: white;
+  padding: 2vw 4vw;
+  text-align: center;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Game Updates Section */
 .game-updates {
-  color: white; /* نص أبيض */
-  padding: 15px;
-  margin-bottom: 20px; /* المسافة بين الجزء الأول والجزء الثاني */
+  color: white;
+  padding: 2vw 4vw;
+  margin-bottom: 2vh;
   text-align: center;
 }
 
 .game-updates h2 {
-  font-size: 18px; /* حجم الخط للعناوين */
-  margin-bottom: 15px;
+  font-size: 1.2rem;
+  margin-bottom: 1.5vh;
   font-weight: bold;
 }
 
 .game-updates p {
-  font-size: 14px; /* حجم الخط للنص */
-  margin-bottom: 10px;
+  font-size: 1rem;
+  margin-bottom: 1vh;
 }
 
 /* Download Link with Glowing Effect */
 .download-link {
-  background-color: #555; /* خلفية الزر */
+  background-color: #555;
   color: white;
-  padding: 8px 18px;
+  padding: 1vw 2vw;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 1rem;
   border-radius: 3px;
-  transition: all 0.8s ease; /* تم تبطيء الحركة */
-  animation: glowing 2s infinite alternate; /* زيادة مدة التأثير */
+  transition: all 0.8s ease;
+  animation: glowing 2s infinite alternate;
+}
+
+/* Contact Us Section */
+.contact-us {
+  text-align: center;
+  color: white;
+  padding: 2vw;
+}
+
+.contact-us p {
+  font-size: 1rem;
+}
+
+.contact-us a {
+  color: #00aaff;
+  text-decoration: none;
+}
+
+.contact-us a:hover {
+  text-decoration: underline;
 }
 
 /* Keyframes for Glowing Effect */
 @keyframes glowing {
   0% {
-    box-shadow: 0 0 5px 1px rgba(0, 170, 255, 0.2); /* بداية التأثير مع إضاءة أضعف */
-    background-color: #555; /* اللون الأصلي */
+    box-shadow: 0 0 5px 1px rgba(0, 170, 255, 0.2);
+    background-color: #555;
   }
   50% {
-    box-shadow: 0 0 15px 3px rgba(0, 170, 255, 0.3); /* التأثير في المنتصف مع إضاءة أقل */
-    background-color: #444; /* اللون عند الذروة */
+    box-shadow: 0 0 15px 3px rgba(0, 170, 255, 0.3);
+    background-color: #444;
   }
   100% {
-    box-shadow: 0 0 5px 1px rgba(0, 170, 255, 0.2); /* العودة للحالة الأصلية مع إضاءة أضعف */
-    background-color: #555; /* اللون النهائي */
+    box-shadow: 0 0 5px 1px rgba(0, 170, 255, 0.2);
+    background-color: #555;
   }
 }
 
-/* Small Divider Line */
-.divider {
-  border: 0;
-  border-top: 1px solid #777; /* خط فاصل صغير بين التحديثات والتواصل */
-  margin: 20px 0; /* مسافة فوق وتحت الخط */
+/* Footer Styling */
+footer {
+  background-color: #222;
+  color: white;
+  padding: 3vw 4vw;
+  text-align: center;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* Contact Us Section */
-.contact-us {
-  text-align: center; /* محاذاة النص في المنتصف */
-  color: white; /* نص أبيض */
-  padding: 15px;
-}
-
-.contact-us p {
-  font-size: 14px; /* حجم النص */
-}
-
-.contact-us a {
-  color: #00aaff; /* لون الرابط */
-  text-decoration: none;
-}
-
-.contact-us a:hover {
-  text-decoration: underline; /* تأثير عند التمرير على الرابط */
-}
