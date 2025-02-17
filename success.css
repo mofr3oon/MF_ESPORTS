@@ -269,3 +269,52 @@ button:active {
     min-height: 250px; /* تقليل ارتفاع البوكس */
   }
 }
+.container {
+  width: 50%; /* عرض البوكس */
+  padding: 20px;
+  margin: auto; /* تمركز البوكس أفقياً */
+  text-align: center; /* محاذاة النص في النص */
+  background-color: #f8f9fa; /* لون خلفية خفيف */
+  border: 2px solid #ccc; /* حدود البوكس */
+  border-radius: 10px; /* زوايا دائرية */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+  position: absolute;
+  top: 60%; /* نزول البوكس لتحت شوية */
+  left: 50%; /* تمركز البوكس أفقياً */
+  transform: translate(-50%, -50%); /* تمركز البوكس في المنتصف */
+
+  display: block; /* عرض العناصر بشكل صحيح */
+  overflow: hidden; /* منع الشريط التمرير */
+}
+
+h1, .info-text, .terms-link {
+  margin: 10px 0; /* مسافة بين العناصر */
+}
+
+
+
+
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.terms-link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.terms-link:hover {
+  text-decoration: underline;
+}
