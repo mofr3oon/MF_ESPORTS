@@ -161,6 +161,7 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li, table, th, td {
 }
 
 /* تحسين شكل الأزرار */
+/* تحسين شكل الأزرار */
 button {
   background: linear-gradient(145deg, #555, #000); /* تدرج من الأسود الفاتح إلى الأسود الغامق */
   color: #fff;
