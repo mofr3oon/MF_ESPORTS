@@ -161,7 +161,6 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li, table, th, td {
 }
 
 /* تحسين شكل الأزرار */
-/* تحسين شكل الأزرار */
 button {
   background: linear-gradient(145deg, #555, #000); /* تدرج من الأسود الفاتح إلى الأسود الغامق */
   color: #fff;
@@ -205,6 +204,7 @@ button:hover {
 button:hover::before {
   animation: borderAnimation 0.5s forwards; /* تطبيق الأنيميشن لتفعيل الخط الأزرق */
 }
+
 .button-box button {
   width: 150px; /* تعديل العرض حسب رغبتك */
   height: 50px; /* تعديل الارتفاع حسب رغبتك */
@@ -214,7 +214,6 @@ button:hover::before {
   box-sizing: border-box; /* للتأكد من أن الحواف الداخلية تُحسب ضمن الحجم الكلي */
   text-align: center; /* لضبط النص داخل الزر */
 }
-
 
 /* keyframes لتحريك الخط الأزرق حول الزر */
 @keyframes borderAnimation {
@@ -255,6 +254,12 @@ button:active {
   transform: scale(0.98); /* تأثير الضغط */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* ظل خفيف عند الضغط */
 }
+
+/* إضافة المسافة بين الأزرار والـ Navbar */
+.button-box {
+  margin-top: 70px; /* إضافة المسافة المطلوبة */
+}
+
 /* Footer */
 .footer {
   background-color: #222;
