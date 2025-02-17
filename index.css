@@ -313,74 +313,80 @@ button:active {
 .combined-box {
   background-color: #222;
   color: #fff;
-  padding: 1.5vw 3vw; /* تقليل المسافات الداخلية عشان يطلع البوكس أضيق */
+  padding: 1.5vw 3vw; /* تقليل المسافات الداخلية */
   text-align: center;
-  font-size: 1rem;
+  font-size: 0.9rem; /* تقليل حجم الخط قليلاً */
   width: 100%;
   box-sizing: border-box;
-}
-
-
-/* Combined Box (Containing both sections) */
-.combined-box {
-  background-color: #222;
-  color: white;
-  padding: 2vw 4vw;
-  text-align: center;
-  font-size: 1rem;
-  width: 100%;
-  box-sizing: border-box;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  margin: 2vh 0; /* تقليل المسافة من أعلى وأسفل البوكس */
 }
 
 /* Game Updates Section */
 .game-updates {
   color: white;
-  padding: 2vw 4vw;
-  margin-bottom: 2vh;
+  padding: 2vw; /* تقليل الحشو */
+  margin-bottom: 2vh; /* تقليل المسافة بين البوكسات */
   text-align: center;
+  background: linear-gradient(135deg, #1a1a1a, #333);
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .game-updates h2 {
-  font-size: 1.2rem;
-  margin-bottom: 1.5vh;
+  font-size: 1.4rem; /* تقليل حجم العنوان */
+  margin-bottom: 1vh;
   font-weight: bold;
+  color: #f1c40f; /* لون مميز للعناوين */
 }
 
 .game-updates p {
-  font-size: 1rem;
+  font-size: 1rem; /* تقليل حجم الخط */
   margin-bottom: 1vh;
 }
 
-/* Download Link with Glowing Effect */
 .download-link {
-  background-color: #555;
+  background-color: #00aaff;
   color: white;
-  padding: 1vw 2vw;
+  padding: 1vw 2.5vw;
   text-decoration: none;
-  font-size: 1rem;
-  border-radius: 3px;
-  transition: all 0.8s ease;
-  animation: glowing 2s infinite alternate;
+  font-size: 1rem; /* تقليل حجم الخط */
+  border-radius: 25px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 170, 255, 0.4);
+}
+
+.download-link:hover {
+  background-color: #0099cc;
+  box-shadow: 0 6px 14px rgba(0, 170, 255, 0.5);
 }
 
 /* Contact Us Section */
 .contact-us {
   text-align: center;
   color: white;
-  padding: 2vw;
+  padding: 2vw; /* تقليل الحشو */
+  background: linear-gradient(135deg, #444, #555);
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .contact-us p {
-  font-size: 1rem;
+  font-size: 1rem; /* تقليل حجم الخط */
+  margin-bottom: 1vh;
+  font-weight: 300;
 }
 
 .contact-us a {
   color: #00aaff;
+  font-weight: bold;
   text-decoration: none;
 }
 
 .contact-us a:hover {
   text-decoration: underline;
+  color: #1abc9c;
 }
 
 /* Keyframes for Glowing Effect */
@@ -409,4 +415,3 @@ footer {
   width: 100%;
   box-sizing: border-box;
 }
-
