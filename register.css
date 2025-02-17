@@ -28,12 +28,16 @@ body {
 
 /* تنسيق شعار الموقع */
 .navbar .logo {
-  font-size: 28px;
+  color: #00bfff;
+  font-size: 1.6rem;
   font-weight: bold;
-  color: #1e90ff; /* تغيير لون الشعار ليكون أزرق */
-  margin-left: 20px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.navbar .logo:hover {
+  transform: scale(1.1);
+  color: #87ceeb;
 }
 
 /* تنسيق الروابط الرئيسية */
@@ -237,4 +241,33 @@ h1 {
   #registration-form button {
     padding: 10px;
   }
+}
+/* تحسين التوافق مع شاشات الموبايل */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content {
+    padding: 20px;
+  }
+.navbar ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background-color: #00bfff;
+  transition: width 0.4s ease-out;
+  transform-origin: left;
+}
+
+.navbar ul li a:hover {
+  color: #00bfff;
+}
+
+.navbar ul li a:hover::after {
+  width: 100%;
 }
