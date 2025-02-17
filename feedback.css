@@ -35,8 +35,10 @@ body {
   font-weight: bold;
   cursor: pointer;
   transition: transform 0.3s ease, color 0.3s ease;
+  margin-left: 30px;  /* يمكنك زيادة القيمة هنا */
 }
 
+/* تأثير عند مرور الماوس على الشعار */
 .navbar .logo:hover {
   transform: scale(1.1);
   color: #87ceeb;
