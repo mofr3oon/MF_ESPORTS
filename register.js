@@ -38,3 +38,26 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 <script>
+<script>
+  const form = document.getElementById("registration-form");
+  form.addEventListener("submit", function(event) {
+    event.preventDefault(); // لمنع الانتقال إلى الصفحة الأخرى بشكل افتراضي
+    
+    // إرسال البيانات عبر Formspree
+    fetch(form.action, {
+      method: form.method,
+      body: new FormData(form),
+    })
+    .then(response => {
+      if (response.ok) {
+        // توجيه إلى صفحة النجاح بعد إرسال البيانات بنجاح
+        window.location.href = "success.html"; // يمكنك تغيير الرابط لصفحة النجاح التي أنشأتها
+      } else {
+        alert("حدث خطأ أثناء إرسال البيانات.");
+      }
+    })
+    .catch(error => {
+      alert("حدث خطأ في الاتصال.");
+    });
+  });
+</script>
