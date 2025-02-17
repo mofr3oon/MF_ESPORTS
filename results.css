@@ -140,35 +140,41 @@ body {
   border-radius: 5px;
 }
 
-/* Table Styling */
+/* تحسين التوافق مع الشاشات الصغيرة */
 .table-container {
-  overflow-x: auto;
-  margin-top: 20px;
+  overflow-x: auto; /* تفعيل التمرير الأفقي فقط عند الحاجة */
+  margin: 0 10px; /* إضافة هامش جانبي لتجنب التلامس مع الحواف */
 }
 
-/* Table Styling */
+/* تعديل الجدول ليكون مناسبًا بشكل أفضل */
 table {
   width: 100%;
+  table-layout: fixed; /* ضمان أن الجدول يتم توزيعه بشكل مناسب على الشاشة */
   border-collapse: collapse;
   margin: 0 auto;
   text-align: center;
   background: #1e1e1e;
   border-radius: 10px;
-  overflow: hidden;
   font-size: 0.9rem; /* تقليل حجم الخط */
 }
 
 table th, table td {
-  padding: 8px; /* تقليل الحشو داخل الخلايا */
+  padding: 6px; /* تقليل الحشو داخل الخلايا */
   border: 1px solid #2b2b2b;
 }
 
-/* تحسين التوافق مع الشاشات الصغيرة */
+/* تحسين التوافق مع الشاشات الصغيرة جدًا */
 @media (max-width: 768px) {
   table th, table td {
     padding: 6px; /* تقليل المسافات في الشاشات الصغيرة */
     font-size: 0.8rem; /* تقليل حجم الخط في الشاشات الصغيرة */
   }
+
+  .table-container {
+    padding: 0; /* إزالة الحشو الجانبي في الشاشات الصغيرة */
+  }
+}
+
 }
 
 .highlight-row {
