@@ -1,7 +1,7 @@
 body {
   font-family: 'Cairo', sans-serif;
-  background: linear-gradient(to bottom, #2c3e50, #212f3d); /* تدرج من الأسود الغامق إلى الرمادي */
-  color: #ecf0f1; /* النصوص باللون الفاتح ليتناسب مع الخلفية الداكنة */
+  background: linear-gradient(to bottom, #2b2b2b, #000); /* تدرج من الرمادي الداكن إلى الأسود */
+  color: #ecf0f1; /* لون النص */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -12,62 +12,147 @@ body {
   direction: rtl; /* لضبط اتجاه النص من اليمين لليسار */
 }
 
-.container {
-  width: 85%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-top: 40px;
-  flex-grow: 1; /* يضمن أن المساحة بين العناوين وزر العودة ممتلئة */
+
+
+/* تنسيق البار العلوي */
+.navbar {
+  background: linear-gradient(45deg, #111, #444); /* تعديل التدرج لإضفاء تأثير مميز */
+  color: #fff;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* زيادة ظل البار ليكون أوضح */
+  padding-top: 20px;
+  border-bottom: 2px solid #1e90ff; /* إضافة خط في الأسفل */
 }
 
-h1, h2 {
-  color: #ecf0f1; /* تغيير لون العناوين ليكون لامعًا على الخلفية الداكنة */
-  text-align: center;
-  font-weight: 700;
-  font-size: 2em;
-  margin-bottom: 20px;
+/* تنسيق شعار الموقع */
+.navbar .logo {
+  color: #00bfff;
+  font-size: 1.6rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+  margin-left: 13px;  /* يمكنك زيادة القيمة هنا */
 }
 
-.divider {
-  border-bottom: 3px solid #3498db;
-  margin: 30px 0;
-  width: 50px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-p {
-  font-size: 18px;
-  line-height: 1.8;
-  text-align: justify;
-  margin-bottom: 20px;
-  color: #bdc3c7; /* لون نص الفقرات ليكون فاتح قليلاً عن النص الرئيسي */
-}
-
-/* النص الخاص بـ MF ESPORTS */
-.mf-esports-text {
-  text-align: center;
-  font-size: 20px;
-  font-weight: 600;
-  margin-top: 30px; /* ارفع النص للأعلى بتحديد المسافة من فوق */
-  color: #ecf0f1;
-}
-
-.social-links {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.social-link img {
-  width: 40px;
-  margin: 0 15px;
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.social-link img:hover {
+/* تأثير عند مرور الماوس على الشعار */
+.navbar .logo:hover {
   transform: scale(1.1);
-  filter: brightness(1.2);
+  color: #87ceeb;
 }
+
+/* تنسيق الروابط الرئيسية */
+.nav-links, .social-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+/* تنسيق العناصر في القائمة */
+.nav-links li, .social-links li {
+  margin-right: 20px;
+}
+
+/* تنسيق الروابط */
+.nav-links a, .social-links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  transition: color 0.3s ease, transform 0.3s ease; /* إضافة تأثير التحويل */
+  text-transform: capitalize;
+  position: relative;
+}
+
+/* تأثير عند مرور الماوس على الروابط */
+.nav-links a:hover, .social-links a:hover {
+  color: #1e90ff; /* تغيير اللون عند المرور */
+  transform: scale(1.05); /* تأثير تكبير بسيط عند المرور بالماوس */
+}
+
+/* تأثير حول الأيقونات عند المرور */
+.nav-links li:hover::after, .social-links li:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30, 144, 255, 0.2); /* خلفية خفيفة باللون الأزرق */
+  border-radius: 5px;
+  z-index: -1; /* وضع التأثير وراء النص */
+}
+
+/* تحسين حجم الأيقونات الاجتماعية */
+.social-links li {
+  margin-right: 20px;
+}
+
+.social-links a {
+  font-size: 24px; /* تأكيد أن حجم الأيقونات مناسب */
+  transition: color 0.3s ease, transform 0.3s ease;
+  color: #fff;
+}
+
+.social-links a:hover {
+  color: #1e90ff; /* تغيير اللون عند التمرير */
+  transform: scale(1.1); /* تأثير تكبير عند المرور بالماوس */
+}
+
+/* إضافة تأثير حول الأيقونات عند المرور */
+.social-links li:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30, 144, 255, 0.2); /* خلفية خفيفة باللون الأزرق */
+  border-radius: 5px;
+  z-index: -1;
+}
+
+/* إضافة تأثير حول الأيقونات عند المرور */
+.social-links li:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30, 144, 255, 0.2); /* خلفية خفيفة باللون الأزرق */
+  border-radius: 5px;
+  z-index: -1;
+}
+
+
+}
+/* تحسين التأثيرات على الماوس للروابط */
+.nav-links a, .social-links a {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links a:hover, .social-links a:hover {
+  color: #1e90ff;
+  transform: scale(1.05); /* تكبير طفيف عند المرور على الروابط */
+}
+
+/* تحسين التوافق مع شاشات الموبايل */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content {
+    padding: 20px;
+  }
 
 /* زر العودة الثابت في أسفل الصفحة */
 .back-button {
