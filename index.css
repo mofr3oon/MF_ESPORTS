@@ -51,7 +51,7 @@ body {
   font-weight: bold;
   cursor: pointer;
   transition: transform 0.3s ease, color 0.3s ease;
-  margin-left: 20px;  /* يمكنك زيادة القيمة هنا */
+  margin-left: 13px;  /* يمكنك زيادة القيمة هنا */
 }
 
 /* تأثير عند مرور الماوس على الشعار */
