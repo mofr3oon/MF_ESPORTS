@@ -1,0 +1,179 @@
+body {
+  font-family: 'Cairo', sans-serif;
+  background: linear-gradient(to bottom, #2c3e50, #212f3d); /* تدرج من الأسود الغامق إلى الرمادي */
+  color: #ecf0f1; /* النصوص باللون الفاتح ليتناسب مع الخلفية الداكنة */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  direction: rtl; /* لضبط اتجاه النص من اليمين لليسار */
+}
+
+.container {
+  width: 85%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 40px;
+  flex-grow: 1; /* يضمن أن المساحة بين العناوين وزر العودة ممتلئة */
+}
+
+h1, h2 {
+  color: #ecf0f1; /* تغيير لون العناوين ليكون لامعًا على الخلفية الداكنة */
+  text-align: center;
+  font-weight: 700;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.divider {
+  border-bottom: 3px solid #3498db;
+  margin: 30px 0;
+  width: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.8;
+  text-align: justify;
+  margin-bottom: 20px;
+  color: #bdc3c7; /* لون نص الفقرات ليكون فاتح قليلاً عن النص الرئيسي */
+}
+
+/* النص الخاص بـ MF ESPORTS */
+.mf-esports-text {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 30px; /* ارفع النص للأعلى بتحديد المسافة من فوق */
+  color: #ecf0f1;
+}
+
+.social-links {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.social-link img {
+  width: 40px;
+  margin: 0 15px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.social-link img:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+/* زر العودة الثابت في أسفل الصفحة */
+.back-button {
+  display: inline-block;
+  text-align: center;
+  background-color: #3498db;
+  color: white;
+  padding: 12px 25px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  position: fixed;
+  left: 50%;
+  bottom: 20px; /* جعل الزرار في أسفل الصفحة */
+  transform: translateX(-50%); /* تمركز الزرار في المنتصف */
+  z-index: 1000;
+}
+
+
+.back-button:hover {
+  background-color: #2980b9;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.footer-text {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 50px;
+  color: #7f8c8d;
+}
+
+/* تخصيص التصميم للموبايل */
+@media (max-width: 768px) {
+  body {
+    padding: 10px; /* إضافة مسافات داخلية لهامش الصفحة */
+  }
+
+  .container {
+    width: 100%;
+    padding-top: 20px;
+  }
+
+  h1, h2 {
+    font-size: 1.5em; /* تقليل حجم الخط في العناوين */
+  }
+
+  .mf-esports-text {
+    font-size: 18px; /* تقليل حجم الخط للنص */
+  }
+
+  p {
+    font-size: 16px; /* تقليل حجم النصوص */
+    line-height: 1.6; /* تقليل المسافة بين الأسطر */
+  }
+
+  .social-link img {
+    width: 35px; /* تقليل حجم الأيقونات */
+    margin: 0 10px; /* تقليل المسافة بين الأيقونات */
+  }
+
+  .back-button {
+    padding: 10px 20px; /* تقليل حجم الزر */
+    font-size: 16px; /* تقليل حجم الخط داخل الزر */
+  }
+
+  .footer-text {
+    font-size: 12px; /* تقليل حجم النص في الفوتر */
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 90%;
+  }
+
+  h1, h2 {
+    font-size: 1.3em;
+  }
+
+  .mf-esports-text {
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .back-button {
+    padding: 8px 18px;
+    font-size: 14px;
+  }
+
+  .social-link img {
+    width: 30px;
+  }
+
+ .footer-text {
+  position: absolute;
+  bottom: 60px; /* تحديد المسافة من أسفل الصفحة */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 14px;
+  color: #7f8c8d;
+  z-index: 500;
+}
