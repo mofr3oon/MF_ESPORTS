@@ -9,7 +9,7 @@ body {
   flex-direction: column;
 }
 
-/* تنسيق البار العلوي */
+/* تنسيق البار الع لوي */
 .navbar {
   background: linear-gradient(45deg, #111, #444); /* تعديل التدرج لإضفاء تأثير مميز */
   color: #fff;
