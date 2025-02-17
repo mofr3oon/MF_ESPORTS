@@ -1,3 +1,134 @@
+
+/* خلفية الموقع ب شكل كامل */
+body {
+  background: linear-gradient(135deg, #1a1a1a, #333); /* تغيير التدرج من الأسود الفاتح إلى الرمادي الغامق */
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  height: 100vh; /* ضمان أن الخلفية تغطي كامل الشاشة */
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+/* تنسيق البار العلوي */
+.navbar {
+  background: linear-gradient(45deg, #111, #444); /* تعديل التدرج لإضفاء تأثير مميز */
+  color: #fff;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* زيادة ظل البار ليكون أوضح */
+  padding-top: 20px;
+  border-bottom: 2px solid #1e90ff; /* إضافة خط في الأسفل */
+}
+
+/* تنسيق شعار الموقع */
+.navbar .logo {
+  color: #00bfff;
+  font-size: 1.6rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+  margin-left: 13px;  /* يمكنك زيادة القيمة هنا */
+}
+
+/* تأثير عند مرور الماوس على الشعار */
+.navbar .logo:hover {
+  transform: scale(1.1);
+  color: #87ceeb;
+}
+
+/* تنسيق الروابط الرئيسية */
+.nav-links, .social-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+/* تنسيق العناصر في القائمة */
+.nav-links li, .social-links li {
+  margin-right: 20px;
+}
+
+/* تنسيق الروابط */
+.nav-links a, .social-links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  transition: color 0.3s ease, transform 0.3s ease; /* إضافة تأثير التحويل */
+  text-transform: capitalize;
+  position: relative;
+}
+
+/* تأثير عند مرور الماوس على الروابط */
+.nav-links a:hover, .social-links a:hover {
+  color: #1e90ff; /* تغيير اللون عند المرور */
+  transform: scale(1.05); /* تأثير تكبير بسيط عند المرور بالماوس */
+}
+
+/* تأثير حول الأيقونات عند المرور */
+.nav-links li:hover::after, .social-links li:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30, 144, 255, 0.2); /* خلفية خفيفة باللون الأزرق */
+  border-radius: 5px;
+  z-index: -1; /* وضع التأثير وراء النص */
+}
+
+/* تحسين حجم الأيقونات الاجتماعية */
+.social-links li {
+  margin-right: 20px;
+}
+
+.social-links a {
+  font-size: 24px; /* تأكيد أن حجم الأيقونات مناسب */
+  transition: color 0.3s ease, transform 0.3s ease;
+  color: #fff;
+}
+
+.social-links a:hover {
+  color: #1e90ff; /* تغيير اللون عند التمرير */
+  transform: scale(1.1); /* تأثير تكبير عند المرور بالماوس */
+}
+
+/* إضافة تأثير حول الأيقونات عند المرور */
+.social-links li:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30, 144, 255, 0.2); /* خلفية خفيفة باللون الأزرق */
+  border-radius: 5px;
+  z-index: -1;
+}
+
+/* إضافة تأثير حول الأيقونات عند المرور */
+.social-links li:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30, 144, 255, 0.2); /* خلفية خفيفة باللون الأزرق */
+  border-radius: 5px;
+  z-index: -1;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -129,3 +260,23 @@ button:active {
     border: 2px solid #3498db;
   }
 }
+/* تحسين التأثيرات على الماوس للروابط */
+.nav-links a, .social-links a {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links a:hover, .social-links a:hover {
+  color: #1e90ff;
+  transform: scale(1.05); /* تكبير طفيف عند المرور على الروابط */
+}
+
+/* تحسين التوافق مع شاشات الموبايل */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content {
+    padding: 20px;
+  }
