@@ -205,6 +205,16 @@ button:hover {
 button:hover::before {
   animation: borderAnimation 0.5s forwards; /* تطبيق الأنيميشن لتفعيل الخط الأزرق */
 }
+.button-box button {
+  width: 150px; /* تعديل العرض حسب رغبتك */
+  height: 50px; /* تعديل الارتفاع حسب رغبتك */
+  margin: 10px;
+  font-size: 16px; /* للتحكم في حجم النص */
+  padding: 10px;
+  box-sizing: border-box; /* للتأكد من أن الحواف الداخلية تُحسب ضمن الحجم الكلي */
+  text-align: center; /* لضبط النص داخل الزر */
+}
+
 
 /* keyframes لتحريك الخط الأزرق حول الزر */
 @keyframes borderAnimation {
