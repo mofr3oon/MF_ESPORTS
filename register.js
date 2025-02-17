@@ -40,18 +40,20 @@ document.addEventListener("DOMContentLoaded", function () {
 <script>
 <script>
   const form = document.getElementById("registration-form");
+
   form.addEventListener("submit", function(event) {
-    event.preventDefault(); // لمنع الانتقال إلى الصفحة الأخرى بشكل افتراضي
-    
-    // إرسال البيانات عبر Formspree
+    event.preventDefault(); // لمنع الانتقال إلى Formspree
+
+    const formData = new FormData(form);
+
     fetch(form.action, {
       method: form.method,
-      body: new FormData(form),
+      body: formData
     })
     .then(response => {
       if (response.ok) {
-        // توجيه إلى صفحة النجاح بعد إرسال البيانات بنجاح
-        window.location.href = "success.html"; // يمكنك تغيير الرابط لصفحة النجاح التي أنشأتها
+        // إذا تم إرسال البيانات بنجاح، يتم توجيه المستخدم إلى صفحة النجاح
+        window.location.href = "success.html"; // تأكد من أن لديك صفحة success.html
       } else {
         alert("حدث خطأ أثناء إرسال البيانات.");
       }
