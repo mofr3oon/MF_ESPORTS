@@ -35,7 +35,7 @@ body {
   font-weight: bold;
   cursor: pointer;
   transition: transform 0.3s ease, color 0.3s ease;
-  margin-left: 20px;  /* يمكنك زيادة القيمة هنا */
+  margin-left: 13px;  /* يمكنك زيادة القيمة هنا */
 }
 
 /* تأثير عند مرور الماوس على الشعار */
@@ -350,12 +350,13 @@ button:hover {
 
 .container {
   max-width: 800px;
-  margin: 40px auto;
+  margin: 80px auto; /* زيادة المسافة من الأعلى */
   background-color: #1c1c1c;
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
+
 
 h1, h2 {
   text-align: center;
@@ -397,9 +398,10 @@ h1, h2 {
   border: 2px solid #00bfff; /* تغيير اللون إلى الأزرق الفاتح */
 }
 
+
 .feedback-form button {
   width: 100%;
-  padding: 12px;
+  padding: 1px;
   background-color: #00bfff; /* تغيير اللون إلى الأزرق الفاتح */
   color: #000;
   font-size: 1.2rem;
@@ -488,10 +490,16 @@ h1, h2 {
   width: 100%;
 }
 
-  .container {
-    margin: 20px;
-    padding: 20px;
-  }
+ .container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  padding-top: 60px; /* زيادة المسافة من الأعلى */
+  background-color: #1c1c1c;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
 
   .feedback-form input, .feedback-form textarea {
     padding: 10px;
@@ -536,5 +544,52 @@ h1, h2 {
 
   .content {
     padding: 20px;
+  }
+}
+/* تحسين الحقول في النموذج */
+input[type="text"], input[type="email"], input[type="password"], textarea {
+  font-size: 12px; /* تقليل حجم الخط */
+  padding: 6px 10px; /* تقليل الحشوة داخل الحقول */
+  margin: 8px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus {
+  outline: none;
+  border-color: #1e90ff; /* تغيير اللون عند التركيز */
+}
+
+/* تحجيم الحقول الصغيرة */
+textarea {
+  height: 80px; /* تقليل ارتفاع الـ textarea */
+}
+
+/* تنسيق الـ submit button */
+button[type="submit"] {
+  background-color: #1e90ff;
+  padding: 10px 20px; /* تقليل حجم الزر */
+  font-size: 14px; /* تقليل حجم الخط */
+  width: 100%;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #2980b9; /* تأثير اللون عند المرور */
+}
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 20px;
+    height: auto; /* تأكد أن المحتوى يتلائم مع الشاشات الصغيرة */
+    margin-top: 20px; /* إضافة هامش فوق الهييرو */
+  }
+  .container {
+    margin-top: 80px; /* زياد الهامش العلوي لتباين مع التنقل في التصميم */
   }
 }
