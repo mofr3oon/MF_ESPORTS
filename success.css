@@ -273,7 +273,7 @@ button:active {
   width: 80%; /* عرض البوكس يكون أكبر قليلاً على الشاشات الصغيرة */
   max-width: 500px; /* تحديد الحد الأقصى للعرض */
   padding: 20px;
-  margin: 0; /* إزالة المسافة من الجوانب */
+  margin: 20px auto 0; /* مسافة من فوق وبين الجوانب */
   text-align: center; /* محاذاة النص في النص */
   background-color: #f8f9fa; /* لون خلفية خفيف */
   border: 2px solid #ccc; /* حدود البوكس */
@@ -290,11 +290,8 @@ button:active {
 }
 
 h1, .info-text, .terms-link {
-  margin: 10px 0; /* مسافة بين العناصر */
+  margin: 1px 0; /* مسافة بين العناصر */
 }
-
-
-
 
 
 
