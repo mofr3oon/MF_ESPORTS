@@ -308,3 +308,87 @@ button:active {
 .navbar ul li a:hover::after {
   width: 100%;
 }
+
+/* Combined Box (Containing both sections) */
+.combined-box {
+  background: linear-gradient(to right, #333, #111); /* خلفية متدرجة من الأسود */
+  padding: 20px; /* مسافة من الداخل */
+  width: 100%; /* عرض كامل للصفحة */
+  max-width: 1200px; /* الحد الأقصى للعرض */
+  margin: 0 auto; /* مركز البوكس */
+  box-sizing: border-box; /* تضمين الحواف في المساحة */
+}
+
+/* Game Updates Section */
+.game-updates {
+  color: white; /* نص أبيض */
+  padding: 15px;
+  margin-bottom: 20px; /* المسافة بين الجزء الأول والجزء الثاني */
+  text-align: center;
+}
+
+.game-updates h2 {
+  font-size: 18px; /* حجم الخط للعناوين */
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.game-updates p {
+  font-size: 14px; /* حجم الخط للنص */
+  margin-bottom: 10px;
+}
+
+/* Download Link with Glowing Effect */
+.download-link {
+  background-color: #555; /* خلفية الزر */
+  color: white;
+  padding: 8px 18px;
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 3px;
+  transition: all 0.8s ease; /* تم تبطيء الحركة */
+  animation: glowing 2s infinite alternate; /* زيادة مدة التأثير */
+}
+
+/* Keyframes for Glowing Effect */
+@keyframes glowing {
+  0% {
+    box-shadow: 0 0 5px 1px rgba(0, 170, 255, 0.2); /* بداية التأثير مع إضاءة أضعف */
+    background-color: #555; /* اللون الأصلي */
+  }
+  50% {
+    box-shadow: 0 0 15px 3px rgba(0, 170, 255, 0.3); /* التأثير في المنتصف مع إضاءة أقل */
+    background-color: #444; /* اللون عند الذروة */
+  }
+  100% {
+    box-shadow: 0 0 5px 1px rgba(0, 170, 255, 0.2); /* العودة للحالة الأصلية مع إضاءة أضعف */
+    background-color: #555; /* اللون النهائي */
+  }
+}
+
+/* Small Divider Line */
+.divider {
+  border: 0;
+  border-top: 1px solid #777; /* خط فاصل صغير بين التحديثات والتواصل */
+  margin: 20px 0; /* مسافة فوق وتحت الخط */
+}
+
+/* Contact Us Section */
+.contact-us {
+  text-align: center; /* محاذاة النص في المنتصف */
+  color: white; /* نص أبيض */
+  padding: 15px;
+}
+
+.contact-us p {
+  font-size: 14px; /* حجم النص */
+}
+
+.contact-us a {
+  color: #00aaff; /* لون الرابط */
+  text-decoration: none;
+}
+
+.contact-us a:hover {
+  text-decoration: underline; /* تأثير عند التمرير على الرابط */
+}
