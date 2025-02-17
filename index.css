@@ -162,25 +162,81 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li, table, th, td {
 
 /* تحسين شكل الأزرار */
 button {
-  background-color: #3498db;
+  background: linear-gradient(145deg, #555, #000); /* تدرج من الأسود الفاتح إلى الأسود الغامق */
   color: #fff;
   padding: 14px 28px;
-  border: none;
-  font-size: 18px; /* حجم خط أكبر لزيادة الوضوح */
+  border: 2px solid transparent;
+  font-size: 18px;
   cursor: pointer;
   border-radius: 10px;
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
   box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3); /* إضافة ظل ناعم */
-  min-width: 200px; /* تأكيد أن الأزرار تكون بعرض ثابت */
-  text-align: center; /* محاذاة النص داخل الزر */
+  min-width: 200px;
+  text-align: center;
+  position: relative;
+  overflow: hidden; /* لضمان أن التأثير يبقى داخل حدود الزر */
 }
 
-/* عند المرور بالماوس */
+/* تأثير الخط الأزرق حول الزر */
+button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #1e90ff; /* اللون الأزرق */
+  border-radius: 10px;
+  opacity: 0; /* بداية غير مرئية */
+  transition: opacity 0.3s ease;
+  z-index: -1; /* لجعل التأثير خلف الزر */
+}
+
+/* عند مرور الماوس */
 button:hover {
-  background-color: #2980b9;
+  background: linear-gradient(145deg, #000, #555); /* عكس التدرج عند التمرير */
   transform: scale(1.05); /* تكبير بسيط */
   box-shadow: 0 10px 30px rgba(52, 152, 219, 0.5); /* تأثير الظل أكثر وضوحًا */
   filter: brightness(1.1); /* إضاءة الزر */
+}
+
+/* عند مرور الماوس مع تفعيل الخط الأزرق */
+button:hover::before {
+  animation: borderAnimation 0.5s forwards; /* تطبيق الأنيميشن لتفعيل الخط الأزرق */
+}
+
+/* keyframes لتحريك الخط الأزرق حول الزر */
+@keyframes borderAnimation {
+  0% {
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+  }
+  25% {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+  }
+  50% {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  75% {
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+  }
+  100% {
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+  }
 }
 
 /* عند الضغط على الزر */
@@ -188,41 +244,6 @@ button:active {
   transform: scale(0.98); /* تأثير الضغط */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* ظل خفيف عند الضغط */
 }
-
-/* تدرج لوني ناعم */
-button {
-  background: linear-gradient(145deg, #3498db, #2980b9);
-}
-
-/* التأثير عند المرور بالماوس مع تدرج لوني عكسي */
-button:hover {
-  background: linear-gradient(145deg, #2980b9, #3498db); /* عكس التدرج */
-}
-
-/* تحسين التوافق مع شاشات الموبايل والتلفاز */
-@media (max-width: 768px) {
-  button {
-    padding: 12px 24px; /* تقليل حجم الزر على الشاشات الصغيرة */
-    font-size: 16px;
-  }
-}
-
-@media (min-width: 769px) {
-  button {
-    padding: 16px 32px; /* زيادة الحجم قليلًا على الشاشات الأكبر */
-    font-size: 18px;
-  }
-}
-
-/* إضافة تدرج لوني للخلفية */
-button {
-  background: linear-gradient(145deg, #3498db, #2980b9);
-}
-
-button:hover {
-  background: linear-gradient(145deg, #2980b9, #3498db); /* عكس التدرج عند التمرير */
-}
-
 /* Footer */
 .footer {
   background-color: #222;
@@ -275,56 +296,4 @@ button:hover {
 
 .navbar ul li a:hover::after {
   width: 100%;
-}
-
-
-  .space-button {
-    padding: 20px 50px;
-    font-size: 22px;
-    font-weight: bold;
-    color: #fff;
-    text-transform: uppercase;
-    border: 2px solid #00ffcc;
-    border-radius: 30px;
-    cursor: pointer;
-    background: radial-gradient(circle, rgba(0, 255, 255, 0.4), rgba(0, 102, 204, 0.4));
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.6), 0 0 20px rgba(0, 204, 255, 0.5), 0 0 30px rgba(0, 204, 255, 0.3);
-    animation: pulseGlow 1.5s infinite alternate, moveGlow 3s infinite linear;
-    transition: transform 0.3s ease, box-shadow 0.5s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.space-button::before {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(135deg, rgba(0, 255, 255, 0.3), rgba(0, 204, 255, 0.3));
-    transform: rotate(45deg);
-    transition: all 0.3s ease;
-    opacity: 0.3;
-}
-
-.space-button:hover::before {
-    opacity: 0.7;
-    transform: rotate(45deg) scale(1.3);
-}
-
-.space-button:hover {
-    transform: scale(1.15);
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 40px rgba(0, 204, 255, 0.6), 0 0 60px rgba(0, 204, 255, 0.4);
-}
-
-@keyframes pulseGlow {
-    0% { box-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(0, 204, 255, 0.4); }
-    100% { box-shadow: 0 0 30px rgba(0, 255, 255, 0.7), 0 0 50px rgba(0, 204, 255, 0.6); }
-}
-
-@keyframes moveGlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
 }
