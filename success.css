@@ -270,26 +270,29 @@ button:active {
   }
 }
 .container {
-  width: 50%; /* عرض البوكس */
+  width: 80%; /* عرض البوكس يكون أكبر قليلاً على الشاشات الصغيرة */
+  max-width: 500px; /* تحديد الحد الأقصى للعرض */
   padding: 20px;
-  margin: auto; /* تمركز البوكس أفقياً */
+  margin: 0; /* إزالة المسافة من الجوانب */
   text-align: center; /* محاذاة النص في النص */
   background-color: #f8f9fa; /* لون خلفية خفيف */
   border: 2px solid #ccc; /* حدود البوكس */
   border-radius: 10px; /* زوايا دائرية */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* ظل خفيف */
-  position: absolute;
-  top: 60%; /* نزول البوكس لتحت شوية */
-  left: 50%; /* تمركز البوكس أفقياً */
-  transform: translate(-50%, -50%); /* تمركز البوكس في المنتصف */
+  
+  position: fixed; /* لتثبيت البوكس في منتصف الشاشة */
+  top: 50%; /* تحديد المسافة من أعلى الشاشة */
+  left: 50%; /* تحديد المسافة من اليسار */
+  transform: translate(-50%, -50%); /* لضمان التمركز التام للبوكس */
 
-  display: block; /* عرض العناصر بشكل صحيح */
   overflow: hidden; /* منع الشريط التمرير */
+  z-index: 999; /* التأكد من أن البوكس يظهر فوق العناصر الأخرى */
 }
 
 h1, .info-text, .terms-link {
   margin: 10px 0; /* مسافة بين العناصر */
 }
+
 
 
 
