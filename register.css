@@ -1,16 +1,19 @@
 /* خلفية الموقع بشكل كامل */
 body {
-  background: linear-gradient(135deg, #111, #333); /* خلفية متدرجة من الأسود إلى الرمادي الغامق */
+  background: linear-gradient(135deg, #1a1a1a, #333); /* تغيير التدرج من الأسود الفاتح إلى الرمادي الغامق */
   margin: 0;
   font-family: Arial, sans-serif;
   color: #fff;
+  height: 100vh; /* ضمان أن الخلفية تغطي كامل الشاشة */
+  display: flex;
+  flex-direction: column;
 }
 
 /* تنسيق البار العلوي */
 .navbar {
-  background: linear-gradient(45deg, #111, #333); /* خلفية متدرجة من الأسود للرمادي الغامق */
+  background: linear-gradient(45deg, #111, #444); /* تعديل التدرج لإضفاء تأثير مميز */
   color: #fff;
-  padding: 15px 0;
+  padding: 20px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -18,15 +21,16 @@ body {
   top: 0;
   width: 100%;
   z-index: 1000;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* إضافة تأثير ظل خفيف للـ Navbar */
-  padding-top: 20px; /* زيادة المسافة العلوية لتجنب التداخل */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* زيادة ظل البار ليكون أوضح */
+  padding-top: 20px;
+  border-bottom: 2px solid #1e90ff; /* إضافة خط في الأسفل */
 }
 
 /* تنسيق شعار الموقع */
 .navbar .logo {
   font-size: 28px;
   font-weight: bold;
-  color: #fff;
+  color: #1e90ff; /* تغيير لون الشعار ليكون أزرق */
   margin-left: 20px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -58,7 +62,7 @@ body {
 /* تأثير عند مرور الماوس على الروابط */
 .nav-links a:hover, .social-links a:hover {
   color: #1e90ff; /* تغيير اللون عند المرور */
-  transform: scale(1.1); /* تأثير تكبير عند المرور بالماوس */
+  transform: scale(1.05); /* تأثير تكبير بسيط عند المرور بالماوس */
 }
 
 /* تأثير حول الأيقونات عند المرور */
