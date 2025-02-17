@@ -127,9 +127,9 @@ body {
 }
 
 .container h2 {
-  color: #00bfff;
-  font-size: 2rem;
-  margin-bottom: 10px;
+  margin-top: 120px; /* مسافة بين البار والنص */
+  text-align: center; /* لضمان أن النص في المنتصف */
+  margin-bottom: 20px; /* مسافة تحت النص */
 }
 
 .fancy-line {
