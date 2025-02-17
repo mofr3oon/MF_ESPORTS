@@ -1,0 +1,146 @@
+/* Reset */
+body, h1, h2, h3, p, ul, li, a, button {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: linear-gradient(to bottom, #000000, #4d4d4d); /* التدرج من الأسود إلى الرمادي */
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #333;
+  flex-wrap: wrap; /* علشان الروابط تنزل تحت اللوجو على الشاشات الصغيرة */
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #3498db;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap; /* الروابط تلتف عند الحاجة */
+}
+
+.nav-links li a {
+  color: #fff;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #3498db;
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.social-links li a {
+  color: #fff;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.social-links li a:hover {
+  color: #3498db;
+}
+
+/* Hero Section */
+.hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero-section .content {
+  color: #fff;
+}
+
+.button-box {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+button {
+  background-color: #3498db;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+/* Footer */
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.footer-text {
+  margin-bottom: 10px;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* الروابط تنزل تحت اللوجو على الشاشات الصغيرة */
+    align-items: flex-start;
+  }
+
+  .nav-links, .social-links {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .button-box {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  button {
+    width: 100%; /* الأزرار تكون بعرض كامل في الشاشات الصغيرة */
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 20px; /* تصغير حجم اللوجو للشاشات الأصغر */
+  }
+
+  button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}
