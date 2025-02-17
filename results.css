@@ -49,6 +49,14 @@ body {
   color: #87ceeb;
 }
 
+/* تنسيق الروابط الرئيسية */
+.nav-links, .social-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
 /* تنسيق العناصر في القائمة */
 .nav-links li, .social-links li {
   margin-right: 20px;
@@ -182,65 +190,70 @@ table .circular-img {
   border-radius: 5px;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* تحسين التوافق مع الشاشات الكبيرة مثل شاشات التلفزيون */
+@media (min-width: 1200px) {
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* منع التمرير الأفقي */
+  }
+
   .navbar {
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-  }
-
-  .navbar .logo {
-    font-size: 1.4rem;
-  }
-
-  .navbar ul {
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 10px;
-  }
-
-  .navbar ul li {
-    margin: 5px 0;
+    font-size: 1.2rem; /* تكبير حجم الخط في الشريط العلوي */
+    padding: 30px 40px; /* إضافة مساحة أكبر للبار العلوي */
   }
 
   .container h2 {
-    font-size: 1.5rem;
-  }
-
-  .fancy-line {
-    width: 70%;
+    font-size: 3rem; /* تكبير العنوان ليكون واضحًا أكثر على الشاشات الكبيرة */
   }
 
   table {
-    font-size: 0.9rem;
+    font-size: 1.2rem; /* تكبير الخط داخل الجدول */
   }
 
   table th, table td {
-    padding: 8px;
+    padding: 15px; /* زيادة الحشو لجعل المحتوى أوضح */
   }
 
-  .green-border {
-    border-width: 2px;
+  .fancy-line {
+    width: 50%; /* جعل الخط الزخرفي أكثر بروزًا */
   }
 }
 
-/* Very Small Screens (e.g., Phones in Portrait Mode) */
+/* إضافة تحسينات على الشاشات الصغيرة جدًا */
 @media (max-width: 480px) {
-  .navbar ul {
-    gap: 15px;
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* منع التمرير الأفقي على الشاشات الصغيرة */
   }
 
   .container h2 {
     font-size: 1.3rem;
   }
 
-  .fancy-line {
-    width: 80%;
+  .navbar {
+    font-size: 1rem;
+    padding: 10px 20px;
   }
 
-  table th, table td {
-    font-size: 0.8rem;
+  .table-container {
+    padding: 10px; /* إضافة مساحة لتجنب التمرير الأفقي */
+  }
+}
+
+/* إضافة تحسينات للمتصفحات التي تكون على الشاشات الكبيرة مثل أجهزة الكمبيوتر */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .container h2 {
+    font-size: 2.5rem; /* تعديل حجم الخط في الشاشات المتوسطة */
+  }
+
+  .navbar {
+    font-size: 1.1rem;
+  }
+
+  table {
+    font-size: 1.1rem; /* تعديل حجم الخط في الجدول */
   }
 }
 
