@@ -9,6 +9,24 @@ body {
   flex-direction: column;
 }
 
+/* Res et Styles */
+body, h1, h2, h3, h4, h5, h6, p, ul, li, table, th, td {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* خلفية الموقع بشكل كامل */
+body {
+  background: linear-gradient(135deg, #1a1a1a, #333); /* تغيير التدرج من الأسود الفاتح إلى الرمادي الغامق */
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  height: 100vh; /* ضمان أن الخلفية تغطي كامل الشاشة */
+  display: flex;
+  flex-direction: column;
+}
+
 /* تنسيق البار العلوي */
 .navbar {
   background: linear-gradient(45deg, #111, #444); /* تعديل التدرج لإضفاء تأثير مميز */
@@ -35,11 +53,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
- .navbar ul {
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 10px;
-  }
+
 /* تنسيق الروابط الرئيسية */
 .nav-links, .social-links {
   list-style: none;
@@ -96,6 +110,19 @@ body {
 .social-links a:hover {
   color: #1e90ff; /* تغيير اللون عند التمرير */
   transform: scale(1.1); /* تأثير تكبير عند المرور بالماوس */
+}
+
+/* إضافة تأثير حول الأيقونات عند المرور */
+.social-links li:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30, 144, 255, 0.2); /* خلفية خفيفة باللون الأزرق */
+  border-radius: 5px;
+  z-index: -1;
 }
 
 /* إضافة تأثير حول الأيقونات عند المرور */
