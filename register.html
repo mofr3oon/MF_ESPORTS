@@ -3,27 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MF ESPORTS</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <title>MF Esports</title>
   <link rel="stylesheet" href="style.css">
+  <!-- FontAwesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-  <div class="header">
-    <div class="links">
-      <a href="https://www.tiktok.com/@mo_fr3oon" target="_blank">تيك توك</a>
-      <a href="https://t.me/MOBASHOP99" target="_blank">تليجرام</a>
-      <a href="https://www.instagram.com/mo_fr3oon/" target="_blank">إنستجرام</a>
-      <a href="https://discord.gg/9h2zND3Nzw" target="_blank">ديسكورد</a>
-      <a href="https://youtube.com/c/MOFR3OON?sub_confirmation=1" target="_blank">يوتيوب</a>
-    </div>
-    <div class="time-box" id="time">
-      توقيت القاهرة: جاري تحميل الوقت...
-    </div>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">MF Esports</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="register.html">Register</a></li>
+      <li><a href="results.html">Results</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+    </ul>
+    <ul class="social-links">
+      <li><a href="https://www.tiktok.com/@mo_fr3oon" target="_blank"><i class="fab fa-tiktok"></i></a></li>
+      <li><a href="https://t.me/MOBASHOP99" target="_blank"><i class="fab fa-telegram"></i></a></li>
+      <li><a href="https://www.instagram.com/mo_fr3oon/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+      <li><a href="https://discord.gg/9h2zND3Nzw" target="_blank"><i class="fab fa-discord"></i></a></li>
+      <li><a href="https://youtube.com/c/MOFR3OON?sub_confirmation=1" target="_blank"><i class="fab fa-youtube"></i></a></li>
+    </ul>
+  </nav>
+
+  <!-- Time Box -->
+  <div class="time-box" id="time">
+    توقيت القاهرة: جاري تحميل الوقت...
   </div>
+
   <div class="content">
     <div class="container" id="main-page">
-      <h1>MF ESPORTS</h1>
+      <h1>التسجيل</h1>
       <form id="registration-form" action="https://formspree.io/f/xwpvqpjp" method="POST">
         <label for="team-name">:اسم الفريق</label>
         <input type="text" id="team-name" name="team-name" placeholder="أدخل اسم الفريق" required>
@@ -32,93 +43,45 @@
         <input type="text" id="leader-name" name="leader-name" placeholder=" اسم الليدر داخل اللعبة" required>
         
         <label for="leader-id">:[اي دي اللاعب الأول [الليدر </label>
-<input type="text" id="leader-id" name="leader-id" placeholder="اي دي الليدر داخل اللعبة" required pattern="\d+" oninput="this.value = this.value.replace(/\D/g, '')">
-
+        <input type="text" id="leader-id" name="leader-id" placeholder="اي دي الليدر داخل اللعبة" required pattern="\d+" oninput="this.value = this.value.replace(/\D/g, '')">
         
         <label for="player1-name">:اسم اللاعب الثاني</label>
         <input type="text" id="player1-name" name="player1-name" placeholder=" اسم اللاعب الثاني داخل اللعبة" required>
         
         <label for="player1-id">:اي دي اللاعب الثاني</label>
-<input type="text" id="player1-id" name="player1-id" placeholder="اي دي اللاعب الثاني داخل اللعبة" required pattern="\d+" oninput="this.value = this.value.replace(/\D/g, '')">
-
+        <input type="text" id="player1-id" name="player1-id" placeholder="اي دي اللاعب الثاني داخل اللعبة" required pattern="\d+" oninput="this.value = this.value.replace(/\D/g, '')">
         
         <label for="player2-name">:اسم اللاعب الثالث</label>
         <input type="text" id="player2-name" name="player2-name" placeholder=" اسم اللاعب الثالث داخل اللعبة" required>
         
-       <label for="player2-id">:اي دي اللاعب الثالث</label>
-<input type="text" id="player2-id" name="player2-id" placeholder="اي دي اللاعب الثالث داخل اللعبة" required pattern="\d+" oninput="this.value = this.value.replace(/\D/g, '')">
+        <label for="player2-id">:اي دي اللاعب الثالث</label>
+        <input type="text" id="player2-id" name="player2-id" placeholder="اي دي اللاعب الثالث داخل اللعبة" required pattern="\d+" oninput="this.value = this.value.replace(/\D/g, '')">
         
         <label for="player3-name">:اسم اللاعب الرابع</label>
         <input type="text" id="player3-name" name="player3-name" placeholder=" اسم اللاعب الرابع داخل اللعبة" required>
         
-       <label for="player3-id">:اي دي اللاعب الرابع</label>
-<input type="text" id="player3-id" name="player3-id" placeholder="اي دي اللاعب الرابع داخل اللعبة" required pattern="\d+" oninput="this.value = this.value.replace(/\D/g, '')">
+        <label for="player3-id">:اي دي اللاعب الرابع</label>
+        <input type="text" id="player3-id" name="player3-id" placeholder="اي دي اللاعب الرابع داخل اللعبة" required pattern="\d+" oninput="this.value = this.value.replace(/\D/g, '')">
         
-       <label for="phone">:رقم الهاتف [واتساب]</label>
-<input type="text" id="phone" name="phone" placeholder="هيتم ارسال بيانات الغرفة ع الواتس" required pattern="\d+" oninput="this.value = this.value.replace(/\D/g, '')">
+        <label for="phone">:رقم الهاتف [واتساب]</label>
+        <input type="text" id="phone" name="phone" placeholder="هيتم ارسال بيانات الغرفة ع الواتس" required pattern="\d+" oninput="this.value = this.value.replace(/\D/g, '')">
 
         
         <div class="terms-container">
           <div class="checkbox-wrapper">
             <input type="checkbox" id="terms-checkbox" required>
             <label for="terms-checkbox">
-              <a href="terms.html" style="color: #19c37d; text-decoration: underline;"> أوافق علي الشروط والأحكام </a>
+              <a href="terms.html" style="color: #1e90ff; text-decoration: underline;"> أوافق علي الشروط والأحكام </a>
             </label>
           </div>
         </div>
         <button type="submit">إرسال البيانات</button>
-    </form>
-      
-
+      </form>
       <p class="description">:يجب أن توافق على الشروط والأحكام قبل إرسال الطلب</p>
     </div>
   </div>
 
-  <script>
-    // عرض الوقت الحالي بتوقيت القاهرة
-    const timeElement = document.getElementById('time');
-    setInterval(() => {
-      const date = new Date();
-      // تحويل التوقيت إلى توقيت القاهرة
-      const egyptTime = new Date(date.toLocaleString("en-US", {timeZone: "Africa/Cairo"}));
-      timeElement.textContent = `Cairo: ${egyptTime.toLocaleTimeString()}`;
-    }, 1000);
-  </script>
-<!-- جافاسكريبت لاعتراض إرسال النموذج وإعادة التوجيه إلى success.html -->
-  <script>
-    document.getElementById("registration-form").addEventListener("submit", function(e) {
-      e.preventDefault(); // منع إعادة التوجيه الافتراضية
-      const form = this;
-      const formData = new FormData(form);
-      
-      fetch(form.action, {
-        method: form.method,
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      })
-      .then(response => {
-        if (response.ok) {
-          // إعادة توجيه المستخدم إلى صفحة success.html بعد نجاح التسجيل
-          window.location.href = "success.html";
-        } else {
-          response.json().then(data => {
-            if (data.hasOwnProperty("errors")) {
-              alert(data["errors"].map(error => error["message"]).join(", "));
-            } else {
-              alert("حدث خطأ أثناء التسجيل. يرجى المحاولة مرة أخرى.");
-            }
-          });
-        }
-      })
-      .catch(error => {
-        alert("حدث خطأ أثناء التسجيل. يرجى المحاولة مرة أخرى.");
-      });
-    });
-  </script>
+  <script src="script.js"></script>
+ 
 </body>
 </html>
-
-
-   
