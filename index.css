@@ -76,6 +76,25 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li, table, th, td {
 /* تنسيق العناصر في القائمة */
 .nav-links li, .social-links li {
   margin-right: 20px;
+
+}
+.social-links a span {
+  font-size: 12px;       /* حجم النص أصغر */
+  line-height: 1;        /* عشان يبقى في المنتصف عمودياً مع الأيقونة */
+}
+.social-links a {
+  display: flex;         /* نخلي الرابط flex container */
+  align-items: center;   /* نركز العناصر (الأيقونة والنص) في المنتصف عمودياً */
+  gap: 6px;              /* مسافة صغيرة بين الأيقونة والكلمة */
+  color: #fff;
+  font-size: 18px;       /* حجم الأيقونة الأساسي */
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a i {
+  font-size: 24px;       /* حجم الأيقونة */
+  line-height: 1;        /* نحافظ على ارتفاع السطر للأيقونة */
 }
 
 /* تنسيق الروابط */
