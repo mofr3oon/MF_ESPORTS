@@ -1,441 +1,219 @@
-/* خلفية الموقع بشكل كامل */
-body {
-  background: linear-gradient(135deg, #3498db, #9b59b6, #2ecc71); /* تدرجات لونية مبهجة وأوضح */
+/* General Reset */
+* {
   margin: 0;
-  font-family: Arial, sans-serif;
-  color: #fff;
-  height: 100vh; /* ضمان أن الخلفية تغطي كامل الشاشة */
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0d0d0d;
+  color: #f2f2f2;
+  line-height: 1.6;
+  animation: fadeIn 1.2s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Navbar Styles */
+.navbar {
   display: flex;
   flex-direction: column;
-  background-size: 400% 400%; /* زيادة حجم التدرج */
-  animation: gradientShift 20s ease infinite; /* تأثير الحركة على التدرج */
-}
-
-/* تأثير الحركة على الخلفية */
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-
-
-/* Res et Styles */
-body, h1, h2, h3, h4, h5, h6, p, ul, li, table, th, td {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* تنسيق البار العلوي */
-.navbar {
-  background: linear-gradient(45deg, #111, #444); /* تعديل التدرج لإضفاء تأثير مميز */
-  color: #fff;
-  padding: 20px 0;
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* زيادة ظل البار ليكون أوضح */
-  padding-top: 1px;
-  border-bottom: 2px solid #1e90ff; /* إضافة خط في الأسفل */
+  padding: 2rem 1rem;
+  background-color: #1a1a1a;
+  border-bottom: 3px solid #1e90ff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* تنسيق شعار الموقع */
-.navbar .logo {
-  color: #00bfff;
-  font-size: 1.6rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: transform 0.3s ease, color 0.3s ease;
-  margin-left: 13px;  /* يمكنك زيادة القيمة هنا */
+.navbar.scrolled {
+  box-shadow: 0 4px 15px rgba(30, 144, 255, 0.3);
+  background-color: #151515;
 }
 
-/* تأثير عند مرور الماوس على الشعار */
-.navbar .logo:hover {
-  transform: scale(1.1);
-  color: #87ceeb;
-}
-/* تنسيق الروابط الرئيسية */
-.nav-links, .social-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-}
-
-/* تنسيق العناصر في القائمة */
-.nav-links li, .social-links li {
-  margin-right: 20px;
-
-}
-.social-links a span {
-  font-size: 12px;       /* حجم النص أصغر */
-  line-height: 1;        /* عشان يبقى في المنتصف عمودياً مع الأيقونة */
-}
-.social-links a {
-  display: flex;         /* نخلي الرابط flex container */
-  align-items: center;   /* نركز العناصر (الأيقونة والنص) في المنتصف عمودياً */
-  gap: 6px;              /* مسافة صغيرة بين الأيقونة والكلمة */
-  color: #fff;
-  font-size: 18px;       /* حجم الأيقونة الأساسي */
-  text-decoration: none;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.social-links a i {
-  font-size: 24px;       /* حجم الأيقونة */
-  line-height: 1;        /* نحافظ على ارتفاع السطر للأيقونة */
-}
-
-/* تنسيق الروابط */
-.nav-links a, .social-links a {
-  text-decoration: none;
-  color: #fff;
-  font-size: 18px;
-  transition: color 0.3s ease, transform 0.3s ease; /* إضافة تأثير التحويل */
-  text-transform: capitalize;
-  position: relative;
-}
-
-/* تأثير عند مرور الماوس على الروابط */
-.nav-links a:hover, .social-links a:hover {
-  color: #1e90ff; /* تغيير اللون عند المرور */
-  transform: scale(1.05); /* تأثير تكبير بسيط عند المرور بالماوس */
-}
-
-/* تأثير حول الأيقونات عند المرور */
-.nav-links li:hover::after, .social-links li:hover::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(30, 144, 255, 0.2); /* خلفية خفيفة باللون الأزرق */
-  border-radius: 5px;
-  z-index: -1; /* وضع التأثير وراء النص */
-}
-
-/* تحسين حجم الأيقونات الاجتماعية */
-.social-links li {
-  margin-right: 20px;
-}
-
-.social-links a {
-  font-size: 24px; /* تأكيد أن حجم الأيقونات مناسب */
-  transition: color 0.3s ease, transform 0.3s ease;
-  color: #fff;
-}
-
-.social-links a:hover {
-  color: #1e90ff; /* تغيير اللون عند التمرير */
-  transform: scale(1.1); /* تأثير تكبير عند المرور بالماوس */
-}
-
-/* إضافة تأثير حول الأيقونات عند المرور */
-.social-links li:hover::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(30, 144, 255, 0.2); /* خلفية خفيفة باللون الأزرق */
-  border-radius: 5px;
-  z-index: -1;
-}
-
-/* إضافة تأثير حول الأيقونات عند المرور */
-.social-links li:hover::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(30, 144, 255, 0.2); /* خلفية خفيفة باللون الأزرق */
-  border-radius: 5px;
-  z-index: -1;
-}
-
-/* Hero Section */
-.hero-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  text-align: center;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.6); /* إضافة خلفية شبه شفافة */
-}
-
-/* تحسين شكل الأزرار */
-button {
-  background: linear-gradient(145deg, #555, #000); /* تدرج من الأسود الفاتح إلى الأسود الغامق */
-  color: #fff;
-  padding: 14px 28px;
-  border: 2px solid transparent;
-  font-size: 18px;
-  cursor: pointer;
-  border-radius: 10px;
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
-  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3); /* إضافة ظل ناعم */
-  min-width: 200px;
-  text-align: center;
-  position: relative;
-  overflow: hidden; /* لضمان أن التأثير يبقى داخل حدود الزر */
-}
-
-/* تأثير الخط الأزرق حول الزر */
-button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 2px solid #1e90ff; /* اللون الأزرق */
-  border-radius: 10px;
-  opacity: 0; /* بداية غير مرئية */
-  transition: opacity 0.3s ease;
-  z-index: -1; /* لجعل التأثير خلف الزر */
-}
-
-/* عند مرور الماوس */
-button:hover {
-  background: linear-gradient(145deg, #000, #555); /* عكس التدرج عند التمرير */
-  transform: scale(1.05); /* تكبير بسيط */
-  box-shadow: 0 10px 30px rgba(52, 152, 219, 0.5); /* تأثير الظل أكثر وضوحًا */
-  filter: brightness(1.1); /* إضاءة الزر */
-}
-
-/* عند مرور الماوس مع تفعيل الخط الأزرق */
-button:hover::before {
-  animation: borderAnimation 0.5s forwards; /* تطبيق الأنيميشن لتفعيل الخط الأزرق */
-}
-
-.button-box button {
-  width: 150px; /* تعديل العرض حسب رغبتك */
-  height: 50px; /* تعديل الارتفاع حسب رغبتك */
-  margin: 10px;
-  font-size: 16px; /* للتحكم في حجم النص */
-  padding: 10px;
-  box-sizing: border-box; /* للتأكد من أن الحواف الداخلية تُحسب ضمن الحجم الكلي */
-  text-align: center; /* لضبط النص داخل الزر */
-}
-
-/* keyframes لتحريك الخط الأزرق حول الزر */
-@keyframes borderAnimation {
-  0% {
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 0;
-  }
-  25% {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 0;
-  }
-  50% {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  75% {
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-  }
-  100% {
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 0;
-  }
-}
-
-/* عند الضغط على الزر */
-button:active {
-  transform: scale(0.98); /* تأثير الضغط */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* ظل خفيف عند الضغط */
-}
-
-/* إضافة المسافة بين الأزرار والـ Navbar */
-.button-box {
-  margin-top: 70px; /* إضافة المسافة المطلوبة */
-}
-
-/* Footer */
-.footer {
-  background-color: #222;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-  font-size: 14px;
-  margin-top: auto; /* جعل الفوتر في الأسفل */
-}
-
-.footer-text {
-  margin-bottom: 10px;
-}
-
-/* تحسين التأثيرات على الماوس للروابط */
-.nav-links a, .social-links a {
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.nav-links a:hover, .social-links a:hover {
+.logo {
+  font-size: 2.5rem;
+  font-weight: 800;
   color: #1e90ff;
-  transform: scale(1.05); /* تكبير طفيف عند المرور على الروابط */
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 5px #1e90ff, 0 0 10px #1e90ff; /* تخفيف التوهج */
+  transition: all 0.3s ease;
 }
 
-/* تحسين التوافق مع شاشات الموبايل */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .content {
-    padding: 20px;
-  }
-.navbar ul li a::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 2px;
-  width: 0;
-  background-color: #00bfff;
-  transition: width 0.4s ease-out;
-  transform-origin: left;
+.logo:hover {
+  color: #1e90ff;
+  cursor: pointer;
+  transform: scale(1.05);
 }
 
-.navbar ul li a:hover {
-  color: #00bfff;
-}
-
-.navbar ul li a:hover::after {
+.nav-links,
+.social-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   width: 100%;
+  align-items: center;
 }
 
-/* Combined Box (Containing both sections) */
-.combined-box {
-  background-color: #222;
+.nav-links li a,
+.social-links li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.8rem 1.6rem; /* تحسين التباعد */
+  border-radius: 12px;
+  transition: all 0.3s ease, transform 0.3s ease;
+  display: block;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.nav-links li a:hover,
+.social-links li a:hover {
+  background: linear-gradient(to right, #0f52ba, #3ab9ff);
+  color: #fff !important;
+  box-shadow: 0 0 12px rgba(15, 82, 186, 0.7);
+  transform: scale(1.1);
+  animation: pulse 1.5s infinite alternate;
+}
+
+.social-links li a {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.social-links i {
+  font-size: 1.4rem;
+  color: #1e90ff;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.9; }
+}
+
+.social-links li a span {
+  color: #ccc;
+  transition: color 0.3s ease;
+}
+
+.social-links li a:hover span {
   color: #fff;
-  padding: 1.5vw 3vw; /* تقليل المسافات الداخلية */
-  text-align: center;
-  font-size: 0.9rem; /* تقليل حجم الخط قليلاً */
-  width: 100%;
-  box-sizing: border-box;
-  border-radius: 15px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  margin: 2vh 0; /* تقليل المسافة من أعلى وأسفل البوكس */
 }
 
-/* Game Updates Section */
-.game-updates {
-  color: white;
-  padding: 2vw; /* تقليل الحشو */
-  margin-bottom: 2vh; /* تقليل المسافة بين البوكسات */
+/* تحسين ألوان الروابط المُعطلة */
+a[disabled], 
+button[disabled] {
+  color: #555;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Footer Styles */
+.footer {
+  background: linear-gradient(to top, #121212, #1a1a1a);
+  padding: 3rem 2rem;
   text-align: center;
-  background: linear-gradient(135deg, #1a1a1a, #333);
-  border-radius: 10px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  border-top: 3px solid #1e90ff;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.6);
+  transition: background 0.5s ease;
+}
+
+.footer:hover {
+  background: linear-gradient(90deg, #121212 0%, #1a1a1a 50%, #121212 100%);
+}
+
+.footer .combined-box {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .game-updates h2 {
-  font-size: 1.4rem; /* تقليل حجم العنوان */
-  margin-bottom: 1vh;
-  font-weight: bold;
-  color: #f1c40f; /* لون مميز للعناوين */
-}
-
-.game-updates p {
-  font-size: 1rem; /* تقليل حجم الخط */
-  margin-bottom: 1vh;
+  color: #1e90ff;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
 }
 
 .download-link {
-  background-color: #00aaff;
-  color: white;
-  padding: 1vw 2.5vw;
+  display: inline-block;
+  margin-top: 0.8rem;
+  padding: 0.6rem 1.4rem;
+  background: linear-gradient(to right, #1e90ff, #3ab9ff);
+  color: #121212;
   text-decoration: none;
-  font-size: 1rem; /* تقليل حجم الخط */
-  border-radius: 25px;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0 4px 8px rgba(0, 170, 255, 0.4);
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.5px;
 }
 
 .download-link:hover {
-  background-color: #0099cc;
-  box-shadow: 0 6px 14px rgba(0, 170, 255, 0.5);
-}
-
-/* Contact Us Section */
-.contact-us {
-  text-align: center;
-  color: white;
-  padding: 2vw; /* تقليل الحشو */
-  background: linear-gradient(135deg, #444, #555);
-  border-radius: 10px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-.contact-us p {
-  font-size: 1rem; /* تقليل حجم الخط */
-  margin-bottom: 1vh;
-  font-weight: 300;
+  background: #005fbd;
+  box-shadow: 0 0 15px #005fbd;
+  color: #fff;
 }
 
 .contact-us a {
-  color: #00aaff;
-  font-weight: bold;
+  color: #1e90ff;
   text-decoration: none;
+  font-weight: 500;
 }
 
-.contact-us a:hover {
-  text-decoration: underline;
-  color: #1abc9c;
+.divider {
+  border-top: 2px dashed #1e90ff;
+  width: 60%;
+  margin: 2rem auto;
 }
 
-/* Keyframes for Glowing Effect */
-@keyframes glowing {
-  0% {
-    box-shadow: 0 0 5px 1px rgba(0, 170, 255, 0.2);
-    background-color: #555;
-  }
-  50% {
-    box-shadow: 0 0 15px 3px rgba(0, 170, 255, 0.3);
-    background-color: #444;
-  }
-  100% {
-    box-shadow: 0 0 5px 1px rgba(0, 170, 255, 0.2);
-    background-color: #555;
+.footer-text {
+  font-size: 0.9rem;
+  color: #888;
+  margin-top: 1rem;
+}
+
+/* Responsive Navbar Flex Direction */
+@media (max-width: 768px) {
+  .nav-links,
+  .social-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem;
   }
 }
 
-/* Footer Styling */
-footer {
-  background-color: #222;
-  color: white;
-  padding: 3vw 4vw;
-  text-align: center;
-  font-size: 1rem;
-  width: 100%;
-  box-sizing: border-box;
+/* Gradient Text Example */
+.gradient-title {
+  background: linear-gradient(to right, #1e90ff, #6fc3ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* تأثير الضغط على الأزرار والروابط */
+button:active,
+a:active {
+  transform: scale(0.95);
+  transition: transform 0.1s ease;
 }
